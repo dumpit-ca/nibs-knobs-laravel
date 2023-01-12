@@ -57,7 +57,7 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid px-lg-5 px-3">
     @yield('content')
   </div>
   <script src="/js/app.js"></script>
