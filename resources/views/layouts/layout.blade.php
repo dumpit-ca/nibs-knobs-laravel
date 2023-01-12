@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg px-3 d-flex align-content-center">
     <div class="container-fluid">
-      <a href="{{ url('home') }} class="navbar-brand"><img src="/images/nk-logo.png" alt=""></a>
+      <a href="{{ url('home') }}" class="navbar-brand"><img src="/images/nk-logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,11 +42,18 @@
               <li><a href="#" class="dropdown-item">Home Office</a></li>
             </ul>
           </li>
+           <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page" ">
+              <i class="fa-solid fa-calendar me-1"></i>
+              Consult</a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-circle-question me-1"></i>
+              Contact</a>
           </li>
         </ul>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn fs-6 mb-4 rounded-pill px-5 py-1 text-uppercase mx-md-0" type="submit">BOOK A CONSULTANCY</button>
       </div>
     </div>
   </nav>

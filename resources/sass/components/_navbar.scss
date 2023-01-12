@@ -8,6 +8,20 @@
    }
 
    .dropdown-menu {
-      background-color: $primary !important;
+      background-color: $secondary !important;
+
+      .dropdown-item a {
+         color: $white !important;
+      }
+   }
+
+   .dropdown-item:focus,
+   .dropdown-item:hover {
+      background-color: $orange !important;
+      transition-duration: 300ms;
+   }
+
+   .navbar-toggler:focus {
+      border: none !important;
    }
 }

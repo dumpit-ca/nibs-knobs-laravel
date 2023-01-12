@@ -1,0 +1,20 @@
+@use "abstracts" as *;
+
+button {
+   color: $white !important;
+}
+
+.btn {
+   background-color: transparent !important;
+   border: 4.73847px solid $white !important;
+   transition-duration: 300ms;
+}
+
+.btn:focus {
+   box-shadow: none !important;
+}
+
+.btn:hover {
+   color: $orange !important;
+   border: 4.73847px solid $orange !important;
+}
