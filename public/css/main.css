@@ -39,6 +39,25 @@
   font-family: Roboto;
   src: url("/fonts/Roboto-Regular.ttf");
 }
+button {
+  color: #ffffff !important;
+}
+
+.btn {
+  background-color: transparent !important;
+  border: 4.73847px solid #ffffff !important;
+  transition-duration: 300ms;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.btn:hover {
+  color: #ff5e15 !important;
+  border: 4.73847px solid #ff5e15 !important;
+}
+
 .navbar {
   background-color: #111111;
 }
@@ -46,7 +65,18 @@
   color: #ffffff !important;
 }
 .navbar .dropdown-menu {
-  background-color: #1A1A1A !important;
+  background-color: #111111 !important;
+}
+.navbar .dropdown-menu .dropdown-item a {
+  color: #ffffff !important;
+}
+.navbar .dropdown-item:focus,
+.navbar .dropdown-item:hover {
+  background-color: #ff5e15 !important;
+  transition-duration: 300ms;
+}
+.navbar .navbar-toggler:focus {
+  border: none !important;
 }
 
 body {
