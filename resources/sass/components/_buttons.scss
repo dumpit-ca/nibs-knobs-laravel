@@ -1,13 +1,10 @@
 @use "abstracts" as *;
 
-button {
-   color: $white !important;
-}
-
 .btn {
    background-color: transparent !important;
    border: 4.73847px solid $white !important;
    transition-duration: 300ms;
+   color: $white !important;
 }
 
 .btn:focus {
