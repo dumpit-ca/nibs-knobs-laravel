@@ -1,0 +1,13 @@
+@use "abstracts" as *;
+
+.navbar {
+   background-color: $secondary;
+
+   a {
+      color: $white !important;
+   }
+
+   .dropdown-menu {
+      background-color: $primary !important;
+   }
+}

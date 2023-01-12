@@ -39,7 +39,16 @@
   font-family: Roboto;
   src: url("/fonts/Roboto-Regular.ttf");
 }
-html,
+.navbar {
+  background-color: #111111;
+}
+.navbar a {
+  color: #ffffff !important;
+}
+.navbar .dropdown-menu {
+  background-color: #1A1A1A !important;
+}
+
 body {
   overflow-x: hidden !important;
   background-color: #1A1A1A !important;
