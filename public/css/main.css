@@ -39,14 +39,19 @@
   font-family: Roboto;
   src: url("/fonts/Roboto-Regular.ttf");
 }
-button {
-  color: #ffffff !important;
+.SoraBold {
+  font-family: SoraBold, sans-serif;
+}
+
+.RockSalt {
+  font-family: RockSalt;
 }
 
 .btn {
   background-color: transparent !important;
   border: 4.73847px solid #ffffff !important;
   transition-duration: 300ms;
+  color: #ffffff !important;
 }
 
 .btn:focus {
@@ -87,6 +92,128 @@ body {
   color: #ffffff !important;
 }
 
+#fingertips {
+  color: #ff5e15;
+  transform: rotate(-6.58deg);
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #fingertips {
+    transform: rotate(0deg) !important;
+  }
+  #home-3 {
+    width: 451px !important;
+    height: 561px !important;
+  }
+  .col-md-8 {
+    width: 64% !important;
+  }
+  .culture-text .caption #craft-caption {
+    bottom: 6.25% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption #quality-caption {
+    bottom: 6.25% !important;
+    right: 58.5% !important;
+  }
+  .culture-text .caption .second-row-caption {
+    bottom: 9.25% !important;
+    left: 5% !important;
+  }
+  .culture-text .caption #beautify-caption {
+    bottom: 10.25% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption .third-row-caption {
+    top: 76%;
+    left: 3%;
+  }
+  .culture-text .caption #nk-caption {
+    top: 10% !important;
+    left: 3% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .col-md-8 {
+    width: 64% !important;
+  }
+  #craft-caption {
+    bottom: 6.25% !important;
+    left: 3% !important;
+  }
+  #quality-caption {
+    bottom: 6.25% !important;
+    right: 3% !important;
+  }
+  .second-row-caption {
+    bottom: 10% !important;
+    left: 6% !important;
+  }
+  #beautify-caption {
+    bottom: 5.25% !important;
+    left: 5% !important;
+  }
+  .third-row-caption {
+    top: 13% !important;
+    left: 7% !important;
+  }
+  #nk-caption {
+    top: 10% !important;
+    left: 4% !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .culture-text .caption #craft-caption {
+    bottom: 6.25% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption #quality-caption {
+    bottom: 6.25% !important;
+    right: 1.5% !important;
+  }
+  .culture-text .caption .second-row-caption {
+    bottom: 5.25% !important;
+    left: 5% !important;
+  }
+  .culture-text .caption #beautify-caption {
+    bottom: 5.25% !important;
+    left: 5% !important;
+  }
+  .culture-text .caption .third-row-caption {
+    top: 10% !important;
+    left: 8% !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .culture-text .caption #craft-caption {
+    bottom: 6.25% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption #quality-caption {
+    bottom: 6.25% !important;
+    right: 54.5% !important;
+  }
+  .culture-text .caption .second-row-caption {
+    bottom: 9.25% !important;
+    left: 5% !important;
+  }
+  .culture-text .caption #beautify-caption {
+    bottom: 10.25% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption .third-row-caption {
+    top: 68% !important;
+    left: 3% !important;
+  }
+  .culture-text .caption #nk-caption {
+    top: 10% !important;
+    left: 3% !important;
+  }
+  .img-responsive {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
