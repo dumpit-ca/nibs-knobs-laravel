@@ -63,6 +63,15 @@
   border: 4.73847px solid #ff5e15 !important;
 }
 
+.services-card {
+  background-color: transparent !important;
+  border: 5px solid #ffffff !important;
+  border-radius: 9.17493px;
+}
+.services-card .card-body {
+  padding: 0;
+}
+
 .navbar {
   background-color: #111111;
 }
@@ -97,6 +106,27 @@ body {
   transform: rotate(-6.58deg);
 }
 
+.culture-text .caption #craft-caption {
+  bottom: 2.25%;
+  left: 5%;
+}
+.culture-text .caption #quality-caption {
+  bottom: 3.25%;
+  right: 2.5%;
+}
+.culture-text .caption .second-row-caption {
+  bottom: 27.25%;
+  left: 5%;
+}
+.culture-text .caption #beautify-caption {
+  bottom: 27.25%;
+  left: 5%;
+}
+.culture-text .caption .third-row-caption {
+  top: 21%;
+  left: 6%;
+}
+
 @media (min-width: 576px) and (max-width: 767.98px) {
   #fingertips {
     transform: rotate(0deg) !important;
@@ -108,20 +138,24 @@ body {
   .col-md-8 {
     width: 64% !important;
   }
+  .culture-text .img-size {
+    width: 157% !important;
+    height: 100% !important;
+  }
   .culture-text .caption #craft-caption {
     bottom: 6.25% !important;
     left: 3% !important;
   }
   .culture-text .caption #quality-caption {
     bottom: 6.25% !important;
-    right: 58.5% !important;
+    right: 66.5% !important;
   }
   .culture-text .caption .second-row-caption {
-    bottom: 9.25% !important;
+    bottom: 16.25% !important;
     left: 5% !important;
   }
   .culture-text .caption #beautify-caption {
-    bottom: 10.25% !important;
+    bottom: 16.25% !important;
     left: 3% !important;
   }
   .culture-text .caption .third-row-caption {
