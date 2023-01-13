@@ -57,12 +57,10 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid px-lg-5 px-3">
-    @yield('content')
-  </div>
+  @yield('content')
   <script src="/js/app.js"></script>
   <script>
-    function successMessage() {
+    function bookedSuccess() {
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -78,6 +76,25 @@
       Toast.fire({
         icon: 'success',
         title: 'Booked Succesfully'
+      })
+    }
+
+    function contactSuccess() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Message sent succesfully'
       })
     }
   </script>
