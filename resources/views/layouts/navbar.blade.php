@@ -21,7 +21,7 @@
               <li> <a href="{{ url('gallery') }}" class="dropdown-item" aria-current="page" ">
             Gallery</a>
         </li>
-        <li><a href="#" class="dropdown-item">Kitchen</a></li>
+        <li><a href="{{ route('kitchen') }}" class="dropdown-item">Kitchen</a></li>
         <li><a href="#" class="dropdown-item">Bedroom</a></li>
         <li><a href="#" class="dropdown-item">Living Room</a></li>
         <li><a href="#" class="dropdown-item">Bathroom</a></li>
