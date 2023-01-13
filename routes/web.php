@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {
+    return redirect('/home');
+});
 Route::get('/home', function () {
     return view('pages.home');
 });
+Route::get('/consult', 'ConsultationController@index');
+Route::get('/contact', 'ContactController@index');
