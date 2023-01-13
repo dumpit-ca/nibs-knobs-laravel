@@ -19,3 +19,4 @@ Route::get('/home', function () {
 Route::get('/consult', 'ConsultationController@index');
 Route::get('/contact', 'ContactController@index');
 Route::get('/gallery', 'GalleryController@index');
+Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
