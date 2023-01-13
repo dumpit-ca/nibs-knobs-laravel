@@ -82,6 +82,20 @@
   right: -37.5px !important;
 }
 
+.btn-explore {
+  background-color: transparent !important;
+  border: 1px solid #bcbcbc !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.btn-explore:hover {
+  background-color: #ff5e15 !important;
+  border: 1px solid #ff5e15 !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
 .services-card {
   background-color: transparent !important;
   border: 5px solid #ffffff !important;
