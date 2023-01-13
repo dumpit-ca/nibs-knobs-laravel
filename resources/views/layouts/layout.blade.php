@@ -43,17 +43,17 @@
             </ul>
           </li>
            <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page" ">
+            <a href="{{ url('consult') }}" class="nav-link active" aria-current="page" ">
               <i class="fa-solid fa-calendar me-1"></i>
               Consult</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('contact') }}" class="nav-link">
               <i class="fa-solid fa-circle-question me-1"></i>
               Contact</a>
           </li>
         </ul>
-        <button class="btn fs-6 mb-4 rounded-pill px-5 py-1 text-uppercase mx-md-0" type="submit">BOOK A CONSULTANCY</button>
+        <a href="{{ url('consult') }}" class="btn fs-6 mb-4 rounded-pill px-5 py-1 text-uppercase mx-md-0">BOOK A CONSULTANCY</a>
       </div>
     </div>
   </nav>
@@ -61,6 +61,26 @@
     @yield('content')
   </div>
   <script src="/js/app.js"></script>
+  <script>
+    function successMessage() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Booked Succesfully'
+      })
+    }
+  </script>
 </body>
 
 </html>
