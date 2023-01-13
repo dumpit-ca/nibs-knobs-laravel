@@ -120,7 +120,7 @@
               </div>
             </div>
             <div class="d-md-flex justify-content-md-end my-5">
-              <button class="btn fs-6 mb-4 rounded-pill px-md-5 px-4 py-2 text-uppercase mx-md-0 d-flex align-items-center me-md-2" type="button" onclick="successMessage()">
+              <button class="btn fs-6 mb-4 rounded-pill px-md-5 px-4 py-2 text-uppercase mx-md-0 d-flex align-items-center me-md-2" type="button" onclick="bookedSuccess()">
                 BOOK CONSULTANCY
               </button>
             </div>
