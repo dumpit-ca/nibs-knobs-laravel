@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.front')
 @section('title', 'Gallery')
 @section('content')
   <div class="container-fluid my-5 px-lg-5">

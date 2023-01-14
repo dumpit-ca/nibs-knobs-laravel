@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.front')
 @php($subtitle = app()->view->getSections()['subtitle'])
 @section('title', "$subtitle Gallery")
 @section('content')
