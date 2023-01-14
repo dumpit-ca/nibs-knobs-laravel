@@ -25,3 +25,4 @@ Route::get('/gallery/living-room', 'LivingRoomController@index')->name('livingro
 Route::get('/gallery/bathroom', 'BathroomController@index')->name('bathroom');
 Route::get('/gallery/space-saving', 'SpaceSavingController@index')->name('spacesaving');
 Route::get('/gallery/home-office', 'HomeOfficeController@index')->name('homeoffice');
+// Route::get('/login', 'LoginController@index');
