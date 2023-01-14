@@ -20,3 +20,8 @@ Route::get('/consult', 'ConsultationController@index');
 Route::get('/contact', 'ContactController@index');
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
+Route::get('/gallery/bedroom', 'BedroomController@index')->name('bedroom');
+Route::get('/gallery/living-room', 'LivingRoomController@index')->name('livingroom');
+Route::get('/gallery/bathroom', 'BathroomController@index')->name('bathroom');
+Route::get('/gallery/space-saving', 'SpaceSavingController@index')->name('spacesaving');
+Route::get('/gallery/home-office', 'HomeOfficeController@index')->name('homeoffice');

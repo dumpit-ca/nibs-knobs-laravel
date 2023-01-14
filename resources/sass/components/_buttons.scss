@@ -42,6 +42,7 @@
    border: 1px solid #bcbcbc !important;
    width: 50px !important;
    height: 50px !important;
+   color: $white !important;
 }
 
 .btn-explore:hover {
@@ -49,4 +50,8 @@
    border: 1px solid $orange !important;
    width: 50px !important;
    height: 50px !important;
+}
+
+.btn-navigate {
+   color: $orange !important;
 }

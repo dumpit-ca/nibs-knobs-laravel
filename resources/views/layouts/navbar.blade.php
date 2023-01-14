@@ -22,11 +22,11 @@
             Gallery</a>
         </li>
         <li><a href="{{ route('kitchen') }}" class="dropdown-item">Kitchen</a></li>
-        <li><a href="#" class="dropdown-item">Bedroom</a></li>
-        <li><a href="#" class="dropdown-item">Living Room</a></li>
-        <li><a href="#" class="dropdown-item">Bathroom</a></li>
-        <li><a href="#" class="dropdown-item">Space Saving</a></li>
-        <li><a href="#" class="dropdown-item">Home Office</a></li>
+        <li><a href="{{ route('bedroom') }}" class="dropdown-item">Bedroom</a></li>
+        <li><a href="{{ route('livingroom') }}" class="dropdown-item">Living Room</a></li>
+        <li><a href="{{ route('bathroom') }}" class="dropdown-item">Bathroom</a></li>
+        <li><a href="{{ route('spacesaving') }}" class="dropdown-item">Space Saving</a></li>
+        <li><a href="{{ route('homeoffice') }}" class="dropdown-item">Home Office</a></li>
       </ul>
       </li>
       <li class="nav-item">

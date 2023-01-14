@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4 mt-md-0 mt-2">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a href="#" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+          <a href="{{ route('kitchen') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
       </div>
       <div class="col-md-4 mt-md-0 mt-2">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a href="#" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+          <a href="{{ route('bedroom') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@
       </div>
       <div class="col-md-4 mt-md-0 mt-2">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a href="#" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+          <a href="{{ route('livingroom') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
       </div>
       <div class="col-md-4 mt-md-0 mt-2">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a href="#" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+          <a href="{{ route('bathroom') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@
   <div class="container-fluid mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
-        <h1 class="display-6 SoraBold mt-md-3">Space-Saving Designs</h1>
+        <h1 class="display-6 SoraBold mt-md-3">Space Saving Designs</h1>
         <p class="fs-6">
           Make the most of small spaces with clever and ingenious space-saving furniture. Using interior designs that make the best use of the space you
           have available, transform your living areas.
@@ -153,7 +153,38 @@
       </div>
       <div class="col-md-4 mt-md-0 mt-2">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a href="#" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+          <a href="{{ route('spacesaving') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5 gallery">
+    @foreach ($spacesavings as $spacesaving)
+      <div class="gallery-card">
+        <div class="card border-0 bg-transparent mx-2">
+          <img src="{{ asset("images/home-images/{$spacesaving['image']}") }}" class="card-img-top" alt="...">
+          <div class="card-body mt-3">
+            <h5 class="card-title">{{ $spacesaving['name'] }}</h5>
+            <p class="card-text fs-6">{{ $spacesaving['dimensions'] }}</p>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+
+  {{-- Home Office --}}
+  <div class="container-fluid mt-4 px-lg-5">
+    <div class="row align-items-center p-0">
+      <div class="col-md-8">
+        <h1 class="display-6 SoraBold mt-md-3">Home Office Designs</h1>
+        <p class="fs-6">
+          The new line of home office furniture offers everything from fully equipped workstations with desks, seats, and mobile storage cabinets to
+          useful study table units that conserve space while also helping you organize your workspace.
+        </p>
+      </div>
+      <div class="col-md-4 mt-md-0 mt-2">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a href="{{ route('homeoffice') }}" class="btn text-uppercase rounded-pill me-md-2 px-md-5 px-4 py-2">SEE ALL DESIGNS</a>
         </div>
       </div>
     </div>

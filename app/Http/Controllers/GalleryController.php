@@ -48,12 +48,21 @@ class GalleryController extends Controller
             ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
             ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
         ];
+        $homeoffices = [
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+            ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
+        ];
         return view('pages.explore.gallery', [
             'kitchens' => $kitchens,
             'bedrooms' => $bedrooms,
             'livingrooms' => $livingrooms,
             'bathrooms' => $bathrooms,
-            'spacesavings' => $spacesavings,       
+            'spacesavings' => $spacesavings, 
+            'homeoffices'=>$homeoffices      
             ]);
 
     }

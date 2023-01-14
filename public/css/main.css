@@ -87,6 +87,7 @@
   border: 1px solid #bcbcbc !important;
   width: 50px !important;
   height: 50px !important;
+  color: #ffffff !important;
 }
 
 .btn-explore:hover {
@@ -94,6 +95,10 @@
   border: 1px solid #ff5e15 !important;
   width: 50px !important;
   height: 50px !important;
+}
+
+.btn-navigate {
+  color: #ff5e15 !important;
 }
 
 .services-card {
