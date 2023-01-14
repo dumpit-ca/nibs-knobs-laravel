@@ -114,6 +114,10 @@
   width: 18rem;
 }
 
+.design-card .card-text {
+  color: #ff5e15 !important;
+}
+
 .form-container {
   background-color: #111111 !important;
   border-radius: 9.92px;
