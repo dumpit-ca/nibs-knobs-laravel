@@ -9,6 +9,8 @@
   <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon">
   {{-- Icons --}}
   <script src="https://kit.fontawesome.com/1d56e9de16.js" crossorigin="anonymous"></script>
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   {{-- Title --}}
   <title>N&K | @yield('title')</title>
 
