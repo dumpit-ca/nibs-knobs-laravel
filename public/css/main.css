@@ -170,6 +170,10 @@ input[type=text] {
   border: 1px solid #ffffff;
 }
 
+#user-email {
+  background-color: #ffffff !important;
+}
+
 .navbar {
   background-color: #111111;
 }
