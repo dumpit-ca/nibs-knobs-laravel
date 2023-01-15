@@ -47,6 +47,15 @@
   font-family: RockSalt;
 }
 
+#NK-Login {
+  transform: rotate(-6.58deg);
+}
+
+.login-body {
+  background-color: #1A1A1A !important;
+  color: #ffffff !important;
+}
+
 .btn {
   background-color: transparent;
   border: 4.73847px solid #ffffff !important;

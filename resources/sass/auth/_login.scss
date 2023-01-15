@@ -1,0 +1,10 @@
+@use "abstracts" as *;
+
+#NK-Login {
+   transform: rotate(-6.58deg);
+}
+
+.login-body {
+   background-color: $primary !important;
+   color: $white !important;
+}
