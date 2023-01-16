@@ -20,7 +20,7 @@
               Explore
           </a>
           <ul class="dropdown-menu">
-            <li> <a href="{{ url('gallery') }}" class="dropdown-item" aria-current="page">Gallery</a></li>
+            <li> <a href="{{ route('gallery') }}" class="dropdown-item" aria-current="page">Gallery</a></li>
             <li><a href="{{ route('kitchen') }}" class="dropdown-item">Kitchen</a></li>
             <li><a href="{{ route('bedroom') }}" class="dropdown-item">Bedroom</a></li>
             <li><a href="{{ route('livingroom') }}" class="dropdown-item">Living Room</a></li>
@@ -30,45 +30,43 @@
           </ul>
         </li>
         <li class="nav-item">
-           <a href="{{ url('consult') }}" class="nav-link active" aria-current="page" ">
+           <a href="{{ route('consult') }}" class="nav-link active" aria-current="page" ">
             <i class="fa-solid fa-calendar me-1"></i>
             Consult</a>
         </li>
         <li class="nav-item">
-          <a href="{{ url('contact') }}" class="nav-link">
+          <a href="{{ route('contact') }}" class="nav-link">
             <i class="fa-solid fa-circle-question me-1"></i>
             Contact</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
         <!-- Authentication Links -->
-        @guest
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">Login</a>
-          </li>
-          @if (Route::has('register'))
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Register</a>
-            </li>
-          @endif
-        @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
+        {{-- @guest --}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('login') }}">Login</a>
+        </li>
+        {{-- @if (Route::has('register')) --}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('register') }}">Register</a>
+        </li>
+        {{-- @endif
+        @else --}}
+        {{-- <li class="nav-item dropdown">
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
+          </a>
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-              </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </div>
-          </li>
-        @endguest
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          </div>
+        </li> --}}
+        {{-- @endguest --}}
       </ul>
     </div>
   </div>
