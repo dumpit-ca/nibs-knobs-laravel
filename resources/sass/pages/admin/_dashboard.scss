@@ -1,0 +1,14 @@
+@use 'abstracts' as *;
+
+.stats-card {
+    .stats-card-title {
+        font-family: 'BarlowBold', sans-serif;
+        color: $orange;
+        line-height: 20px;
+    }
+
+    .stats-card-subheader {
+        @extend .stats-card-title;
+        color: $subheader;
+    }
+}
