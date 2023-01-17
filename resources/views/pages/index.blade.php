@@ -26,11 +26,11 @@
           <a class="btn fs-6 mb-4 rounded-pill px-5 py-1 text-uppercase mx-md-0 d-flex align-items-center">check our services</a>
         </div>
       </div>
-      <div class="col-md-auto col-12 d-flex flex-column gap-3 mb-3">
+      <div class="col-md-5 col-12 d-flex flex-column gap-3 mb-3">
         <img src="/images/home-images/home-1.png" alt="N&K chairs" />
         <img src="/images/home-images/home-2.png" alt="N&K Sofa Set" />
       </div>
-      <div class="col-md-auto col-lg-3 col-sm-1 gap-5">
+      <div class="col-md-3 col-sm-1 gap-5">
         <img class="img-responsive" id="home-3" src="/images/home-images/home-3.png" alt="" />
       </div>
     </div>

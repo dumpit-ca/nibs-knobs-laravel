@@ -16,7 +16,7 @@
 
 
   {{-- kitchen --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold">Kitchen Designs</h1>
@@ -48,7 +48,7 @@
 
 
   {{-- bedroom --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold mt-md-3">Bedroom Designs</h1>
@@ -80,7 +80,7 @@
 
 
   {{-- living room --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold mt-md-3">Living Room Designs</h1>
@@ -111,7 +111,7 @@
   </div>
 
   {{-- Bathroom room --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold mt-md-3">Bathroom Designs</h1>
@@ -142,7 +142,7 @@
   </div>
 
   {{-- Space Saving --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold mt-md-3">Space Saving Designs</h1>
@@ -173,7 +173,7 @@
   </div>
 
   {{-- Home Office --}}
-  <div class="container-fluid mt-4 px-lg-5">
+  <div class="container mt-4 px-lg-5">
     <div class="row align-items-center p-0">
       <div class="col-md-8">
         <h1 class="display-6 SoraBold mt-md-3">Home Office Designs</h1>
