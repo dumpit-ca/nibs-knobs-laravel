@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Consult')
 @section('content')
-  <div class="container-fluid">
+  <div class="container">
     <div class="row text-md-start text-center">
       <div class="col-lg col-sm mt-4">
         <h1 class="display-5 text-uppercase SoraBold">

@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Gallery')
 @section('content')
-  <div class="container-fluid my-5 px-lg-5">
+  <div class="container my-5 px-lg-5">
     <div class="row text-md-start text-center flex-column">
       <div class="col-lg col-sm">
         <h1 class="display-5 text-uppercase SoraBold">EXPLORE YOUR</h1>

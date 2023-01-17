@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Home')
 @section('content')
-  <div class="container-fluid">
+  <div class="container">
     <div class="row text-md-start text-center flex-column">
       <div class="col-lg col-sm mt-4">
         <h1 class="display-5 text-uppercase SoraBold">YOUR PERFECT HOME</h1>
@@ -13,7 +13,7 @@
     </div>
   </div>
   {{-- about us --}}
-  <section class="container-fluid my-5">
+  <section class="container my-5">
     <div class="row">
       <div class="col col-lg-4 w-lg-50">
         <div class="d-flex flex-column align-items-start flex-shrink-1">
@@ -36,7 +36,7 @@
     </div>
   </section>
   {{-- N&K Culture --}}
-  <section class="container-fluid my-lg-5 my-3">
+  <section class="container my-lg-5 my-3">
     <h1 class="display-6 text-lg-start text-center SoraBold">The Nibs &amp; Knobs Culture</h1>
     <!-- first row -->
     <div class="row g-0 mt-4 mb-3 p-0">
@@ -120,7 +120,7 @@
       </div>
     </div>
   </section>
-  <section class="container-fluid my-5">
+  <section class="container my-5">
     <div class="text-md-start text-center my-5">
       <h2 class="display-6 SoraBold">N&amp;K Services</h2>
     </div>

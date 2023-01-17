@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg px-3">
-  <div class="container-fluid">
+  <div class="container">
     <a href="{{ route('home') }}" class="navbar-brand"><img src="{{ asset('/images/nk-logo.png') }}" alt=""></a>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

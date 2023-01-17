@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Contact Us')
 @section('content')
-  <div class="container-fluid g-0">
+  <div class="container g-0">
     <div class="row g-0">
       <div class="col-md-8 col my-5 d-md-block me-md-0 mx-auto px-5">
         <div class="d-flex flex-column text-md-start text-center">
