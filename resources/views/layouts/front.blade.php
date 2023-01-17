@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  @include('layouts.navbar')
+  @include('components.front.navbar')
   @yield('content')
   {{-- JQuery --}}
   {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}

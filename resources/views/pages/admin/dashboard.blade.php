@@ -1,5 +1,5 @@
 @extends('layouts.admin.admin')
 @section('title', 'Dashboard')
 @section('body')
-  Dashboard here
+<p>dashboard here</p>
 @endsection

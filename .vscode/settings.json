@@ -1,4 +1,7 @@
 {
     "html.format.templating": true,
-    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter",
+    "[blade]": {
+        "editor.defaultFormatter": "onecentlin.laravel-blade"
+    }
 }
