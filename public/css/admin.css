@@ -271,6 +271,15 @@ body {
   font-weight: 400 !important;
 }
 
+.stats-card .stats-card-title, .stats-card .stats-card-subheader {
+  font-family: "BarlowBold", sans-serif;
+  color: #ff5e15;
+  line-height: 20px;
+}
+.stats-card .stats-card-subheader {
+  color: #747474;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
