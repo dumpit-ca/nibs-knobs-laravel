@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon">
-
-    <script src="https://kit.fontawesome.com/1d56e9de16.js" crossorigin="anonymous"></script>
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Admin | @yield('title')</title>
@@ -17,11 +14,6 @@
 </head>
 
 <body>
-    {{-- <div class="min-vh-100"> --}}
-    {{-- <header class="header dark-shadow">
-        @include('components.admin.top')
-    </header> --}}
-
     <!-- CONTENTS -->
     <main class="d-flex flex-column flex-fill">
         <div class="container-fluid d-flex flex-column flex-grow-1 px-0 overflow-hidden">
