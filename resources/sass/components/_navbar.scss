@@ -1,27 +1,27 @@
 @use "abstracts" as *;
 
 .navbar {
-   background-color: $secondary;
+    background-color: $primary;
 
-   a {
-      color: $white !important;
-   }
+    a {
+        color: $white !important;
+    }
 
-   .dropdown-menu {
-      background-color: $secondary !important;
+    .dropdown-menu {
+        background-color: $secondary !important;
 
-      .dropdown-item a {
-         color: $white !important;
-      }
-   }
+        .dropdown-item a {
+            color: $white !important;
+        }
+    }
 
-   .dropdown-item:focus,
-   .dropdown-item:hover {
-      background-color: $orange !important;
-      transition-duration: 300ms;
-   }
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: $orange !important;
+        transition-duration: 300ms;
+    }
 
-   .navbar-toggler:focus {
-      border: none !important;
-   }
+    .navbar-toggler:focus {
+        border: none !important;
+    }
 }
