@@ -1,58 +1,68 @@
 @font-face {
-   font-family: RockSalt;
-   src: url("/fonts/RockSalt-Regular.ttf");
+    font-family: RockSalt;
+    src: url("/fonts/RockSalt-Regular.ttf");
 }
 
 @font-face {
-   font-family: Sora;
-   src: url("/fonts/Sora-Regular.ttf");
+    font-family: Sora;
+    src: url("/fonts/Sora-Regular.ttf");
 }
 
 @font-face {
-   font-family: SoraBold;
-   src: url("/fonts/Sora-Bold.ttf");
+    font-family: SoraBold;
+    src: url("/fonts/Sora-Bold.ttf");
 }
 
 @font-face {
-   font-family: Inter;
-   src: url("/fonts/Inter-Regular.ttf");
+    font-family: Inter;
+    src: url("/fonts/Inter-Regular.ttf");
 }
 
 @font-face {
-   font-family: Inter SemiBold;
-   src: url("/fonts/Inter-SemiBold.ttf");
+    font-family: Inter SemiBold;
+    src: url("/fonts/Inter-SemiBold.ttf");
 }
 
 @font-face {
-   font-family: Barlow Regular;
-   src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
+    font-family: Barlow Regular;
+    src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
 }
 
 @font-face {
-   font-family: Inter Bold;
-   src: url("/fonts/Inter-Bold.ttf")
+    font-family: Inter Bold;
+    src: url("/fonts/Inter-Bold.ttf")
 }
 
 @font-face {
-   font-family: BarlowBold;
-   src: url("/fonts/BarlowSemiCondensed-Bold.ttf");
+    font-family: BarlowBold;
+    src: url("/fonts/BarlowSemiCondensed-Bold.ttf");
 }
 
 @font-face {
-   font-family: BarlowExtraBold;
-   src: url("/fonts/BarlowSemiCondensed-ExtraBold.ttf");
+    font-family: BarlowExtraBold;
+    src: url("/fonts/BarlowSemiCondensed-ExtraBold.ttf");
 }
 
 @font-face {
-   font-family: Roboto;
-   src: url("/fonts/Roboto-Regular.ttf");
+    font-family: Roboto;
+    src: url("/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: Plus Jakarta Sans;
+    src: url("/fonts/PlusJakartaSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: Plus Jakarta Sans Bold;
+    src: url("/fonts/PlusJakartaSans-Bold.ttf");
 }
 
 // class
 .SoraBold {
-   font-family: SoraBold, sans-serif;
+    font-family: SoraBold, sans-serif;
 }
 
 .RockSalt {
-   font-family: RockSalt;
+    font-family: RockSalt;
 }
