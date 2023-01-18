@@ -1,21 +1,5 @@
 @use "abstracts" as *;
 
-.services-card {
-   background-color: transparent !important;
-   border: 5px solid $white !important;
-   border-radius: 9.17493px;
-
-   .card-body {
-      padding: 0;
-   }
-}
-
-.gallery-card {
-   width: 18rem;
-}
-
-.design-card {
-   .card-text {
-      color: $orange !important;
-   }
+.recent-card {
+    background-color: $secondary !important;
 }

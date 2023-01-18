@@ -1,57 +1,10 @@
 @use "abstracts" as *;
 
 .btn {
-   background-color: transparent;
-   border: 4.73847px solid $white !important;
-   transition-duration: 300ms;
-   color: $white !important;
+    transition-duration: 300ms;
+    color: $white !important;
 }
 
 .btn:focus {
-   box-shadow: none !important;
-}
-
-.btn:hover {
-   color: $orange !important;
-   border: 4.73847px solid $orange !important;
-}
-
-.prevArrow::before,
-.nextArrow::before {
-   content: '' !important;
-}
-
-.prevArrow {
-   background-color: $orange !important;
-   color: $white !important;
-   border-radius: 50%;
-   width: 2rem !important;
-   height: 2rem !important;
-   left: -37.5px !important;
-}
-
-.nextArrow {
-   @extend .prevArrow;
-   left: calc(100% + 5.75px) !important;
-   right: -37.5px !important;
-}
-
-// explore page pagination
-.btn-explore {
-   background-color: transparent !important;
-   border: 1px solid #bcbcbc !important;
-   width: 50px !important;
-   height: 50px !important;
-   color: $white !important;
-}
-
-.btn-explore:hover {
-   background-color: $orange !important;
-   border: 1px solid $orange !important;
-   width: 50px !important;
-   height: 50px !important;
-}
-
-.btn-navigate {
-   color: $orange !important;
+    box-shadow: none !important;
 }

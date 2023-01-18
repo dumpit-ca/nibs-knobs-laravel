@@ -1,42 +1,15 @@
 @use "abstracts" as *;
 
-.form-container {
-    background-color: $secondary !important;
-    border-radius: 9.92px;
-}
-
-.user-label {
-    color: $orange !important;
-    font-weight: bold;
-}
-
-.user-select {
-    background-color: $primary !important;
-    font-family: Inter, sans-serif !important;
-}
-
 textarea {
     resize: none !important;
 }
 
-.user-textarea {
-    border: 3px solid $white !important;
-    background-color: $primary !important;
-    color: $white !important;
+.form-floating > label {
+    color: $floatLabel;
 }
 
-::placeholder,
-select {
-    color: $white !important;
-    font-size: .9rem !important;
-    font-weight: 400 !important;
-}
-
-input[type=text] {
-    background-color: $primary;
+input[type=text],
+input[type=password] {
+    background-color: transparent;
     border: 1px solid $white;
-}
-
-#user-email {
-    background-color: $white !important;
 }

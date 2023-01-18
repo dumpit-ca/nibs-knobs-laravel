@@ -39,6 +39,14 @@
   font-family: Roboto;
   src: url("/fonts/Roboto-Regular.ttf");
 }
+@font-face {
+  font-family: Plus Jakarta Sans;
+  src: url("/fonts/PlusJakartaSans-Regular.ttf");
+}
+@font-face {
+  font-family: Plus Jakarta Sans Bold;
+  src: url("/fonts/PlusJakartaSans-Bold.ttf");
+}
 .SoraBold {
   font-family: SoraBold, sans-serif;
 }
@@ -52,13 +60,11 @@
 }
 
 .login-body {
-  background-color: #1A1A1A !important;
+  background-color: #121212 !important;
   color: #ffffff !important;
 }
 
 .btn {
-  background-color: transparent;
-  border: 4.73847px solid #ffffff !important;
   transition-duration: 300ms;
   color: #ffffff !important;
 }
@@ -67,121 +73,32 @@
   box-shadow: none !important;
 }
 
-.btn:hover {
-  color: #ff5e15 !important;
-  border: 4.73847px solid #ff5e15 !important;
-}
-
-.prevArrow::before,
-.nextArrow::before {
-  content: "" !important;
-}
-
-.prevArrow, .nextArrow {
-  background-color: #ff5e15 !important;
-  color: #ffffff !important;
-  border-radius: 50%;
-  width: 2rem !important;
-  height: 2rem !important;
-  left: -37.5px !important;
-}
-
-.nextArrow {
-  left: calc(100% + 5.75px) !important;
-  right: -37.5px !important;
-}
-
-.btn-explore {
-  background-color: transparent !important;
-  border: 1px solid #bcbcbc !important;
-  width: 50px !important;
-  height: 50px !important;
-  color: #ffffff !important;
-}
-
-.btn-explore:hover {
-  background-color: #ff5e15 !important;
-  border: 1px solid #ff5e15 !important;
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.btn-navigate {
-  color: #ff5e15 !important;
-}
-
-.services-card {
-  background-color: transparent !important;
-  border: 5px solid #ffffff !important;
-  border-radius: 9.17493px;
-}
-.services-card .card-body {
-  padding: 0;
-}
-
-.gallery-card {
-  width: 18rem;
-}
-
-.design-card .card-text {
-  color: #ff5e15 !important;
-}
-
-.form-container {
-  background-color: #111111 !important;
-  border-radius: 9.92px;
-}
-
-.user-label {
-  color: #ff5e15 !important;
-  font-weight: bold;
-}
-
-.user-select {
-  background-color: #1A1A1A !important;
-  font-family: Inter, sans-serif !important;
+.recent-card {
+  background-color: #1D1D1D !important;
 }
 
 textarea {
   resize: none !important;
 }
 
-.user-textarea {
-  border: 3px solid #ffffff !important;
-  background-color: #1A1A1A !important;
-  color: #ffffff !important;
+.form-floating > label {
+  color: #717171;
 }
 
-::-moz-placeholder {
-  color: #ffffff !important;
-  font-size: 0.9rem !important;
-  font-weight: 400 !important;
-}
-
-::placeholder,
-select {
-  color: #ffffff !important;
-  font-size: 0.9rem !important;
-  font-weight: 400 !important;
-}
-
-input[type=text] {
-  background-color: #1A1A1A;
+input[type=text],
+input[type=password] {
+  background-color: transparent;
   border: 1px solid #ffffff;
 }
 
-#user-email {
-  background-color: #ffffff !important;
-}
-
 .navbar {
-  background-color: #111111;
+  background-color: #121212;
 }
 .navbar a {
   color: #ffffff !important;
 }
 .navbar .dropdown-menu {
-  background-color: #111111 !important;
+  background-color: #1D1D1D !important;
 }
 .navbar .dropdown-menu .dropdown-item a {
   color: #ffffff !important;
@@ -197,159 +114,52 @@ input[type=text] {
 
 body {
   overflow-x: hidden !important;
-  background-color: #1A1A1A !important;
-  font-family: Sora, sans-serif !important;
+  background-color: #121212 !important;
+  font-family: Plus Jakarta Sans, sans-serif !important;
   font-weight: 400 !important;
   color: #ffffff !important;
 }
 
-#fingertips {
+.subheader {
   color: #ff5e15;
-  transform: rotate(-6.58deg);
+  font-weight: 900;
 }
 
-.culture-text .caption #craft-caption {
-  bottom: 2.25%;
-  left: 5%;
+.author-card .profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
 }
-.culture-text .caption #quality-caption {
-  bottom: 3.25%;
-  right: 2.5%;
-}
-.culture-text .caption .second-row-caption {
-  bottom: 27.25%;
-  left: 5%;
-}
-.culture-text .caption #beautify-caption {
-  bottom: 27.25%;
-  left: 5%;
-}
-.culture-text .caption .third-row-caption {
-  top: 21%;
-  left: 6%;
+.author-card .profile #profile-name {
+  font-weight: 900;
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #fingertips {
-    transform: rotate(0deg) !important;
-  }
-  #home-3 {
-    width: 451px !important;
-    height: 561px !important;
-  }
-  .col-md-8 {
-    width: 64% !important;
-  }
-  .culture-text .img-size {
-    width: 157% !important;
-    height: 100% !important;
-  }
-  .culture-text .caption #craft-caption {
-    bottom: 6.25% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption #quality-caption {
-    bottom: 6.25% !important;
-    right: 66.5% !important;
-  }
-  .culture-text .caption .second-row-caption {
-    bottom: 16.25% !important;
-    left: 5% !important;
-  }
-  .culture-text .caption #beautify-caption {
-    bottom: 16.25% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption .third-row-caption {
-    top: 76%;
-    left: 3%;
-  }
-  .culture-text .caption #nk-caption {
-    top: 10% !important;
-    left: 3% !important;
-  }
+.recent-card .btn-comment {
+  background-color: #393939 !important;
 }
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .col-md-8 {
-    width: 64% !important;
-  }
-  #craft-caption {
-    bottom: 6.25% !important;
-    left: 3% !important;
-  }
-  #quality-caption {
-    bottom: 6.25% !important;
-    right: 3% !important;
-  }
-  .second-row-caption {
-    bottom: 10% !important;
-    left: 6% !important;
-  }
-  #beautify-caption {
-    bottom: 5.25% !important;
-    left: 5% !important;
-  }
-  .third-row-caption {
-    top: 13% !important;
-    left: 7% !important;
-  }
-  #nk-caption {
-    top: 10% !important;
-    left: 4% !important;
-  }
+.recent-card .btn-comment span {
+  font-size: 0.875rem !important;
 }
-@media (min-width: 992px) and (max-width: 1399.98px) {
-  .culture-text .caption #craft-caption {
-    bottom: 6.25% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption #quality-caption {
-    bottom: 6.25% !important;
-    right: 1.5% !important;
-  }
-  .culture-text .caption .second-row-caption {
-    bottom: 5.25% !important;
-    left: 5% !important;
-  }
-  .culture-text .caption #beautify-caption {
-    bottom: 5.25% !important;
-    left: 5% !important;
-  }
-  .culture-text .caption .third-row-caption {
-    top: 10% !important;
-    left: 8% !important;
-  }
+
+.login-form {
+  border: 3px solid #1D1D1D;
 }
-@media (max-width: 575.98px) {
-  .culture-text .caption #craft-caption {
-    bottom: 6.25% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption #quality-caption {
-    bottom: 6.25% !important;
-    right: 54.5% !important;
-  }
-  .culture-text .caption .second-row-caption {
-    bottom: 9.25% !important;
-    left: 5% !important;
-  }
-  .culture-text .caption #beautify-caption {
-    bottom: 10.25% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption .third-row-caption {
-    top: 68% !important;
-    left: 3% !important;
-  }
-  .culture-text .caption #nk-caption {
-    top: 10% !important;
-    left: 3% !important;
-  }
-  .img-responsive {
-    max-width: 100% !important;
-    height: auto !important;
-  }
+.login-form .btn-login {
+  background-color: #ff5e15;
+  color: #ffffff;
 }
+.login-form .btn-login:hover {
+  background-color: #ff5e15;
+  color: #ffffff;
+}
+.login-form .btn-register {
+  border: 2px solid #ff5e15;
+}
+.login-form .btn-register:hover {
+  border: 2px solid #ff5e15;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
