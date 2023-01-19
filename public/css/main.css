@@ -47,6 +47,10 @@
   font-family: Plus Jakarta Sans Bold;
   src: url("/fonts/PlusJakartaSans-Bold.ttf");
 }
+@font-face {
+  font-family: Plus Jakarta Sans XBold;
+  src: url("/fonts/PlusJakartaSans-ExtraBold.ttf");
+}
 .SoraBold {
   font-family: SoraBold, sans-serif;
 }
@@ -55,13 +59,58 @@
   font-family: RockSalt;
 }
 
-#NK-Login {
+.transform {
   transform: rotate(-6.58deg);
 }
 
 .login-body {
   background-color: #121212 !important;
   color: #ffffff !important;
+}
+.login-body #slogan {
+  color: #ff5e15;
+}
+.login-body label {
+  font-family: Sora, sans serif;
+  font-weight: 900;
+}
+.login-body .btn-login {
+  background-color: #ff5e15;
+  color: #ffffff;
+  font-weight: 900;
+}
+.login-body .btn-login:hover {
+  background-color: #ff5e15;
+  color: #ffffff;
+}
+
+.registration {
+  background-image: url("/images/auth-images/register.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden !important;
+}
+.registration form {
+  background-color: #121212 !important;
+  min-height: 100vh;
+}
+.registration form .register-header {
+  font-family: Plus Jakarta Sans XBold, sans-serif;
+}
+.registration form .btn-register {
+  background-color: #ff5e15 !important;
+  border-radius: 5px !important;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+.registration form .btn-register:hover {
+  background-color: #ff5e15;
+}
+.registration form a.terms {
+  color: #ff5e15;
+  -webkit-text-decoration: underline #ff5e15;
+          text-decoration: underline #ff5e15;
 }
 
 .btn {
