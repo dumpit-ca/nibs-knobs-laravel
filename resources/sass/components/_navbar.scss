@@ -7,21 +7,37 @@
         color: $white !important;
     }
 
-    .dropdown-menu {
-        background-color: $secondary !important;
+    .dropdown {
+        .btn-profile {
+            background-color: $secondary;
+        }
 
-        .dropdown-item a {
-            color: $white !important;
+
+        .dropdown-menu {
+            background-color: $secondary !important;
+
+            .dropdown-item a {
+                color: $white !important;
+            }
+        }
+
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: $orange !important;
+            transition-duration: 300ms;
         }
     }
 
-    .dropdown-item:focus,
-    .dropdown-item:hover {
-        background-color: $orange !important;
-        transition-duration: 300ms;
-    }
+
 
     .navbar-toggler:focus {
         border: none !important;
+    }
+
+    .profile-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $img;
     }
 }
