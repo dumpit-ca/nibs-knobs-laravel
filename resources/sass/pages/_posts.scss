@@ -1,0 +1,30 @@
+@use 'abstracts' as *;
+
+.profile-card {
+    border-radius: 21px !important;
+    background-color: $secondary !important;
+    width: 27rem;
+
+    .profile-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $img;
+        left: 0;
+        right: 0;
+    }
+
+    .profile-name {
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+        font-size: 35px;
+    }
+
+    .btn-view-post {
+        background-color: $orange;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+}
+
+.posts-card {
+    @extend .profile-card;
+}
