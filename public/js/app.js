@@ -3260,6 +3260,7 @@ __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap
 
 // SweetAlert2
 window.Swal = __webpack_require__(/*! sweetalert2/dist/sweetalert2.all.min */ "./node_modules/sweetalert2/dist/sweetalert2.all.min.js");
+// slick carousel
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
 /***/ }),
