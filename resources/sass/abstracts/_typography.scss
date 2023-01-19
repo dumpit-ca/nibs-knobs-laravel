@@ -58,6 +58,11 @@
     src: url("/fonts/PlusJakartaSans-Bold.ttf");
 }
 
+@font-face {
+    font-family: Plus Jakarta Sans XBold;
+    src: url("/fonts/PlusJakartaSans-ExtraBold.ttf");
+}
+
 // class
 .SoraBold {
     font-family: SoraBold, sans-serif;
@@ -65,4 +70,8 @@
 
 .RockSalt {
     font-family: RockSalt;
+}
+
+.transform {
+    transform: rotate(-6.58deg);
 }
