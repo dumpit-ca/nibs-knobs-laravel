@@ -84,7 +84,7 @@
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="{{route('login')}}" class="btn btn-login px-5 w-100">Login Account</a>
+                    <a href="{{route('posts')}}" class="btn btn-login px-5 w-100">Login Account</a>
                     <a href="{{route('register')}}" class="btn btn-register px-5 w-100">Register Account</a>
                 </div>
             </form>
