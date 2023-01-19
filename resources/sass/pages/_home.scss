@@ -1,0 +1,53 @@
+@use "abstracts" as *;
+
+.subheader {
+    color: $orange;
+    font-weight: 900;
+}
+
+.author-card {
+    .profile-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+
+    .profile {
+        #profile-name {
+            font-weight: 900;
+        }
+    }
+}
+
+.recent-card {
+    .btn-comment {
+        background-color: $comment !important;
+
+        span {
+            font-size: 0.875rem !important;
+        }
+    }
+}
+
+.login-form {
+    border: 3px solid $secondary;
+
+    .btn-login {
+        background-color: $orange;
+        color: $white;
+    }
+
+    .btn-login:hover {
+        background-color: $orange;
+        color: $white;
+    }
+
+    .btn-register {
+        border: 2px solid $orange;
+    }
+
+    .btn-register:hover {
+        border: 2px solid $orange;
+    }
+}
