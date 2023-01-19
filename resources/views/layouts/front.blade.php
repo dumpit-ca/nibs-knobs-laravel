@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon">
     {{-- Icons --}}
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    {{-- Dropzone CSS --}}
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- Title --}}
@@ -20,6 +22,7 @@
     @include('components.front.navbar')
     @yield('content')
     <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script>
         function bookedSuccess() {
       const Toast = Swal.mixin({
