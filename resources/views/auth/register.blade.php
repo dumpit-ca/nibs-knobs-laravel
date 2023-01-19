@@ -1,77 +1,61 @@
 @extends('layouts.front')
 @section('title', 'Register')
 @section('content')
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">{{ __('Register') }}</div>
-
-          <div class="card-body">
-            <form method="POST" action="{{ route('register') }}">
-              @csrf
-
-              <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                <div class="col-md-6">
-                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                  @error('name')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                <div class="col-md-6">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                  @error('email')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                <div class="col-md-6">
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                  @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                <div class="col-md-6">
-                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                </div>
-              </div>
-
-              <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+<div class="container-fluid p-0 registration">
+    <div class="row align-items-center g-lg-5 vh-100">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="RockSalt text-center display-1 lh-2 mb-3 transform">Nibs &amp; <br> Knobs</h1>
         </div>
-      </div>
+        <div class="col-lg-5">
+            <form class="row p-5 p-md-5" data-bitwarden-watching="1">
+                <h1 class="display-6 mb-4 register-header">Register Account</h1>
+                <div class="col-md-6 mb-4">
+                    <label for="inputFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="inputLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="inputUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="inputNumber" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" placeholder="Contact Number">
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="inputEmailAddress" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="inputUsername" class="form-label">Password</label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="inputNumber" class="form-label">Repeat Password:</label>
+                    <input type="text" class="form-control" placeholder="Contact Number">
+                </div>
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">
+                        I agree to the website's
+                        <a class="terms" href="#">Privary
+                            Policy </a> &
+                        <a class="terms" href="#"> Terms of Service</a>
+
+                    </label>
+                </div>
+                <div class="d-grid d-md-block p-0 mb-5">
+                    <button class="btn btn-register px-5 fs-6" type="button">Register Account</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 @endsection
