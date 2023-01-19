@@ -3,7 +3,9 @@
 .profile-card {
     border-radius: 21px !important;
     background-color: $secondary !important;
-    width: 27rem;
+    width: 27rem !important;
+    position: sticky !important;
+    top: 2rem;
 
     .profile-img {
         width: 90px;
@@ -23,8 +25,54 @@
         background-color: $orange;
         font-family: Plus Jakarta Sans Bold, sans-serif;
     }
+
+    .btn-view-post:hover {
+        background-color: $orange;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
 }
 
 .posts-card {
     @extend .profile-card;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+
+    .profile-img-posts {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+
+    .btn-post {
+        background-color: $orange;
+        bottom: 0;
+    }
+
+    .btn-post:hover {
+        background-color: $orange;
+    }
+
+    .dropzone {
+        background-color: transparent !important;
+        border: 1px dashed $dropzone;
+        border-radius: 14px;
+
+        a.dz-remove {
+            color: $orange !important;
+            text-decoration: none !important;
+        }
+
+        .dz-preview.dz-image-preview {
+            background-color: transparent !important;
+        }
+
+        .dz-preview {
+            .dz-image {
+                height: 89px;
+            }
+        }
+
+    }
+
 }
