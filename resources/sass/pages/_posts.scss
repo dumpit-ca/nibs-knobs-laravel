@@ -30,6 +30,12 @@
         background-color: $orange;
         font-family: Plus Jakarta Sans Bold, sans-serif;
     }
+
+    .btn-view-post:active {
+        background-color: $orange !important;
+        border: none !important;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
 }
 
 .posts-card {
@@ -53,6 +59,11 @@
         background-color: $orange;
     }
 
+    .btn-post:active {
+        background-color: $orange !important;
+        border: none !important;
+    }
+
     .dropzone {
         background-color: transparent !important;
         border: 1px dashed $dropzone;
@@ -60,7 +71,6 @@
 
         a.dz-remove {
             color: $orange !important;
-            text-decoration: none !important;
         }
 
         .dz-preview.dz-image-preview {
