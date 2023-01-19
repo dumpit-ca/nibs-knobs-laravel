@@ -16,8 +16,7 @@ Route::get('/home', 'PageController@index')->name('home');
 Route::get('/', function () {
     return redirect('/home');
 });
-Route::get('/consult', 'ConsultationController@index')->name('consult');
-Route::get('/contact', 'PageController@contact')->name('contact');
+Route::get('/posts', 'PageController@posts')->name('posts');
 Route::get('/gallery', 'GalleryController@index')->name('gallery');
 Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
 Route::get('/gallery/bedroom', 'BedroomController@index')->name('bedroom');

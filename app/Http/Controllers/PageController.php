@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    // home page
+    // Front
      public function index(){
        return view('pages.index');
     }
+    public function posts(){
+        return view('pages.posts');
+    }
+    // Admin
     public function dashboard(){
         return view ('pages.admin.dashboard');
     }
-    public function contact(){
-        return view ('pages.contact');
-    }
+
 }
