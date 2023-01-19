@@ -146,19 +146,28 @@ input[type=password] {
 .navbar a {
   color: #ffffff !important;
 }
-.navbar .dropdown-menu {
+.navbar .dropdown .btn-profile {
+  background-color: #1D1D1D;
+}
+.navbar .dropdown .dropdown-menu {
   background-color: #1D1D1D !important;
 }
-.navbar .dropdown-menu .dropdown-item a {
+.navbar .dropdown .dropdown-menu .dropdown-item a {
   color: #ffffff !important;
 }
-.navbar .dropdown-item:focus,
-.navbar .dropdown-item:hover {
+.navbar .dropdown .dropdown-item:focus,
+.navbar .dropdown .dropdown-item:hover {
   background-color: #ff5e15 !important;
   transition-duration: 300ms;
 }
 .navbar .navbar-toggler:focus {
   border: none !important;
+}
+.navbar .profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
 }
 
 body {
@@ -207,6 +216,28 @@ body {
 }
 .login-form .btn-register:hover {
   border: 2px solid #ff5e15;
+}
+
+.profile-card, .posts-card {
+  border-radius: 21px !important;
+  background-color: #1D1D1D !important;
+  width: 27rem;
+}
+.profile-card .profile-img, .posts-card .profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  left: 0;
+  right: 0;
+}
+.profile-card .profile-name, .posts-card .profile-name {
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+  font-size: 35px;
+}
+.profile-card .btn-view-post, .posts-card .btn-view-post {
+  background-color: #ff5e15;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
 }
 
 /*!
