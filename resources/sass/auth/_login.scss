@@ -1,10 +1,28 @@
 @use "abstracts" as *;
 
-#NK-Login {
-   transform: rotate(-6.58deg);
-}
+
 
 .login-body {
-   background-color: $primary !important;
-   color: $white !important;
+    background-color: $primary !important;
+    color: $white !important;
+
+    #slogan {
+        color: $orange;
+    }
+
+    label {
+        font-family: Sora, sans serif;
+        font-weight: 900;
+    }
+
+    .btn-login {
+        background-color: $orange;
+        color: $white;
+        font-weight: 900;
+    }
+
+    .btn-login:hover {
+        background-color: $orange;
+        color: $white;
+    }
 }
