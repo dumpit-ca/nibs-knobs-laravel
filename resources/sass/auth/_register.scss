@@ -1,0 +1,36 @@
+@use "abstracts" as *;
+
+.registration {
+    background-image: url('/images/auth-images/register.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    overflow: hidden !important;
+
+    form {
+        background-color: $primary !important;
+        min-height: 100vh;
+
+        .register-header {
+            font-family: Plus Jakarta Sans XBold, sans-serif;
+        }
+
+        .btn-register {
+            background-color: $orange !important;
+            border-radius: 5px !important;
+            font-family: Plus Jakarta Sans Bold, sans-serif;
+        }
+
+        .btn-register:hover {
+            background-color: $orange;
+        }
+
+        a.terms {
+            color: $orange;
+            text-decoration: underline $orange;
+        }
+
+    }
+
+}
