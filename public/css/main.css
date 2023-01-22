@@ -245,6 +245,11 @@ body {
   background-color: #ff5e15;
   font-family: Plus Jakarta Sans Bold, sans-serif;
 }
+.profile-card .btn-view-post:active, .posts-card .btn-view-post:active {
+  background-color: #ff5e15 !important;
+  border: none !important;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
 
 .posts-card {
   width: 100% !important;
@@ -263,6 +268,10 @@ body {
 .posts-card .btn-post:hover {
   background-color: #ff5e15;
 }
+.posts-card .btn-post:active {
+  background-color: #ff5e15 !important;
+  border: none !important;
+}
 .posts-card .dropzone {
   background-color: transparent !important;
   border: 1px dashed #979797;
@@ -270,7 +279,6 @@ body {
 }
 .posts-card .dropzone a.dz-remove {
   color: #ff5e15 !important;
-  text-decoration: none !important;
 }
 .posts-card .dropzone .dz-preview.dz-image-preview {
   background-color: transparent !important;
