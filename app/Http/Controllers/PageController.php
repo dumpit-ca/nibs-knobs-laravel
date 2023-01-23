@@ -13,6 +13,9 @@ class PageController extends Controller
     public function posts(){
         return view('pages.posts');
     }
+     public function profile(){
+        return view('pages.profile');
+    }
     // Admin
     public function dashboard(){
         return view ('pages.admin.dashboard');
