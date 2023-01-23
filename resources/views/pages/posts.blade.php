@@ -21,11 +21,7 @@
             <div class="posts-card card mb-3">
                 <div class="row g-0">
                     <div class="col-md-3 p-3 my-auto">
-                        <div class="drag-area">
-                            <form action="/target" class="dropzone dz-max-files-reached" id="my-great-dropzone">
-
-                            </form>
-                        </div>
+                        <form action="/target" class="dropzone dz-max-files-reached" id="my-great-dropzone"></form>
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
