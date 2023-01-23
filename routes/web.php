@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/posts', 'PageController@posts')->name('posts');
 Route::get('/profile', 'PageController@profile')->name('profile');
+Route::get('/profile/settings', 'PageController@settings')->name('settings');
 Route::get('/gallery', 'GalleryController@index')->name('gallery');
 Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
 Route::get('/gallery/bedroom', 'BedroomController@index')->name('bedroom');
