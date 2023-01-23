@@ -40,7 +40,7 @@
             <div class="recent-card card mb-3 p-3">
                 <div class="row g-0">
                     <div class="col-md-3">
-                        <img src="/images/home-images/recent.png" class="img-fluid" alt="">
+                        <img src="{{asset('/images/home-images/recent.png')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
