@@ -17,6 +17,7 @@ Route::get('/', function () {
     return redirect('/home');
 });
 Route::get('/posts', 'PageController@posts')->name('posts');
+Route::get('/profile', 'PageController@profile')->name('profile');
 Route::get('/gallery', 'GalleryController@index')->name('gallery');
 Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
 Route::get('/gallery/bedroom', 'BedroomController@index')->name('bedroom');
