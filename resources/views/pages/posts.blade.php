@@ -1,13 +1,14 @@
 @extends('layouts.front')
 @section('title', 'Posts')
 @section('content')
-<div class="container-fluid p-lg-5 p-3 vh-100">
+<div class="container-fluid p-lg-5 p-3">
     <div class="row">
         <div class="col-md-4">
-            <aside class="profile-card card">
+            <aside class="profile-card card border-0">
                 <img src="{{asset('/images/home-images/profile-header.png')}}" class="card-img-top" alt="...">
                 <div class="position-relative mx-auto d-block mb-5">
-                    <div class="profile-img position-absolute top-50 start-0 translate-middle"></div>
+                    <img src="{{asset('/images/img-placeholder.png')}}" alt=""
+                        class="profile-img position-absolute top-50 start-0 translate-middle">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="profile-name card-title">Jhon Louie</h5>
@@ -18,36 +19,35 @@
             </aside>
         </div>
         <div class="col-md-8">
-            <div class="posts-card card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-3 p-3 my-auto">
-                        <form action="/target" class="dropzone dz-max-files-reached" id="my-great-dropzone"></form>
+            <div class="create-posts p-4 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="me-3">
+                        <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
                     </div>
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="me-3">
-                                    <div class="profile-img-posts"></div>
-                                </div>
-                                <div class="profile">
-                                    <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
-                                            class="fs-6 fw-normal">@thejldeleon</span>
-                                    </p>
-                                    <p class="fs-6 card-text text-muted m-0">will post something</p>
-                                </div>
-
-                            </div>
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                    style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">wanna share something?</label>
-                            </div>
-                        </div>
+                    <div class="profile">
+                        <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
+                                class="fs-6 fw-normal">@thejldeleon</span>
+                        </p>
+                        <p class="fs-6 card-text text-muted m-0">will post something</p>
                     </div>
-                    <div class="col-md-2 mb-3 position-relative">
-                        <button class="btn btn-post position-absolute" type="submit"><i
-                                class='bx bxs-send'></i></button>
-                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Post Title">
+                    <label for="floatingInput">Post Title</label>
+                </div>
+                <div class="my-4">
+                    <textarea class="form-control"></textarea>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button class="btn btn-primary me-md-2 px-5" type="button">Post Entry</button>
+                </div>
+            </div>
+            <div class="posts">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
                 </div>
             </div>
         </div>
