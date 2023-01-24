@@ -111,6 +111,12 @@
   color: #ffffff !important;
 }
 
+.btn-primary {
+  background-color: #ff5e15 !important;
+  font-family: Plus Jakarta Sans Bold, sans-serif !important;
+  border: none !important;
+}
+
 .btn:focus {
   box-shadow: none !important;
 }
@@ -119,77 +125,61 @@
   background-color: #1D1D1D !important;
 }
 
-.profile-card, .posts-card {
+.profile-card, .posts {
   border-radius: 21px !important;
   background-color: #1D1D1D !important;
-  width: 27rem !important;
+  width: 25rem !important;
   position: sticky !important;
   top: 2rem !important;
 }
-.profile-card .profile-img, .posts-card .profile-img {
-  width: 90px;
-  height: 90px;
+.profile-card .profile-img, .posts .profile-img {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: #D9D9D9;
-  left: 0;
-  right: 0;
 }
-.profile-card .profile-name, .posts-card .profile-name {
+.profile-card .profile-name, .posts .profile-name {
   font-family: Plus Jakarta Sans Bold, sans-serif;
   font-size: 35px;
 }
-.profile-card .btn-view-post, .posts-card .btn-view-post {
+.profile-card .btn-view-post, .posts .btn-view-post {
   background-color: #ff5e15;
   font-family: Plus Jakarta Sans Bold, sans-serif;
 }
-.profile-card .btn-view-post:hover, .posts-card .btn-view-post:hover {
+.profile-card .btn-view-post:hover, .posts .btn-view-post:hover {
   background-color: #ff5e15;
   font-family: Plus Jakarta Sans Bold, sans-serif;
 }
-.profile-card .btn-view-post:active, .posts-card .btn-view-post:active {
+.profile-card .btn-view-post:active, .posts .btn-view-post:active {
   background-color: #ff5e15 !important;
   border: none !important;
   font-family: Plus Jakarta Sans Bold, sans-serif;
 }
 
-.posts-card {
+.posts {
   position: static !important;
   top: 0 !important;
   width: 100% !important;
 }
-.posts-card .profile-img-posts {
+.posts .profile-img-posts {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: #D9D9D9;
 }
-.posts-card .btn-comment {
+.posts .btn-comment {
   background-color: #393939 !important;
 }
-.posts-card .btn-post {
+.posts .btn-post {
   background-color: #ff5e15;
   bottom: 0;
 }
-.posts-card .btn-post:hover {
+.posts .btn-post:hover {
   background-color: #ff5e15;
 }
-.posts-card .btn-post:active {
+.posts .btn-post:active {
   background-color: #ff5e15 !important;
   border: none !important;
-}
-.posts-card .dropzone {
-  background-color: transparent !important;
-  border: 1px dashed #979797;
-  border-radius: 14px;
-}
-.posts-card .dropzone a.dz-remove {
-  color: #ff5e15 !important;
-}
-.posts-card .dropzone .dz-preview.dz-image-preview {
-  background-color: transparent !important;
-}
-.posts-card .dropzone .dz-preview .dz-image {
-  height: 89px;
 }
 
 textarea {
@@ -290,6 +280,21 @@ body {
 }
 .login-form .btn-register:hover {
   border: 2px solid #ff5e15;
+}
+
+.create-posts {
+  border-radius: 21px !important;
+  background-color: #1D1D1D !important;
+  width: 100% !important;
+  position: static !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+.create-posts .profile-img-posts {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
 }
 
 /*!
