@@ -7,17 +7,17 @@
 .profile-card {
     border-radius: 21px !important;
     background-color: $secondary !important;
-    width: 27rem !important;
+    width: 25rem !important;
     position: sticky !important;
     top: 2rem !important;
 
     .profile-img {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         background-color: $img;
-        left: 0;
-        right: 0;
+        // left: 0;
+        // right: 0;
     }
 
     .profile-name {
@@ -42,12 +42,14 @@
     }
 }
 
-.posts-card {
+.posts {
     @extend .profile-card;
     position: static !important;
     top: 0 !important;
     width: 100% !important;
+
     // margin-bottom: 2rem !important;
+
 
     .profile-img-posts {
         width: 60px;
@@ -72,27 +74,6 @@
     .btn-post:active {
         background-color: $orange !important;
         border: none !important;
-    }
-
-    .dropzone {
-        background-color: transparent !important;
-        border: 1px dashed $dropzone;
-        border-radius: 14px;
-
-        a.dz-remove {
-            color: $orange !important;
-        }
-
-        .dz-preview.dz-image-preview {
-            background-color: transparent !important;
-        }
-
-        .dz-preview {
-            .dz-image {
-                height: 89px;
-            }
-        }
-
     }
 
 }
