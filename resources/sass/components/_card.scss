@@ -3,3 +3,39 @@
 .recent-card {
     background-color: $secondary !important;
 }
+
+.profile-card {
+    border-radius: 21px !important;
+    background-color: $secondary !important;
+    max-width: 25rem !important;
+    position: sticky !important;
+    top: 2rem !important;
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+
+    .profile-name {
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+        font-size: 35px;
+    }
+
+    .btn-view-post {
+        background-color: $orange;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+
+    .btn-view-post:hover {
+        background-color: $orange;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+
+    .btn-view-post:active {
+        background-color: $orange !important;
+        border: none !important;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+}

@@ -17,7 +17,9 @@ Auth::routes();
 
 // Front
 Route::get('/', 'PageController@index')->name('index');
-
+Route::get('/posts', 'PageController@posts')->name('posts');
+Route::get('/profile', 'PageController@profile')->name('profile');
+Route::get('/profile/settings', 'PageController@settings')->name('settings');
 Route::get('/gallery', 'PageController@GalleryIndex')->name('gallery');
 Route::get('/gallery/kitchen', 'PageController@KitchenIndex')->name('kitchen');
 Route::get('/gallery/bedroom', 'PageController@BedroomIndex')->name('bedroom');

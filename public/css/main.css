@@ -4,42 +4,6 @@
   src: url("/fonts/RockSalt-Regular.ttf");
 }
 @font-face {
-  font-family: Sora;
-  src: url("/fonts/Sora-Regular.ttf");
-}
-@font-face {
-  font-family: SoraBold;
-  src: url("/fonts/Sora-Bold.ttf");
-}
-@font-face {
-  font-family: Inter;
-  src: url("/fonts/Inter-Regular.ttf");
-}
-@font-face {
-  font-family: Inter SemiBold;
-  src: url("/fonts/Inter-SemiBold.ttf");
-}
-@font-face {
-  font-family: Barlow Regular;
-  src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
-}
-@font-face {
-  font-family: Inter Bold;
-  src: url("/fonts/Inter-Bold.ttf");
-}
-@font-face {
-  font-family: BarlowBold;
-  src: url("/fonts/BarlowSemiCondensed-Bold.ttf");
-}
-@font-face {
-  font-family: BarlowExtraBold;
-  src: url("/fonts/BarlowSemiCondensed-ExtraBold.ttf");
-}
-@font-face {
-  font-family: Roboto;
-  src: url("/fonts/Roboto-Regular.ttf");
-}
-@font-face {
   font-family: Plus Jakarta Sans;
   src: url("/fonts/PlusJakartaSans-Regular.ttf");
 }
@@ -89,12 +53,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
-  overflow: hidden !important;
 }
 .registration form {
   background-color: #121212 !important;
   min-height: 100vh;
+  overflow: hidden !important;
 }
 .registration form .register-header {
   font-family: Plus Jakarta Sans XBold, sans-serif;
@@ -113,9 +76,44 @@
           text-decoration: underline #ff5e15;
 }
 
+.settings .settings-header {
+  color: #ff5e15;
+  font-family: Plus Jakarta Sans XBold, sans-serif;
+}
+.settings span.rules {
+  font-family: Plus Jakarta Sans Bold, sans-serif !important;
+}
+.settings .profile-header {
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+.settings .change-profile-card {
+  background-color: transparent !important;
+  border: none !important;
+}
+.settings .change-profile-card .btn-change {
+  background-color: #ff5e15;
+  color: #ffffff;
+}
+.settings .change-profile-card .btn-delete {
+  background-color: #ffffff;
+  color: #ff5e15 !important;
+  border: 1px solid #ff5e15;
+}
+.settings .btn-save {
+  background-color: #ff5e15 !important;
+  font-size: 14px;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+
 .btn {
   transition-duration: 300ms;
   color: #ffffff !important;
+}
+
+.btn-primary {
+  background-color: #ff5e15 !important;
+  font-family: Plus Jakarta Sans Bold, sans-serif !important;
+  border: none !important;
 }
 
 .btn:focus {
@@ -126,12 +124,51 @@
   background-color: #1D1D1D !important;
 }
 
+.profile-card {
+  border-radius: 21px !important;
+  background-color: #1D1D1D !important;
+  max-width: 25rem !important;
+  position: sticky !important;
+  top: 2rem !important;
+}
+.profile-card .profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+}
+.profile-card .profile-name {
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+  font-size: 35px;
+}
+.profile-card .btn-view-post {
+  background-color: #ff5e15;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+.profile-card .btn-view-post:hover {
+  background-color: #ff5e15;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+.profile-card .btn-view-post:active {
+  background-color: #ff5e15 !important;
+  border: none !important;
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+
 textarea {
   resize: none !important;
 }
 
 .form-floating > label {
   color: #717171;
+}
+
+::-moz-placeholder {
+  font-size: 14px !important;
+}
+
+::placeholder {
+  font-size: 14px !important;
 }
 
 input[type=text],
@@ -218,9 +255,10 @@ body {
   border: 2px solid #ff5e15;
 }
 
-.profile-card, .posts-card {
+.create-posts {
   border-radius: 21px !important;
   background-color: #1D1D1D !important;
+<<<<<<< HEAD
   width: 27rem !important;
   position: sticky !important;
   top: 2rem;
@@ -252,22 +290,43 @@ body {
 }
 
 .posts-card {
+=======
+>>>>>>> 8222fe02d342d06b6207a084f714e2ca0ce0cd6b
   width: 100% !important;
-  margin-bottom: 2rem !important;
+  position: static !important;
+  top: 0 !important;
 }
-.posts-card .profile-img-posts {
+.create-posts .profile-img-posts {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: #D9D9D9;
 }
-.posts-card .btn-post {
+
+.posts {
+  border-radius: 21px !important;
+  background-color: #1D1D1D !important;
+  position: static !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+.posts .profile-img-posts {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+}
+.posts .btn-comment {
+  background-color: #393939 !important;
+}
+.posts .btn-post {
   background-color: #ff5e15;
   bottom: 0;
 }
-.posts-card .btn-post:hover {
+.posts .btn-post:hover {
   background-color: #ff5e15;
 }
+<<<<<<< HEAD
 .posts-card .btn-post:active {
   background-color: #ff5e15 !important;
   border: none !important;
@@ -285,6 +344,11 @@ body {
 }
 .posts-card .dropzone .dz-preview .dz-image {
   height: 89px;
+=======
+.posts .btn-post:active {
+  background-color: #ff5e15 !important;
+  border: none !important;
+>>>>>>> 8222fe02d342d06b6207a084f714e2ca0ce0cd6b
 }
 
 /*!

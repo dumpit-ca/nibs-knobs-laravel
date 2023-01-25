@@ -8,6 +8,10 @@ textarea {
     color: $floatLabel;
 }
 
+::placeholder {
+    font-size: 14px !important;
+}
+
 input[type=text],
 input[type=password] {
     background-color: transparent;

@@ -1,53 +1,36 @@
-@use 'abstracts' as *;
+@use "abstracts" as *;
 
-.profile-card {
+.create-posts {
     border-radius: 21px !important;
     background-color: $secondary !important;
-    width: 27rem !important;
-    position: sticky !important;
-    top: 2rem;
-
-    .profile-img {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        background-color: $img;
-        left: 0;
-        right: 0;
-    }
-
-    .profile-name {
-        font-family: Plus Jakarta Sans Bold, sans-serif;
-        font-size: 35px;
-    }
-
-    .btn-view-post {
-        background-color: $orange;
-        font-family: Plus Jakarta Sans Bold, sans-serif;
-    }
-
-    .btn-view-post:hover {
-        background-color: $orange;
-        font-family: Plus Jakarta Sans Bold, sans-serif;
-    }
-
-    .btn-view-post:active {
-        background-color: $orange !important;
-        border: none !important;
-        font-family: Plus Jakarta Sans Bold, sans-serif;
-    }
-}
-
-.posts-card {
-    @extend .profile-card;
     width: 100% !important;
-    margin-bottom: 2rem !important;
+    position: static !important;
+    top: 0 !important;
 
     .profile-img-posts {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         background-color: $img;
+    }
+}
+
+.posts {
+    border-radius: 21px !important;
+    background-color: $secondary !important;
+    position: static !important;
+    top: 0 !important;
+    width: 100% !important;
+
+    .profile-img-posts {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+
+    .btn-comment {
+        background-color: $comment !important;
     }
 
     .btn-post {
@@ -62,27 +45,6 @@
     .btn-post:active {
         background-color: $orange !important;
         border: none !important;
-    }
-
-    .dropzone {
-        background-color: transparent !important;
-        border: 1px dashed $dropzone;
-        border-radius: 14px;
-
-        a.dz-remove {
-            color: $orange !important;
-        }
-
-        .dz-preview.dz-image-preview {
-            background-color: transparent !important;
-        }
-
-        .dz-preview {
-            .dz-image {
-                height: 89px;
-            }
-        }
-
     }
 
 }

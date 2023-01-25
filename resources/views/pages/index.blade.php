@@ -34,13 +34,13 @@
     </div>
 </div>
 <div class="container-fluid px-4 py-md-5 py-0">
-    <h1 class="display-6">Check <span class="fw-bold">what's happening!</span></h1>
+    <h1 class="display-6 mb-3">Check <span class="fw-bold">what's happening!</span></h1>
     <div class="row row-cols-md-2 row-cols-1 py-3">
-        <div class="col-10 col-sm-8 col-lg-8">
+        <div class="col-12 col-sm-8 col-lg-8">
             <div class="recent-card card mb-3 p-3">
                 <div class="row g-0">
-                    <div class="col-md-3">
-                        <img src="/images/home-images/recent.png" class="img-fluid" alt="">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center">
+                        <img src="{{asset('/images/home-images/recent.png')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

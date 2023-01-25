@@ -5,6 +5,12 @@
     color: $white !important;
 }
 
+.btn-primary {
+    background-color: $orange !important;
+    font-family: Plus Jakarta Sans Bold, sans-serif !important;
+    border: none !important;
+}
+
 .btn:focus {
     box-shadow: none !important;
 }

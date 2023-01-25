@@ -1,0 +1,39 @@
+@use "abstracts" as *;
+
+.settings {
+    .settings-header {
+        color: $orange;
+        font-family: Plus Jakarta Sans XBold, sans-serif;
+    }
+
+    span.rules {
+        font-family: Plus Jakarta Sans Bold, sans-serif !important;
+    }
+
+    .profile-header {
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+
+    .change-profile-card {
+        background-color: transparent !important;
+        border: none !important;
+
+        .btn-change {
+            background-color: $orange;
+            color: $white;
+        }
+
+        .btn-delete {
+            background-color: $white;
+            color: $orange !important;
+            border: 1px solid $orange;
+        }
+    }
+
+    .btn-save {
+        background-color: $orange !important;
+        font-size: 14px;
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+
+}
