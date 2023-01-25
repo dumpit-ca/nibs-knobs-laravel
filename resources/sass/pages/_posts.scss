@@ -6,6 +6,20 @@
     width: 100% !important;
     position: static !important;
     top: 0 !important;
+
+    .profile-img-posts {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+}
+
+.posts {
+    border-radius: 21px !important;
+    background-color: $secondary !important;
+    position: static !important;
+    top: 0 !important;
     width: 100% !important;
 
     .profile-img-posts {
@@ -14,4 +28,23 @@
         border-radius: 50%;
         background-color: $img;
     }
+
+    .btn-comment {
+        background-color: $comment !important;
+    }
+
+    .btn-post {
+        background-color: $orange;
+        bottom: 0;
+    }
+
+    .btn-post:hover {
+        background-color: $orange;
+    }
+
+    .btn-post:active {
+        background-color: $orange !important;
+        border: none !important;
+    }
+
 }
