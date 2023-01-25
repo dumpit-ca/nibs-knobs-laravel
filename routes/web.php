@@ -17,9 +17,6 @@ Auth::routes();
 
 // Front
 Route::get('/', 'PageController@index')->name('index');
-Route::get('/posts', 'PageController@posts')->name('posts');
-Route::get('/profile', 'PageController@profile')->name('profile');
-Route::get('/profile/settings', 'PageController@settings')->name('settings');
 Route::get('/gallery', 'PageController@GalleryIndex')->name('gallery');
 Route::get('/gallery/kitchen', 'PageController@KitchenIndex')->name('kitchen');
 Route::get('/gallery/bedroom', 'PageController@BedroomIndex')->name('bedroom');
@@ -33,10 +30,11 @@ Route::get('/gallery/home-office', 'PageController@HomeOfficeIndex')->name('home
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'UserController@logout')->name('logout');
+    Route::get('/home', 'UserController@posts')->name('home');
+    Route::get('/home/create-post', 'PostController@store')->name('post.create');
 
-
-    Route::get('/home', 'PageController@posts')->name('home');
-
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::get('/profile/settings', 'UserController@settings')->name('settings');
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
         Route::get('/dashboard', 'PageController@dashboard')->name('admin.home');

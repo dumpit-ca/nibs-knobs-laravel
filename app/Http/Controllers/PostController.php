@@ -49,12 +49,15 @@ class PostController extends Controller
     {
         // dd($request->all());
        $valid = Validator::make($request->all(), [
-            'content' => 'required|string|max:255',
+            'content' => 'required|string',
+            'title' => 'required|string',
+            'category' => 'required|string',
             'image' => 'required',
         ],
     [
             'image.required' => 'Image is required.',
 			'content.required' => 'Content is required.',
+            'title.required' => 'Title is required.',
     ]);
 
         if ($valid->fails()) {
@@ -71,7 +74,9 @@ class PostController extends Controller
 
 			$post = Posts::create([
                 'user_id' => auth()->user()->id,
+                'title' => $request->title,
                 'content' => $request->content,
+                'category' => $request->category,
                 'image' => $file,
             ]);
 

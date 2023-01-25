@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('category');
+            $table->string('title');
             $table->text('content');
             $table->string('image');
             $table->integer('likes')->default(0);
