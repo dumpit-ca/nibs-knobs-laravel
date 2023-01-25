@@ -5,12 +5,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    overflow: hidden !important;
+    // overflow-x: hidden !important;
 
     form {
         background-color: $primary !important;
         min-height: 100vh;
+        overflow: hidden !important;
 
         .register-header {
             font-family: Plus Jakarta Sans XBold, sans-serif;
