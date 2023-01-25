@@ -15,10 +15,6 @@
   font-family: Plus Jakarta Sans XBold;
   src: url("/fonts/PlusJakartaSans-ExtraBold.ttf");
 }
-.SoraBold {
-  font-family: SoraBold, sans-serif;
-}
-
 .RockSalt {
   font-family: RockSalt;
 }
@@ -267,6 +263,9 @@ body {
   border-radius: 50%;
   background-color: #D9D9D9;
 }
+.create-posts .input-file {
+  width: 25%;
+}
 
 .posts {
   border-radius: 21px !important;
@@ -296,6 +295,11 @@ body {
   border: none !important;
 }
 
+@media (max-width: 575.98px) {
+  .input-file {
+    width: 100% !important;
+  }
+}
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

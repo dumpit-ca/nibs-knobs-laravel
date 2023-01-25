@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\User;
+use App\Posts;
 use Session;
 use Validator;
 use Hash;
@@ -142,9 +143,10 @@ class UserController extends Controller
 
      public function posts(){
         $user = Auth::user();
+        $posts = Posts::get();
          return view('pages.posts',
-         ['user' => $user]
-         );
+         ['user' => $user, 'posts' => $posts]);
+
      }
       public function profile(){
          return view('pages.profile');
@@ -156,4 +158,9 @@ class UserController extends Controller
     public function dashboard(){
         return view ('pages.admin.dashboard');
     }
+
+    public function users(){
+        return view('pages.admin.users');
+     }
+
 }

@@ -7,26 +7,26 @@
         <li>
             <a href="{{route('dashboard')}}">
                 <i class='bx bxs-dashboard'></i>
-                <span class="link_name">Dashboard</span>
+                <span class="link_name fs-6">Dashboard</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Dashboard</a></li>
+                <li><a class="link_name fs-6" href="#">Dashboard</a></li>
             </ul>
         </li>
         <li>
             <a href="#">
                 <i class='bx bxs-contact'></i>
-                <span class="link_name">Contact Us</span>
+                <span class="link_name fs-6">Contact Us</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Contact Us</a></li>
+                <li><a class="link_name fs-6" href="#">Contact Us</a></li>
             </ul>
         </li>
         <li>
             <div class="icon-link">
                 <a href="#">
                     <i class='bx bxs-bar-chart-square'></i>
-                    <span class="link_name">Designs</span>
+                    <span class="link_name fs-6">Designs</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow'></i>
             </div>
@@ -44,13 +44,13 @@
             <div class="icon-link">
                 <a href="#">
                     <i class='bx bxs-cog'></i>
-                    <span class="link_name">Settings</span>
+                    <span class="link_name fs-6">Settings</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow'></i>
             </div>
             <ul class="sub-menu">
                 {{-- <li><a class="link_name" href="#"></a></li> --}}
-                <li><a href="#">User Management</a></li>
+                <li><a class="fs-6" href="#">User Management</a></li>
             </ul>
         </li>
     </ul>
