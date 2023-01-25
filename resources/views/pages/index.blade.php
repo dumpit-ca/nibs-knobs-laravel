@@ -71,6 +71,8 @@
                 </div>
             </div>
         </div>
+        @if(!Auth::check())
+
         <div class="col-md-10 mx-auto col-lg-4">
             <form class="p-4 p-md-5 rounded-3 login-form" data-bitwarden-watching="1" method="POST" action="{{ route('login') }}" >
                 @csrf
@@ -96,6 +98,7 @@
                 </div>
             </form>
         </div>
+        @endif
     </div>
 </div>
 @endsection

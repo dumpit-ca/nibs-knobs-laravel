@@ -11,8 +11,12 @@
 |
 */
 
+// Auth
+Auth::routes();
+
+
 // Front
-Route::get('/', 'PageController@index')->name('intro');
+Route::get('/', 'PageController@index')->name('index');
 
 Route::get('/gallery', 'PageController@GalleryIndex')->name('gallery');
 Route::get('/gallery/kitchen', 'PageController@KitchenIndex')->name('kitchen');
@@ -23,12 +27,14 @@ Route::get('/gallery/space-saving', 'PageController@SpaceSavingIndex')->name('sp
 Route::get('/gallery/home-office', 'PageController@HomeOfficeIndex')->name('homeoffice');
 
 
-// Auth
-Auth::routes();
 
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/logout', 'UserController@logout')->name('logout');
+
+
     Route::get('/home', 'PageController@posts')->name('home');
+
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
         Route::get('/dashboard', 'PageController@dashboard')->name('admin.home');
