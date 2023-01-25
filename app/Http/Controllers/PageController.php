@@ -23,5 +23,8 @@ class PageController extends Controller
     public function dashboard(){
         return view ('pages.admin.dashboard');
     }
+    public function users(){
+        return view ('pages.admin.users');
+    }
 
 }

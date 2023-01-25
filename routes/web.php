@@ -33,4 +33,8 @@ Auth::routes();
 
 
 // Admin
+Route::get('/admin', function () {
+    return redirect('/dashboard');
+});
 Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+Route::get('/admin/users', 'PageController@users')->name('users');
