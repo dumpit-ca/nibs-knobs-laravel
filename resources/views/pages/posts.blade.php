@@ -38,6 +38,9 @@
                 <div class="my-4">
                     <textarea class="form-control"></textarea>
                 </div>
+                <div class="mb-3 input-file">
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <button class="btn btn-primary me-md-2 px-5" type="button">Post Entry</button>
                 </div>

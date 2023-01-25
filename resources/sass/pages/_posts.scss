@@ -13,6 +13,10 @@
         border-radius: 50%;
         background-color: $img;
     }
+
+    .input-file {
+        width: 25%;
+    }
 }
 
 .posts {
@@ -47,4 +51,10 @@
         border: none !important;
     }
 
+}
+
+@media (max-width: 575.98px) {
+    .input-file {
+        width: 100% !important;
+    }
 }
