@@ -12,23 +12,25 @@
 */
 
 // Front
-Route::get('/home', 'PageController@index')->name('home');
-Route::get('/', function () {
-    return redirect('/home');
-});
-Route::get('/posts', 'PageController@posts')->name('posts');
-Route::get('/gallery', 'GalleryController@index')->name('gallery');
-Route::get('/gallery/kitchen', 'KitchenController@index')->name('kitchen');
-Route::get('/gallery/bedroom', 'BedroomController@index')->name('bedroom');
-Route::get('/gallery/living-room', 'LivingRoomController@index')->name('livingroom');
-Route::get('/gallery/bathroom', 'BathroomController@index')->name('bathroom');
-Route::get('/gallery/space-saving', 'SpaceSavingController@index')->name('spacesaving');
-Route::get('/gallery/home-office', 'HomeOfficeController@index')->name('homeoffice');
+Route::get('/', 'PageController@index')->name('intro');
+
+Route::get('/gallery', 'PageController@GalleryIndex')->name('gallery');
+Route::get('/gallery/kitchen', 'PageController@KitchenIndex')->name('kitchen');
+Route::get('/gallery/bedroom', 'PageController@BedroomIndex')->name('bedroom');
+Route::get('/gallery/living-room', 'PageController@LivingRoomIndex')->name('livingroom');
+Route::get('/gallery/bathroom', 'PageController@BathroomIndex')->name('bathroom');
+Route::get('/gallery/space-saving', 'PageController@SpaceSavingIndex')->name('spacesaving');
+Route::get('/gallery/home-office', 'PageController@HomeOfficeIndex')->name('homeoffice');
 
 
 // Auth
 Auth::routes();
 
 
-// Admin
-Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/home', 'PageController@posts')->name('home');
+
+    Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
+        Route::get('/dashboard', 'PageController@dashboard')->name('admin.home');
+    });
+});

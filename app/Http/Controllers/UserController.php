@@ -16,14 +16,49 @@ use DB;
 
 class UserController extends Controller
 {
-    //
+
     protected function login() {
 		if (!Auth::check())
-			return view('login');
+		     return view('auth.login');
 		else
-			return redirect()->route('/');
+			return redirect()->route('/home');
 	}
 
+    // protected function login() {
+	// 	if (!Auth::check())
+	// 		return view('login');
+	// 	elseif(Auth::check())
+	// 		return redirect('admin/dashboard');
+	// 	else
+	// 		return redirect()->back();
+	// }
+    protected function create(Request $req) {
+		return view('admin.users.create');
+	}
+
+	public function authenticate(Request $req)
+    {
+        $credentials = [
+            'email' => $req->email,
+            'password' => $req->password
+        ];
+
+        if(!Auth::attempt($credentials))
+        {
+            auth()->logout();
+            Session::flash('flash_error','Wrong username/password!');
+
+            return redirect()->back();
+        }
+
+        $user = Auth::user();
+
+        Session::flash('flash_message','Logged in!');
+
+        return redirect()
+            ->route('home')
+            ->with('flash_message', 'Logged in!');
+    }
 
 	protected function logout() {
 		if (Auth::check()) {

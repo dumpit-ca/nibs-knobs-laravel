@@ -72,19 +72,26 @@
             </div>
         </div>
         <div class="col-md-10 mx-auto col-lg-4">
-            <form class="p-4 p-md-5 rounded-3 login-form" data-bitwarden-watching="1">
+            <form class="p-4 p-md-5 rounded-3 login-form" data-bitwarden-watching="1" method="POST" action="{{ route('login') }}" >
+                @csrf
                 <h1 class="fs-2 fw-bold">Continue Exploring</h1>
                 <p class="fs-5 mb-2">Login your account now!</p>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Username">
-                    <label for="floatingInput">Username</label>
+                <div class="form-floating mb-3" >
+                    <input type="text" class="form-control" name="email" id="floatingInput" placeholder="Email">
+                    <label for="floatingInput" >Email</label>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="{{route('posts')}}" class="btn btn-login px-5 w-100">Login Account</a>
+                    <button class="btn btn-login px-5 w-100" type="submit"> Login Account</button>
                     <a href="{{route('register')}}" class="btn btn-register px-5 w-100">Register Account</a>
                 </div>
             </form>

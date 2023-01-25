@@ -13,7 +13,7 @@
                     <h5 class="profile-name card-title">Jhon Louie</h5>
                     <p class="card-text text-muted"><small>@thejldeleon</small></p>
                     <p class="card-text fs-6">✨ A Certified Minimalist ✨</p>
-                    <a href="{{route('profile')}}" class="btn btn-view-post px-5 fs-6">View my Posts</a>
+                    <a href="" class="btn btn-view-post px-5 fs-6">View my Posts</a>
                 </div>
             </aside>
         </div>

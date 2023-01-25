@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('username')->unique();
+            $table->string('type')->default('guest');
             $table->string('address');
             $table->string('contact');
             $table->string('password');
