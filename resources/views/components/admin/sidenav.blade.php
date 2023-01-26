@@ -50,7 +50,7 @@
             </div>
             <ul class="sub-menu">
                 {{-- <li><a class="link_name" href="#"></a></li> --}}
-                <li><a class="fs-6" href="#">User Management</a></li>
+                <li><a class="fs-6" href="{{route('users')}}">User Management</a></li>
             </ul>
         </li>
     </ul>
