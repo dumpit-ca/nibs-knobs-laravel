@@ -2,7 +2,7 @@
 @section('title', 'Register')
 @section('content')
 <div class="container-fluid p-0 registration">
-    <div class="row align-items-center g-lg-5 vh-100">
+    <div class="row align-items-center g-lg-5">
         <div class="col-lg-7 text-center text-lg-start">
             <h1 class="RockSalt text-center display-1 lh-2 mb-3 transform">Nibs &amp; <br> Knobs</h1>
         </div>
@@ -51,7 +51,7 @@
 
                     </label>
                 </div>
-                <div class="d-grid d-md-block p-0 mb-5">
+                <div class="d-grid d-md-block p-0 my-md-2 my-3">
                     <button class="btn btn-register px-5 fs-6" type="button">Register Account</button>
                 </div>
             </form>

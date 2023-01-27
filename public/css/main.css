@@ -48,6 +48,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden !important;
 }
 .registration form {
   background-color: #121212 !important;
@@ -168,7 +169,6 @@ textarea {
 
 input[type=text],
 input[type=password] {
-  background-color: transparent;
   border: 1px solid #ffffff;
 }
 
