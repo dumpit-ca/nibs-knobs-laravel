@@ -41,5 +41,21 @@
             </tbody>
         </table>
     </div>
+    <nav class="mt-4" aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <i class='bx bx-chevron-left'></i>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <i class='bx bx-chevron-right'></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 @endsection
