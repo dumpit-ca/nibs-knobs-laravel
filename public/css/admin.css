@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @font-face {
+  font-family: Barlow Semi Condensed;
+  src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
+}
+@font-face {
   font-family: RockSalt;
   src: url("/fonts/RockSalt-Regular.ttf");
 }
@@ -276,11 +280,28 @@
   color: #ffffff !important;
 }
 
+textarea {
+  resize: none !important;
+}
+
+.form-floating > label {
+  color: #717171;
+}
+
+::-moz-placeholder {
+  font-size: 14px !important;
+}
+
+::placeholder {
+  font-size: 14px !important;
+}
+
 body {
   background-color: #ffffff;
   overflow-x: hidden !important;
   font-family: Plus Jakarta Sans, sans-serif !important;
   font-weight: 400 !important;
+  height: 100vh;
 }
 
 .stats-card .stats-card-title, .stats-card .stats-card-subheader {
@@ -290,6 +311,33 @@ body {
 }
 .stats-card .stats-card-subheader {
   color: #747474;
+}
+
+.view-posts img {
+  border-radius: 10px;
+}
+.view-posts .btn-delete, .view-posts .btn-save, .view-posts .btn-cancel:hover, .view-posts .btn-cancel {
+  background-color: #ff5e15;
+  color: #ffffff;
+  font-family: Barlow Semi Condensed, sans-serif;
+  font-size: 15.51PX;
+}
+.view-posts .btn-delete:hover, .view-posts .btn-save:hover, .view-posts .btn-cancel:hover {
+  background-color: #ff5e15;
+  color: #ffffff;
+  font-family: Barlow Semi Condensed, sans-serif;
+  font-size: 15.51PX;
+}
+.view-posts .btn-cancel {
+  background-color: #F5F5F5;
+  color: #ff5e15;
+}
+.view-posts .btn-cancel:hover {
+  background-color: #F5F5F5;
+  color: #ff5e15;
+}
+.view-posts label {
+  font-family: Plus Jakarta Sans Bold, sans-serif;
 }
 
 /*!

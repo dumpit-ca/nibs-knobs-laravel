@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @font-face {
+  font-family: Barlow Semi Condensed;
+  src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
+}
+@font-face {
   font-family: RockSalt;
   src: url("/fonts/RockSalt-Regular.ttf");
 }
