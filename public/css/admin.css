@@ -312,13 +312,46 @@ body {
   height: 100vh;
 }
 
-.stats-card .stats-card-title, .stats-card .stats-card-subheader {
-  font-family: "BarlowBold", sans-serif;
+.dashboard h1 {
+  font-family: "Plus Jakarta Sans XBold", sans-serif;
+}
+.dashboard .admin-table-head-dashboard {
+  background-color: #E2E8F0;
+  color: #ff5e15;
+}
+.dashboard #chart {
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+}
+.dashboard .stats-card .icon {
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background-color: #ff5e15;
+  color: #ffffff;
+}
+.dashboard .stats-card .icon .bx-trending-up::before {
+  font-weight: 900;
+}
+.dashboard .stats-card .icon .bxs-user::before {
+  font-weight: 900;
+}
+.dashboard .stats-card .total {
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+}
+.dashboard .stats-card .stats-card-title {
+  font-family: "Plus Jakarta Sans Bold", sans-serif;
   color: #ff5e15;
   line-height: 20px;
 }
-.stats-card .stats-card-subheader {
-  color: #747474;
+.dashboard .stats-card .stats-category {
+  font-family: "Plus Jakarta Sans Bold", sans-serif;
+  color: #ABABAB;
+}
+.dashboard .stats-card .stats-number {
+  font-family: "Plus Jakarta Sans XBold", sans-serif;
+  color: #ff5e15;
 }
 
 .view-posts img {
