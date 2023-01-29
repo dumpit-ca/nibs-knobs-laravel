@@ -3,7 +3,7 @@
 @section('body')
 <div class="container-fluid p-lg-4">
     <h1 class="display-6 page-title">Post Management</h1>
-    <div class="admin-table h-100 p-3">
+    <div class="admin-table h-100 p-3 mt-4">
         <table class="table table-responsive caption-top">
             <caption class="fs-4 admin-table-caption">
                 Posts
