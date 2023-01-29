@@ -1,0 +1,20 @@
+@use "abstracts" as *;
+
+.comment {
+    border-radius: 21px !important;
+    background-color: $secondary !important;
+    position: static !important;
+    top: 0 !important;
+    width: 100% !important;
+
+    .profile-img-posts {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $img;
+    }
+}
+
+.view-comment {
+    background-color: $comment !important;
+}

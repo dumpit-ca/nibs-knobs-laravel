@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="posts p-3 mb-4 mt-md-0 mt-4">
+            <div class="posts p-4 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
                         <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
@@ -80,51 +80,23 @@
                         facilisis mauris sit amet massa vitae tortor.
                     </p>
                 </div>
-                <a href="#" class="btn btn-comment mt-3">
-                    <i class='bx bx-message-rounded me-1 fs-6'></i>
-                    <span class="fs-6 fw-normal">Comment</span>
-                </a>
+                <form action="" class="row mt-4 align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-md-block d-none">
+                            <img src="{{asset('/images/img-placeholder.png')}}" alt=""
+                                class="profile-img-posts img-fluid">
+                        </div>
+                        <div class="col-md col-10">
+                            <input type="text" class="form-control" placeholder="Add a comment...">
+                        </div>
+                        <div class="col-md col-2">
+                            <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
 
-            <div class="posts p-3 mb-4 mt-md-0 mt-4">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="me-3">
-                        <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
-                    </div>
-                    <div class="profile me-auto">
-                        <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
-                                class="fs-6 fw-normal">@thejldeleon</span>
-                        </p>
-                        <p class="fs-6 card-text text-muted m-0">will post something</p>
-                    </div>
-
-                    <div class="btn-group">
-                        <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
-                            aria-expanded="false"></i>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <p class="card-title fs-5 mb-4">Title of post</p>
-                </div>
-                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4" alt="...">
-                <div class="card-body">
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna
-                        aliqua. Duis at consectetur lorem donec. Dolor magna eget est lorem. Vel eros donec ac odio
-                        tempor. Volutpat odio
-                        facilisis mauris sit amet massa vitae tortor.
-                    </p>
-                </div>
-                <a href="#" class="btn btn-comment mt-3">
-                    <i class='bx bx-message-rounded me-1 fs-6'></i>
-                    <span class="fs-6 fw-normal">Comment</span>
-                </a>
-            </div>
         </div>
     </div>
 </div>
