@@ -18,7 +18,7 @@
                 <span class="link_name fs-6">Posts</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name fs-6" href="#">Posts</a></li>
+                <li><a class="link_name fs-6" href="{{route('posts')}}">Posts</a></li>
             </ul>
         </li>
         <li>
