@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Profile')
 @section('content')
-<div class="container-fluid p-lg-5 p-3 vh-100">
+<div class="container p-lg-5 p-3 vh-100">
     <div class="row">
         <div class="col-md-4">
             <aside class="profile-card card">
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">Title of post</p>
                 </div>
-                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4" alt="...">
+                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
                     <p class="card-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
