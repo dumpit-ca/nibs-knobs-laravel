@@ -27,10 +27,10 @@
                     <td>02:32 PM</td>
                     <td>
                         <div class="d-grid gap-3 d-md-block">
-                            <button class="btn btn-actions" type="button">
+                            <a href="{{route('view')}}" class=" btn btn-actions text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 View
-                            </button>
+                            </a>
                             <button class="btn btn-actions" type="button">
                                 <i class='bx bxs-trash'></i>
                                 Delete
