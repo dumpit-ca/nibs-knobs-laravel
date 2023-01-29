@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Posts')
 @section('content')
-<div class="container-fluid p-lg-5 p-3">
+<div class="container p-lg-5 p-3">
     <div class="row">
         <div class="col-md-4">
             <aside class="profile-card card border-0">
@@ -49,7 +49,8 @@
             <div class="posts p-4 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
+                        <img src="{{asset('/images/img-placeholder.png')}}" alt="user profile image"
+                            class="profile-img-posts img-fluid">
                     </div>
                     <div class="profile me-auto">
                         <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
@@ -70,7 +71,7 @@
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">Title of post</p>
                 </div>
-                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4" alt="...">
+                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
                     <p class="card-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -80,16 +81,15 @@
                         facilisis mauris sit amet massa vitae tortor.
                     </p>
                 </div>
-                <form action="" class="row mt-4 align-items-center">
+                <form action="" class="mt-4">
                     <div class="d-flex align-items-center gap-3">
                         <div class="d-md-block d-none">
-                            <img src="{{asset('/images/img-placeholder.png')}}" alt=""
-                                class="profile-img-posts img-fluid">
+                            <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts">
                         </div>
-                        <div class="col-md col-10">
+                        <div class="my-3 w-100">
                             <input type="text" class="form-control" placeholder="Add a comment...">
                         </div>
-                        <div class="col-md col-2">
+                        <div class="">
                             <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>
                         </div>
                     </div>
