@@ -1,0 +1,13 @@
+@use "abstracts" as *;
+
+textarea {
+    resize: none !important;
+}
+
+.form-floating > label {
+    color: $floatLabel;
+}
+
+::placeholder {
+    font-size: 14px !important;
+}
