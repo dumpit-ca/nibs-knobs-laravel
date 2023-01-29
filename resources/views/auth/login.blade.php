@@ -22,35 +22,37 @@
                 <span class="RockSalt text-uppercase d-inline-block mt-lg-0 mt-3 transform"
                     id="slogan">fingertips</span>
             </p>
-
-            <div class="mb-3 text-start">
-                <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control" />
-            </div>
-
-            <div class="mb-3 text-start">
-                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="password" class="form-control" />
-            </div>
-
-            <div class="mb-3 text-start">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                    <label class="form-check-label" for="remember">
-                        Remember Me?
-                    </label>
+            <form action="">
+                <div class="mb-3 text-start">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="text" class="form-control" />
                 </div>
-            </div>
 
-            <div class="d-grid gap-2 d-md-block text-start mt-4">
-                <button type="submit" class="btn btn-login">
-                    Login
-                </button>
+                <div class="mb-3 text-start">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" />
+                </div>
 
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    Forgot Your Password?
-                </a>
-            </div>
+                <div class="mb-3 text-start">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                        <label class="form-check-label" for="remember">
+                            Remember Me?
+                        </label>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-block text-start mt-4">
+                    <button type="submit" class="btn btn-login">
+                        Login
+                    </button>
+
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        Forgot Your Password?
+                    </a>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
