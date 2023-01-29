@@ -34,12 +34,12 @@
                     <input type="text" class="form-control" placeholder="Address">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="inputUsername" class="form-label">Password</label>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="******">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="inputNumber" class="form-label">Repeat Password:</label>
-                    <input type="text" class="form-control" placeholder="Contact Number">
+                    <label for="inputRepeatPassword" class="form-label">Repeat Password:</label>
+                    <input type="password" class="form-control" placeholder="******">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
