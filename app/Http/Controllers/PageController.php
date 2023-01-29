@@ -24,7 +24,7 @@ class PageController extends Controller
         return view ('pages.admin.dashboard');
     }
     public function users(){
-        return view ('pages.admin.users');
+        return view ('pages.admin.users.users');
     }
     public function AdminPosts(){
         return view ('pages.admin.posts.posts');
