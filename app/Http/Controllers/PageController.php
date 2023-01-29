@@ -27,7 +27,10 @@ class PageController extends Controller
         return view ('pages.admin.users');
     }
     public function AdminPosts(){
-        return view ('pages.admin.posts');
+        return view ('pages.admin.posts.posts');
+    }
+    public function ViewPosts(){
+        return view ('pages.admin.posts.view');
     }
 
 }

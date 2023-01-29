@@ -39,3 +39,4 @@ Route::get('/admin', function () {
 Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
 Route::get('/admin/users', 'PageController@users')->name('users');
 Route::get('/admin/posts', 'PageController@AdminPosts')->name('posts');
+Route::get('/admin/posts/view', 'PageController@ViewPosts')->name('view');
