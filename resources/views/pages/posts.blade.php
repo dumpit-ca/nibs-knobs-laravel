@@ -51,12 +51,21 @@
                     <div class="me-3">
                         <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
                     </div>
-                    <div class="profile">
+                    <div class="profile me-auto">
                         <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
                                 class="fs-6 fw-normal">@thejldeleon</span>
                         </p>
                         <p class="fs-6 card-text text-muted m-0">will post something</p>
                     </div>
+
+                    <div class="btn-group">
+                        <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
+                            aria-expanded="false"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">Title of post</p>
@@ -77,22 +86,31 @@
                 </a>
             </div>
 
-            <div class="posts p-3 mb-4">
+            <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
                         <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
                     </div>
-                    <div class="profile">
+                    <div class="profile me-auto">
                         <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
                                 class="fs-6 fw-normal">@thejldeleon</span>
                         </p>
                         <p class="fs-6 card-text text-muted m-0">will post something</p>
                     </div>
+
+                    <div class="btn-group">
+                        <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
+                            aria-expanded="false"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">Title of post</p>
                 </div>
-                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4 mx-auto d-block" alt="...">
+                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4" alt="...">
                 <div class="card-body">
                     <p class="card-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
