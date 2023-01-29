@@ -4,7 +4,8 @@
 <div class="container-fluid p-lg-4">
     <h1 class="display-6 page-title">User Management</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-add-users me-md-2 text-uppercase d-flex align-items-center px-4 rounded-1" type="button">
+        <a href="{{route('create')}}"
+            class="btn btn-add-users me-md-2 text-uppercase d-flex align-items-center px-4 rounded-1">
             <i class='bx bxs-plus-circle me-1'></i>
             ADD USER
         </a>
@@ -35,7 +36,8 @@
                     <td>Admin</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-users-actions"><i class='bx bxs-pencil'></i></button>
+                            <a href="{{route('update')}}" class="btn btn-users-actions"><i
+                                    class='bx bxs-pencil'></i></a>
                             <button type="button" class="btn btn-users-actions"><i
                                     class='bx bx-toggle-left'></i></button>
                             <button type="button" class="btn btn-users-actions"><i
