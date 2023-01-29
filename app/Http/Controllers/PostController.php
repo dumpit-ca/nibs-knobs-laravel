@@ -66,7 +66,7 @@ class PostController extends Controller
 			DB::beginTransaction();
 
             $destinationPath = 'uploads/posts';
-            $photoExtension = $request->file('image')->extension();
+            $photoExtension = $request->file('image')->getClientOriginalExtension();
             $file = 'image'.uniqid().'.'.$photoExtension;
             $request->file('image')->move($destinationPath, $file);
 

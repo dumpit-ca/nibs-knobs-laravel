@@ -32,12 +32,19 @@
                     </div>
                 </div>
                <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                        <div class="form-floating mb-3">
+                            <input type="file" name="image" class="form-control" id="floatingInput" >
+                            <label for="floatingInput">Post Image</label>
+                            <span class="badge badge-danger w-100 validation-message">{{$errors->first('image')}}</span>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="title" class="form-control" id="floatingInput" placeholder="Post Title">
                             <label for="floatingInput">Post Title</label>
+                            <span class="badge badge-danger w-100 validation-message">{{$errors->first('title')}}</span>
                         </div>
                         <div class=" form-floating mb-3">
-                            <select id="select" class="form-control form-select">
+                            <select id="select" name="category" class="form-control form-select">
                                 <option value="" selected>Choose a Category</option>
                                 <option value="Bedroom">Bedroom</option>
                                 <option value="Kitchen">Kitchen</option>
@@ -47,9 +54,10 @@
                                 <option value="Home Office">Home Office</option>
                               </select>
                             <label for="select">Category</label>
+                            <span class="badge badge-danger w-100 validation-message">{{$errors->first('category')}}</span>
                         </div>
                     <div class="my-4">
-                        <textarea class="form-control"></textarea>
+                        <textarea name="content" class="form-control"></textarea>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <button class="btn btn-primary me-md-2 px-5" type="submit">Post Entry</button>
