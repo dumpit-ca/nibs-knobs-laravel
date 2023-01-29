@@ -294,6 +294,23 @@ body {
   background-color: #ff5e15 !important;
   border: none !important;
 }
+.posts .btn-delete {
+  background-color: transparent !important;
+  color: #ff5e15 !important;
+}
+.posts .btn-delete:active {
+  border: none !important;
+}
+.posts .btn-icon {
+  cursor: pointer;
+}
+.posts li a.dropdown-item {
+  color: #ff5e15 !important;
+}
+.posts li a.dropdown-item:hover {
+  background-color: #ffffff;
+  color: #ff5e15 !important;
+}
 
 @media (max-width: 575.98px) {
   .input-file {

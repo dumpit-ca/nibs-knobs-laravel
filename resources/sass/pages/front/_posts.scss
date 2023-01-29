@@ -51,6 +51,28 @@
         border: none !important;
     }
 
+    .btn-delete {
+        background-color: transparent !important;
+        color: $orange !important;
+    }
+
+    .btn-delete:active {
+        border: none !important;
+    }
+
+    .btn-icon {
+        cursor: pointer;
+    }
+
+    li a.dropdown-item {
+        color: $orange !important;
+    }
+
+    li a.dropdown-item:hover {
+        background-color: $white;
+        color: $orange !important;
+    }
+
 }
 
 @media (max-width: 575.98px) {
