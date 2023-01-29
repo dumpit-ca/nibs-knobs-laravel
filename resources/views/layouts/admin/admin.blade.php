@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/1d56e9de16.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon">
@@ -35,6 +36,8 @@
     </main>
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="{{ asset('/js/admin.js') }}"></script>
+    <script src="{{ asset('/js/dashboard.js') }}"></script>
+
     @yield('script')
 </body>
 
