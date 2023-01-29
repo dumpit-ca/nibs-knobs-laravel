@@ -37,6 +37,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/profile/settings', 'UserController@settings')->name('profile.settings');
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
-        Route::get('/dashboard', 'PageController@dashboard')->name('admin.home');
+        Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+
+        Route::get('/users', 'PageController@users')->name('users');
+
+        Route::get('/posts', 'PageController@AdminPosts')->name('posts');
+        Route::get('/posts/view', 'PageController@ViewPosts')->name('view');
+        Route::get('/posts/create', 'PageController@create')->name('create');
+        Route::get('/posts/update', 'PageController@update')->name('update');
     });
 });
+

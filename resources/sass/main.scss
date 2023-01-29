@@ -1,7 +1,7 @@
 @use "/auth";
-@use "/components";
+@use "/components/front-components";
 @use "/layout";
-@use "/pages";
+@use "/pages/front";
 @use "~bootstrap/scss/bootstrap";
 @use "~slick-carousel/slick/slick";
 @use "~slick-carousel/slick/slick-theme";

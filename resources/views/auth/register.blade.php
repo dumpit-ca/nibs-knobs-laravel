@@ -2,7 +2,7 @@
 @section('title', 'Register')
 @section('content')
 <div class="container-fluid p-0 registration">
-    <div class="row align-items-center g-lg-5 vh-100">
+    <div class="row align-items-center g-lg-5">
         <div class="col-lg-7 text-center text-lg-start">
             <h1 class="RockSalt text-center display-1 lh-2 mb-3 transform">Nibs &amp; <br> Knobs</h1>
         </div>
@@ -36,11 +36,11 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputUsername" class="form-label">Password</label>
-                    <input type="text" class="form-control" name="password" placeholder="Username">
+                    <input type="password" class="form-control" name="password" placeholder="********">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputNumber" class="form-label">Repeat Password:</label>
-                    <input type="text" class="form-control" name="password_confirmation" placeholder="Contact Number">
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="********">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">

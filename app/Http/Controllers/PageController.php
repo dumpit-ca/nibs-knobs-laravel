@@ -19,10 +19,8 @@ class PageController extends Controller
     public function settings(){
         return view ('pages.settings');
     }
-    // Admin
-    public function dashboard(){
-        return view ('pages.admin.dashboard');
-    }
+
+
     public function GalleryIndex(){
         $kitchens = [
             ['name' => 'room-name 1', 'dimensions' => '18 x 21', 'image' => 'home-1.png'],
@@ -167,6 +165,7 @@ public function SpaceSavingIndex(){
         'spacesavings' => $spacesavings,
     ]);
 }
+
 
 
 }

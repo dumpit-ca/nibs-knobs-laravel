@@ -1,14 +1,56 @@
 @use 'abstracts' as *;
 
-.stats-card {
-    .stats-card-title {
-        font-family: 'BarlowBold', sans-serif;
-        color: $orange;
-        line-height: 20px;
+.dashboard {
+    h1 {
+        font-family: 'Plus Jakarta Sans XBold', sans-serif;
     }
 
-    .stats-card-subheader {
-        @extend .stats-card-title;
-        color: $subheader;
+    .admin-table-head-dashboard {
+        background-color: $tableHeadDashboard;
+        color: $orange;
+    }
+
+    #chart {
+        border: 3px solid $tableBGButton;
+        border-radius: 10px;
+    }
+
+    .stats-card {
+        .icon {
+            width: 59px;
+            height: 59px;
+            border-radius: 50%;
+            background-color: $orange;
+            color: $white;
+
+            .bx-trending-up::before {
+                font-weight: 900;
+            }
+
+            .bxs-user::before {
+                font-weight: 900;
+            }
+        }
+
+        .total {
+            border: 3px solid $tableBGButton;
+            border-radius: 10px;
+        }
+
+        .stats-card-title {
+            font-family: 'Plus Jakarta Sans Bold', sans-serif;
+            color: $orange;
+            line-height: 20px;
+        }
+
+        .stats-category {
+            font-family: 'Plus Jakarta Sans Bold', sans-serif;
+            color: $stats;
+        }
+
+        .stats-number {
+            font-family: 'Plus Jakarta Sans XBold', sans-serif;
+            color: $orange;
+        }
     }
 }

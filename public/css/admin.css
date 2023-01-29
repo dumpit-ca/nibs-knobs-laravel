@@ -1,5 +1,17 @@
 @charset "UTF-8";
 @font-face {
+  font-family: Barlow Semi Condensed;
+  src: url("/fonts/BarlowSemiCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: Inter Medium;
+  src: url("/fonts/Inter-Medium.ttf");
+}
+@font-face {
   font-family: RockSalt;
   src: url("/fonts/RockSalt-Regular.ttf");
 }
@@ -240,20 +252,180 @@
     display: none;
   }
 }
+.page-title {
+  font-family: Plus Jakarta Sans XBold, sans-serif;
+}
+
+.admin-table {
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 3.53px;
+}
+.admin-table .admin-table-caption {
+  font-family: "Plus Jakarta Sans XBold", sans-serif;
+  color: #ff5e15;
+}
+.admin-table .admin-table-head {
+  color: #ff5e15 !important;
+  background-color: #f5f5f5;
+}
+.admin-table td {
+  color: #091e42 !important;
+  font-weight: 400;
+}
+.admin-table .btn-actions {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #eaeaea;
+}
+.admin-table .btn-actions:hover {
+  background-color: #eaeaea;
+}
+
+.pagination .page-item a.page-link {
+  color: #ff5e15 !important;
+}
+.pagination .page-item a.page-link:hover {
+  background-color: #ff5e15;
+  color: #ffffff !important;
+}
+
+textarea {
+  resize: none !important;
+}
+
+.form-floating > label {
+  color: #717171;
+}
+
+::-moz-placeholder {
+  font-size: 14px !important;
+}
+
+::placeholder {
+  font-size: 14px !important;
+}
+
 body {
   background-color: #ffffff;
   overflow-x: hidden !important;
-  font-family: Sora, sans-serif !important;
+  font-family: Plus Jakarta Sans, sans-serif !important;
   font-weight: 400 !important;
+  height: 100vh;
 }
 
-.stats-card .stats-card-title, .stats-card .stats-card-subheader {
-  font-family: "BarlowBold", sans-serif;
+.dashboard h1 {
+  font-family: "Plus Jakarta Sans XBold", sans-serif;
+}
+.dashboard .admin-table-head-dashboard {
+  background-color: #E2E8F0;
+  color: #ff5e15;
+}
+.dashboard #chart {
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+}
+.dashboard .stats-card .icon {
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background-color: #ff5e15;
+  color: #ffffff;
+}
+.dashboard .stats-card .icon .bx-trending-up::before {
+  font-weight: 900;
+}
+.dashboard .stats-card .icon .bxs-user::before {
+  font-weight: 900;
+}
+.dashboard .stats-card .total {
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+}
+.dashboard .stats-card .stats-card-title {
+  font-family: "Plus Jakarta Sans Bold", sans-serif;
   color: #ff5e15;
   line-height: 20px;
 }
-.stats-card .stats-card-subheader {
-  color: #747474;
+.dashboard .stats-card .stats-category {
+  font-family: "Plus Jakarta Sans Bold", sans-serif;
+  color: #ABABAB;
+}
+.dashboard .stats-card .stats-number {
+  font-family: "Plus Jakarta Sans XBold", sans-serif;
+  color: #ff5e15;
+}
+
+.view-posts img {
+  border-radius: 10px;
+}
+.view-posts .btn-delete, .view-posts .btn-save, .view-posts .btn-cancel:hover, .view-posts .btn-cancel {
+  background-color: #ff5e15;
+  color: #ffffff;
+  font-family: Barlow Semi Condensed, sans-serif;
+  font-size: 15.51PX;
+}
+.view-posts .btn-delete:hover, .view-posts .btn-save:hover, .view-posts .btn-cancel:hover {
+  background-color: #ff5e15;
+  color: #ffffff;
+  font-family: Barlow Semi Condensed, sans-serif;
+  font-size: 15.51PX;
+}
+.view-posts .btn-cancel {
+  background-color: #F5F5F5;
+  color: #ff5e15;
+}
+.view-posts .btn-cancel:hover {
+  background-color: #F5F5F5;
+  color: #ff5e15;
+}
+.view-posts label {
+  font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+
+.btn-add-users {
+  background-color: #ff5e15 !important;
+  color: #ffffff !important;
+  font-family: Barlow Semi Condensed, sans-serif !important;
+}
+
+.admin-table .btn-users-actions {
+  border: 1px #E2E8F0 solid;
+}
+.admin-table .btn-users-actions i {
+  color: #091e42;
+}
+.admin-table .btn-users-actions:hover {
+  border: 1px #E2E8F0 solid;
+}
+.admin-table .btn-users-actions:hover i {
+  color: #091e42;
+}
+
+.btn-submit, .btn-cancel:hover, .btn-cancel {
+  background-color: #ff5e15 !important;
+  color: #ffffff !important;
+  font-family: Barlow Semi Condensed, sans-serif !important;
+  font-size: 15.51px !important;
+}
+
+.form-title {
+  background-color: #E2E8F0;
+  color: #091e42;
+  font-family: "Inter", sans-serif;
+}
+
+.form-label {
+  color: #091e42;
+  font-family: "Inter Medium", sans-serif;
+}
+
+.btn-cancel {
+  background-color: #F5F5F5 !important;
+  color: #ff5e15 !important;
+}
+
+.btn-cancel:hover {
+  background-color: #F5F5F5 !important;
+  color: #ff5e15 !important;
 }
 
 /*!

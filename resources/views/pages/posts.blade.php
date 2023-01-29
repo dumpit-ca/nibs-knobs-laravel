@@ -65,13 +65,22 @@
                     <div class="me-3">
                         <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
                     </div>
-                    <div class="profile">
+                    <div class="profile me-auto">
                         @php $poster = App\User::find($post->user_id) @endphp
                         <p class="fs-6 card-title m-0" id="profile-name">{{ $poster->first_name }} <span
                                 class="fs-6 fw-normal">&#64;{{ $poster->username }} </span>
                         </p>
                         <p class="fs-6 card-text text-muted m-0">{{ $post->created_at }}</p>
                     </div>
+
+                    <div class="btn-group">
+                        <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
+                            aria-expanded="false"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">{{ $post->title }}</p>

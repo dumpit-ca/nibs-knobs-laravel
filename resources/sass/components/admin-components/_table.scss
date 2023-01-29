@@ -1,0 +1,30 @@
+@use "abstracts" as *;
+
+.admin-table {
+    border: 1px solid $table !important;
+    border-radius: 3.53px;
+
+    .admin-table-caption {
+        font-family: 'Plus Jakarta Sans XBold', sans-serif;
+        color: $orange;
+    }
+
+    .admin-table-head {
+        color: $orange !important;
+        background-color: $tableHead;
+    }
+
+    td {
+        color: $tableData !important;
+        font-weight: 400;
+    }
+
+    .btn-actions {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: $tableBGButton;
+    }
+
+    .btn-actions:hover {
+        background-color: $tableBGButton;
+    }
+}
