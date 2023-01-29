@@ -37,29 +37,7 @@ class UserController extends Controller
 		return view('admin.users.create');
 	}
 
-	public function authenticate(Request $req)
-    {
-        $credentials = [
-            'email' => $req->email,
-            'password' => $req->password
-        ];
 
-        if(!Auth::attempt($credentials))
-        {
-            auth()->logout();
-            Session::flash('flash_error','Wrong username/password!');
-
-            return redirect()->back();
-        }
-
-        $user = Auth::user();
-
-        Session::flash('flash_message','Logged in!');
-
-        return redirect()
-            ->route('home')
-            ->with('flash_message', 'Logged in!');
-    }
 
 	protected function logout() {
 		if (Auth::check()) {
@@ -86,7 +64,7 @@ class UserController extends Controller
 		$validator = Validator::make($req->all(), [
 			'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
-			'username' => 'required|unique:users|min:2',
+			'username' => 'required|min:2',
 			'email' => 'required|email',
             'address' => 'required|min:2',
             'contact' => 'required|min:2',

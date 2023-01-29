@@ -78,7 +78,7 @@
                 </div>
                 <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 rounded" alt="...">
                 <div class="card-body">
-                    {{ $post->content }}
+                    {!! $post->content !!}
                 </div>
                 <a href="#" class="btn btn-comment mt-3">
                     <i class='bx bx-message-rounded me-1 fs-6'></i>

@@ -34,7 +34,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createComments($id)
     {
 
     }
@@ -47,7 +47,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
        $valid = Validator::make($request->all(), [
             'content' => 'required|string',
             'title' => 'required|string',
@@ -67,7 +66,7 @@ class PostController extends Controller
 			DB::beginTransaction();
 
             $destinationPath = 'uploads/posts';
-            $photoExtension = $request->file('image')->getClientOriginalExtension();
+            $photoExtension = $request->file('image')->extension();
             $file = 'image'.uniqid().'.'.$photoExtension;
             $request->file('image')->move($destinationPath, $file);
 
@@ -136,6 +135,29 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $po = Posts::find($id);
+
+		if ($po == null)
+			return redirect()
+				->route('profile')
+				->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+
+		try {
+			DB::beginTransaction();
+
+			$po->delete();
+
+			DB::commit();
+		} catch (Exception $e) {
+			DB::rollback();
+			Log::error($e);
+
+			return redirect()
+				->route('profile')
+				->with('flash_error', 'Something went wrong, please try again later.');
+		}
+
+        return redirect()->route('profile')->with('flash_success', 'Post deleted successfully!');
+
     }
 }
