@@ -1,0 +1,14 @@
+@use "abstracts" as *;
+
+.pagination {
+    .page-item {
+        a.page-link {
+            color: $orange !important;
+        }
+
+        a.page-link:hover {
+            background-color: $orange;
+            color: $white !important;
+        }
+    }
+}
