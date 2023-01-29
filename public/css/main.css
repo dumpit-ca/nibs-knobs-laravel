@@ -287,10 +287,13 @@ body {
   width: 100% !important;
 }
 .posts .profile-img-posts {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #D9D9D9;
+}
+.posts img.user-post {
+  width: 100% !important;
 }
 .posts .btn-comment {
   background-color: #393939 !important;

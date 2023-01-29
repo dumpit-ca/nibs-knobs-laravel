@@ -27,10 +27,14 @@
     width: 100% !important;
 
     .profile-img-posts {
-        width: 60px;
-        height: 60px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         background-color: $img;
+    }
+
+    img.user-post {
+        width: 100% !important;
     }
 
     .btn-comment {

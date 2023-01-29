@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Posts')
 @section('content')
-<div class="container-fluid p-lg-5 p-3">
+<div class="container p-lg-5 p-3">
     <div class="row">
         <div class="col-md-4">
             <aside class="profile-card card border-0">
@@ -63,7 +63,8 @@
             <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
+                        <img src="{{asset('/images/img-placeholder.png')}}" alt="user profile image"
+                            class="profile-img-posts img-fluid">
                     </div>
                     <div class="profile me-auto">
                         @php $poster = App\User::find($post->user_id) @endphp
@@ -85,14 +86,24 @@
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">{{ $post->title }}</p>
                 </div>
-                <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 rounded" alt="...">
+                <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
                     {!! $post->content !!}
                 </div>
-                <a href="#" class="btn btn-comment mt-3">
-                    <i class='bx bx-message-rounded me-1 fs-6'></i>
-                    <span class="fs-6 fw-normal">Comment</span>
-                </a>
+                <form action="" class="mt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-md-block d-none">
+                            <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts">
+                        </div>
+                        <div class="my-3 w-100">
+                            <input type="text" class="form-control" placeholder="Add a comment...">
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
             @endforeach
         </div>
