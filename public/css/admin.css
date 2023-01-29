@@ -254,7 +254,7 @@
 }
 .admin-table .admin-table-caption {
   font-family: "Plus Jakarta Sans XBold", sans-serif;
-  color: #ff5e15 !important;
+  color: #ff5e15;
 }
 .admin-table .admin-table-head {
   color: #ff5e15 !important;
@@ -338,6 +338,25 @@ body {
 }
 .view-posts label {
   font-family: Plus Jakarta Sans Bold, sans-serif;
+}
+
+.btn-add-users {
+  background-color: #ff5e15 !important;
+  color: #ffffff !important;
+  font-family: Barlow Semi Condensed, sans-serif !important;
+}
+
+.admin-table .btn-users-actions {
+  border: 1px #E2E8F0 solid;
+}
+.admin-table .btn-users-actions i {
+  color: #091e42;
+}
+.admin-table .btn-users-actions:hover {
+  border: 1px #E2E8F0 solid;
+}
+.admin-table .btn-users-actions:hover i {
+  color: #091e42;
 }
 
 /*!
