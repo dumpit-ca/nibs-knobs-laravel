@@ -9,7 +9,7 @@
                 <span class="link_name fs-6">Dashboard</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name fs-6" href="#">Dashboard</a></li>
+                <li><a class="link_name fs-6" href="{{route('dashboard')}}">Dashboard</a></li>
             </ul>
         </li>
         <li>
