@@ -1,0 +1,25 @@
+@use "abstracts" as *;
+
+.btn-add-users {
+    background-color: $orange !important;
+    color: $white !important;
+    font-family: Barlow Semi Condensed, sans-serif !important;
+}
+
+.admin-table {
+    .btn-users-actions {
+        border: 1px $table solid;
+
+        i {
+            color: $tableData;
+        }
+    }
+
+    .btn-users-actions:hover {
+        border: 1px $table solid;
+
+        i {
+            color: $tableData;
+        }
+    }
+}
