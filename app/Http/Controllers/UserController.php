@@ -54,12 +54,12 @@ class UserController extends Controller
 
 	protected function edit() {
 		$user = User::find(Auth::user()->id);
-		return view('account.edit', [
-			'user' => $user
+		return view('pages.settings', [
+			'auth' => $user
 		]);
 	}
 
-	protected function update(Request $req, $id) {
+	protected function update(Request $req) {
 
 		$validator = Validator::make($req->all(), [
 			'first_name' => 'required|min:2',
@@ -75,7 +75,6 @@ class UserController extends Controller
             'last_name.min' => 'Last name is short',
 			'username.required' => 'Username is required',
 			'username.min' => 'Username is short',
-            'username.unique' => 'Username is already taken',
 			'email.required' => 'E-mail is required.',
 			'email.email' => 'E-mail provided is not a valid e-mail.',
             'address.required' => 'Address is required',
@@ -91,16 +90,36 @@ class UserController extends Controller
             ->withInput();
         }
 
+
+        $user = User::find(Auth::user()->id);
+
+        if($user->username != $req->input('username')){
+            $validator = Validator::make($req->all(), [
+                'username' => 'unique:users',
+            ], [
+                'username.unique' => 'Username already exists.',
+            ]);
+
+            if ($validator->fails()){
+                return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+            }
+        }
+
 		try {
 			DB::beginTransaction();
 
-			$user = User::find($id);
             $user->first_name = $req->input('first_name');
             $user->last_name = $req->input('last_name');
-            $user->username = $req->input('username');
+            if($user->username != $req->input('username')){
+             $user->username = $req->input('username');
+            }
             $user->email = $req->input('email');
             $user->address = $req->input('address');
             $user->contact = $req->input('contact');
+            $user->bio = $req->input('bio');
 			$user->save();
 
 			DB::commit();
@@ -114,7 +133,7 @@ class UserController extends Controller
 		}
 
 		return redirect()
-			->route('account.edit');
+			->route('profile.settings');
 	}
 
 

@@ -34,7 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/home/create-post', 'PostController@store')->name('post.create');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/profile/settings', 'UserController@settings')->name('profile.settings');
+    Route::get('/profile/settings', 'UserController@edit')->name('profile.settings');
+    Route::post('/profile/settings/update', 'UserController@update')->name('profile.settings.update');
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
         Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
