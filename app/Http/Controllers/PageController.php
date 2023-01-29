@@ -32,5 +32,11 @@ class PageController extends Controller
     public function ViewPosts(){
         return view ('pages.admin.posts.view');
     }
+    public function create(){
+        return view ('pages.admin.users.create');
+    }
+    public function update(){
+        return view ('pages.admin.users.update');
+    }
 
 }
