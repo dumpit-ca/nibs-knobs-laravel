@@ -22,7 +22,7 @@
             @include('components.admin.sidenav')
 
             {{-- CONTENT --}}
-            <section class="container-fluid flex-fill mx-0 p-3 row-spacing-4 home-section">
+            <section class="container-fluid flex-fill mx-0 p-3 row-spacing-4 home-section overflow-auto">
                 <div class="home-content">
                     <i class='bx bx-menu me-auto'></i>
                     @include('components.admin.top')
