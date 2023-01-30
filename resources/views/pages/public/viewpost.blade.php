@@ -67,6 +67,19 @@
                     </div>
 
                 </form>
+                <div class="row">
+                    <table class="table text-light table-borderless">
+                        <tbody>
+                            @foreach($comments as $comment)
+                            <tr>
+                                <td>&#64;{{ App\User::find($comment->user_id)->username }}</td>
+                                <td>{{ $comment->content }}</td>
+                                <td>{{ $comment->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                      </table>
+                </div>
             </div>
         </div>
     </div>
