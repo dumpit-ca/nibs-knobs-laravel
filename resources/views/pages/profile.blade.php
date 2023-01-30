@@ -10,96 +10,64 @@
                     <div class="profile-img position-absolute top-50 start-0 translate-middle"></div>
                 </div>
                 <div class="card-body text-center">
-                    <h5 class="profile-name card-title">Jhon Louie</h5>
-                    <p class="card-text text-muted"><small>@thejldeleon</small></p>
-                    <p class="card-text fs-6">✨ A Certified Minimalist ✨</p>
-                    <a href="{{route('profile')}}" class="btn btn-view-post px-5 fs-6">View my Posts</a>
+                    <h5 class="profile-name card-title">{{ $user->first_name }}</h5>
+                    <p class="card-text text-muted"><small>&#64;{{ $user->username }}</small></p>
+                    <p class="card-text fs-6">{{ $user->bio }}</p>
+                    <a href="{{route('profile.settings')}}" class="btn btn-view-post px-5 fs-6">Edit My Profile</a>
                 </div>
             </aside>
         </div>
-        <div class="col-md-8 overflow-auto">
+        <div class="col-md-8">
+            @foreach($posts as $post)
+
             <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts img-fluid">
+                        <img src="{{asset('/images/img-placeholder.png')}}" alt="user profile image"
+                            class="profile-img-posts img-fluid">
                     </div>
-                    <div class="profile">
-                        <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
-                                class="fs-6 fw-normal">@thejldeleon</span>
+                    <div class="profile me-auto">
+                        @php $poster = App\User::find($post->user_id) @endphp
+                        <p class="fs-6 card-title m-0" id="profile-name">{{ $poster->first_name }} <span
+                                class="fs-6 fw-normal">&#64;{{ $poster->username }} </span>
                         </p>
-                        <p class="fs-6 card-text text-muted m-0">will post something</p>
+                        <p class="fs-6 card-text text-muted m-0">{{ $post->created_at }}</p>
                     </div>
+
+                    @if(App\Auth::user()->id == $post->user_id)
+                    <div class="btn-group">
+                        <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
+                            aria-expanded="false"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                        </ul>
+                    </div>
+                    @endif
+
                 </div>
                 <div class="card-body">
-                    <p class="card-title fs-5 mb-4">Title of post</p>
+                    <p class="card-title fs-5 mb-4">{{ $post->title }}</p>
                 </div>
-                <img src="{{asset('/images/home-images/home-2.png')}}" class="img-fluid mb-4 user-post" alt="...">
+                <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna
-                        aliqua. Duis at consectetur lorem donec. Dolor magna eget est lorem. Vel eros donec ac odio
-                        tempor. Volutpat odio
-                        facilisis mauris sit amet massa vitae tortor.
-                    </p>
+                    {!! $post->content !!}
                 </div>
-                {{-- <a href="#" class="btn btn-comment mt-3">
-                    <i class='bx bx-message-rounded me-1 fs-6'></i>
-                    <span class="fs-6 fw-normal">Comment</span>
-                </a> --}}
-                <div class="my-4">
-                    <button class="btn view-comment fs-6 d-flex align-items-center" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
-                        aria-controls="collapseExample">
-                        <i class='bx bx-message-rounded me-1 fs-6'></i>
-                        See comments
-                    </button>
-                </div>
+                <form action="" class="mt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-md-block d-none">
+                            <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts">
+                        </div>
+                        <div class="my-3 w-100">
+                            <input type="text" class="form-control" placeholder="Add a comment...">
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <div class="collapse my-3" id="collapseExample">
-                <div class="comment p-3">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="me-3">
-                            <img src="{{asset('/images/img-placeholder.png')}}" alt=""
-                                class="profile-img-posts img-fluid">
-                        </div>
-                        <div class="profile">
-                            <p class="fs-6 card-title m-0" id="profile-name">Cass <span
-                                    class="fs-6 fw-normal">@cassoy</span>
-                            </p>
-                            <p class="fs-6 card-text text-muted m-0">10 hours ago</p>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <p class="fs-6">Just finished redecorating my living room and I am absolutely in love with the
-                            outcome! Interior design is truly an art
-                            form, it has the power to completely transform a space and make it feel like a whole new
-                            place.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="collapse my-3" id="collapseExample">
-                <div class="comment p-3">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="me-3">
-                            <img src="{{asset('/images/img-placeholder.png')}}" alt=""
-                                class="profile-img-posts img-fluid">
-                        </div>
-                        <div class="profile">
-                            <p class="fs-6 card-title m-0" id="profile-name">Jhon Louie <span
-                                    class="fs-6 fw-normal">@thejldeleon</span>
-                            </p>
-                            <p class="fs-6 card-text text-muted m-0">will post something</p>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <p class="fs-6">Just finished redecorating my living room and I am absolutely in love with the
-                            outcome! Interior design is truly an art
-                            form, it has the power to completely transform a space and make it feel like a whole new
-                            place.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -146,7 +146,10 @@ class UserController extends Controller
 
      }
       public function profile(){
-         return view('pages.profile');
+        $user = Auth::user();
+        $posts = Posts::where('user_id', $user->id)->get();
+         return view('pages.profile',
+         ['user' => $user, 'posts' => $posts]);
      }
     // Admin
     public function dashboard(){
