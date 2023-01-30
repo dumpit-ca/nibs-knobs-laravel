@@ -137,27 +137,36 @@ class PostController extends Controller
     {
         $po = Posts::find($id);
 
-		if ($po == null)
-			return redirect()
-				->route('profile')
-				->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+        if(!Auth::check()){
+            return redirect()->route('login');
+        }else if(Auth::user()->id == $po->user_id){
 
-		try {
-			DB::beginTransaction();
+            if ($po == null)
+                return redirect()
+                    ->route('profile')
+                    ->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
 
-			$po->delete();
+            try {
+                DB::beginTransaction();
 
-			DB::commit();
-		} catch (Exception $e) {
-			DB::rollback();
-			Log::error($e);
+                $po->delete();
 
-			return redirect()
-				->route('profile')
-				->with('flash_error', 'Something went wrong, please try again later.');
-		}
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->route('profile')
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
 
         return redirect()->route('profile')->with('flash_success', 'Post deleted successfully!');
+
+        }else{
+            return redirect()->route('profile')->with('flash_error', 'Please refrain from modifying this page.');
+        }
+
 
     }
 }

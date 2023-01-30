@@ -34,12 +34,12 @@
                         <p class="fs-6 card-text text-muted m-0">{{ $post->created_at }}</p>
                     </div>
 
-                    @if(App\Auth::user()->id == $post->user_id)
+                    @if(Auth::user()->id == $post->user_id)
                     <div class="btn-group">
                         <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
                             aria-expanded="false"></i>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                            <li><a class="dropdown-item" href="{{ route('post.delete', [$post->id]) }}">Delete Post</a></li>
                         </ul>
                     </div>
                     @endif

@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/home/create-post', 'PostController@store')->name('post.create');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::get('/profile/post/{id}', 'PostController@destroy')->name('post.delete');
     Route::get('/profile/settings', 'UserController@edit')->name('profile.settings');
     Route::post('/profile/settings/update', 'UserController@update')->name('profile.settings.update');
 
