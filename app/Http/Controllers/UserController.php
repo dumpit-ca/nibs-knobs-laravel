@@ -46,6 +46,20 @@ class UserController extends Controller
 		}
 	}
 
+
+       /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+	protected function index() {
+		$user = User::get();
+        return view ('pages.admin.users.users',[
+			'users' => $user
+		]);
+
+    }
         /**
      * Display a listing of the resource.
      *
@@ -157,6 +171,7 @@ class UserController extends Controller
     }
 
     public function users(){
+
         return view('pages.admin.users');
      }
 

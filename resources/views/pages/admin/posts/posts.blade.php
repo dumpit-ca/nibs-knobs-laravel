@@ -11,33 +11,34 @@
             <thead class="admin-table-head table-light">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Post Title</th>
-                    <th scope="col">Date Posted</th>
-                    <th scope="col">Time</th>
+                    <th scope="col">Date/Time Posted</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Juan Dela Cruz</td>
-                    <td>Interior Design is my PASSION</td>
-                    <td>12/10/2023</td>
-                    <td>02:32 PM</td>
-                    <td>
-                        <div class="d-grid gap-3 d-md-block">
-                            <a href="{{route('view')}}" class=" btn btn-actions text-decoration-none">
-                                <i class="fa-solid fa-eye"></i>
-                                View
-                            </a>
-                            <button class="btn btn-actions" type="button">
-                                <i class='bx bxs-trash'></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                @foreach($posts as $post)
+                    <tr>
+                        <td>{{ $post->id }}</td>
+                        <td>&#64;{{ App\User::find($post->user_id)->username }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->created_at }}</td>
+                        {{-- <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H', $post->created_at)->toDateTimeString() }}</td> --}}
+                        <td>
+                            <div class="d-grid gap-3 d-md-block">
+                                <a href="{{route('post.view', [$post->id])}}" class=" btn btn-actions text-decoration-none">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View
+                                </a>
+                                <a class="btn btn-actions" type="button" href="{{ route('post.delete', [$post->id]) }}">
+                                    <i class='bx bxs-trash'></i>
+                                    Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

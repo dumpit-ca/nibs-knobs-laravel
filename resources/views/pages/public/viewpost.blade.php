@@ -48,17 +48,18 @@
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">{{ $post->title }}</p>
                 </div>
-                <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
+                <img src="/uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
                     {!! $post->content !!}
                 </div>
-                <form action="" class="mt-4">
+                <form action="{{ route('comment.create', ['id'=> $post->id]) }}" method="POST" class="mt-4">
+                    @csrf
                     <div class="d-flex align-items-center gap-3">
                         <div class="d-md-block d-none">
                             <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts">
                         </div>
                         <div class="my-3 w-100">
-                            <input type="text" class="form-control" placeholder="Add a comment...">
+                            <input type="text" name="content" class="form-control" placeholder="Add a comment...">
                         </div>
                         <div class="">
                             <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>

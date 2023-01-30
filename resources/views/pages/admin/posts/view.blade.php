@@ -5,7 +5,7 @@
     <h1 class="display-6 page-title">View Post</h1>
     <div class="row mt-5">
         <div class="col-md-4 d-flex flex-column">
-            <img src="https://placehold.jp/350x200.png" class="img-fluid" alt="Post image">
+            <img src="/uploads/posts/{{ $post->image }}" class="img-fluid" alt="Post image">
             <div class="d-grid gap-2 d-md-block my-4">
                 <button class="btn btn-delete px-5 text-uppercase" type="button">DELETE PHOTO</button>
             </div>
@@ -13,13 +13,13 @@
                 <div class="row my-3">
                     <label for="" class="col-md-3 col-form-label fs-6">Post Title:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control"value="{{ $post->title }}"  disabled>
                     </div>
                 </div>
                 <div class="row my-3">
                     <label for="" class="col-md-3 col-form-label fs-6">Caption:</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" style="height: 100px"></textarea>
+                        <textarea class="form-control" style="height: 100px" disabled>{!! $post->content !!}</textarea>
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -33,38 +33,32 @@
             <div class="admin-table h-100 p-3">
                 <table class="table table-responsive caption-top">
                     <caption class="fs-4 admin-table-caption">
-                        Posts
+                        Post Comments
                     </caption>
                     <thead class="admin-table-head table-light">
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Username</th>
                             <th scope="col">Comments</th>
-                            <th scope="col">Date Posted</th>
-                            <th scope="col">Time</th>
+                            <th scope="col">Date and Time Posted</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                       @foreach($comments as $comment)
                         <tr>
-                            <td>1</td>
-                            <td>@thejldeleon</td>
-                            <td>Great! You’re use of Design Elements is Superb</td>
-                            <td>12/10/2023</td>
-                            <td>02:32 PM</td>
+                            <td>&#64;{{ App\User::find($comment->user_id)->username }}</td>
+                            <td>{{ $comment->content }}</td>
+                            <td>{{ $comment->created_at }}</td>
                             <td>
                                 <div class="d-grid gap-3 d-md-block">
-                                    <a href="{{route('view')}}" class=" btn btn-actions text-decoration-none">
-                                        <i class="fa-solid fa-eye"></i>
-                                        View
-                                    </a>
-                                    <button class="btn btn-actions" type="button">
+                                    <a class="btn btn-actions" href="{{route('comment.delete', [$comment->id])}}" type="button">
                                         <i class='bx bxs-trash'></i>
                                         Delete
-                                    </button>
+                                    </a>
                                 </div>
                             </td>
-                        </tr>
+                    </tr>
+                       @endforeach
                     </tbody>
                 </table>
             </div>

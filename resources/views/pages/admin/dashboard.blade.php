@@ -15,7 +15,7 @@
                             <div class="icon d-flex align-items-center justify-content-center p-3"><i
                                     class='bx bx-trending-up display-6'></i></div>
                             <div class="d-flex flex-column statistics">
-                                <p class="display-6 stats-number m-0">1031</p>
+                                <p class="display-6 stats-number m-0">{{ $total['posts']}}</p>
                                 <p class="text-small stats-category m-0">Total Posts</p>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             <div class="icon d-flex align-items-center justify-content-center p-3"><i
                                     class='bx bxs-user display-6'></i></i></div>
                             <div class="d-flex flex-column statistics">
-                                <p class="display-6 stats-number m-0">120</p>
+                                <p class="display-6 stats-number m-0">{{ $total['users'] }}</p>
                                 <p class="text-small stats-category m-0">Site Users</p>
                             </div>
                         </div>
@@ -47,33 +47,92 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Post Title</th>
-                    <th scope="col">Date Posted</th>
-                    <th scope="col">Time</th>
+                    <th scope="col">Date and Time Posted</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($posts as $post)
                 <tr>
-                    <td>1</td>
-                    <td>Juan Dela Cruz</td>
-                    <td>Interior Design is my PASSION</td>
-                    <td>12/10/2023</td>
-                    <td>02:32 PM</td>
+                    <td>{{ $post->id }}</td>
+                    <td>&#64;{{ App\User::find($post->user_id)->username }}</td>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->created_at }}</td>
+                    {{-- <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H', $post->created_at)->toDateTimeString() }}</td> --}}
                     <td>
                         <div class="d-grid gap-3 d-md-block">
-                            <a href="{{route('view')}}" class=" btn btn-actions text-decoration-none">
+                            <a href="{{route('post.view', [$post->id])}}" class=" btn btn-actions text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 View
                             </a>
-                            <button class="btn btn-actions" type="button">
+                            <a class="btn btn-actions" type="button" href="{{ route('post.delete', [$post->id]) }}">
                                 <i class='bx bxs-trash'></i>
                                 Delete
-                            </button>
+                            </a>
                         </div>
                     </td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+    const ctx = document.getElementById("chart");
+
+new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: [
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AUG",
+            "SEPT",
+            "OCT",
+            "NOV",
+            "DEC",
+        ],
+        datasets: [
+            {
+                label: "Posts",
+                data: [10, 10, 10, 450],
+                type: "bar",
+                backgroundColor: "#000",
+                // this dataset is drawn on top
+                order: 1,
+            },
+            {
+                label: "Users",
+                data: [10, 20, 30, 500],
+                // this dataset is drawn below
+                order: 2,
+                backgroundColor: "#FF5E15",
+            },
+        ],
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: "Website Statistics",
+            },
+        },
+        borderRadius: 11,
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    },
+});
+
+</script>
 @endsection

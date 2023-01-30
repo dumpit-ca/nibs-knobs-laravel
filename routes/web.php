@@ -41,12 +41,18 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/profile/settings/update', 'UserController@update')->name('profile.settings.update');
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {
-        Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+        Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
-        Route::get('/users', 'AdminController@users')->name('users');
+        Route::get('/users', 'UserController@index')->name('users');
 
-        Route::get('/posts', 'AdminController@AdminPosts')->name('posts');
-        Route::get('/posts/view', 'AdminController@ViewPosts')->name('view');
+        Route::get('/posts', 'AdminController@indexPost')->name('posts');
+
+
+        Route::get('/posts/view/{id}', 'AdminController@showPost')->name('post.view');
+        Route::get('/posts/delete/{id}', 'AdminController@destroyPost')->name('post.delete');
+        Route::get('/comment/{id}', 'AdminController@destroyComment')->name('comment.delete');
+
+
         Route::get('/posts/create', 'AdminController@create')->name('create');
         Route::get('/posts/update', 'AdminController@update')->name('update');
     });

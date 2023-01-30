@@ -19,32 +19,34 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Contact No.</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">Type</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Juan Dela Cruz</td>
-                    <td>Interior Design is my PASSION</td>
-                    <td>12/10/2023</td>
-                    <td>02:32 PM</td>
-                    <td>Admin</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{route('update')}}" class="btn btn-users-actions"><i
-                                    class='bx bxs-pencil'></i></a>
-                            <button type="button" class="btn btn-users-actions"><i
-                                    class='bx bx-toggle-left'></i></button>
-                            <button type="button" class="btn btn-users-actions"><i
-                                    class='bx bxs-trash-alt'></i></button>
-                        </div>
-                    </td>
-                </tr>
+             @foreach($users as $user)
+             <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->first_name . ' ' . $user->last_name }}</td>
+                <td>{{ $user->username }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->contact }}</td>
+                <td>{{ $user->type }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{route('update')}}" class="btn btn-users-actions"><i
+                                class='bx bxs-pencil'></i></a>
+                        <button type="button" class="btn btn-users-actions"><i
+                                class='bx bx-toggle-left'></i></button>
+                        <button type="button" class="btn btn-users-actions"><i
+                                class='bx bxs-trash-alt'></i></button>
+                    </div>
+                </td>
+            </tr>
+             @endforeach
             </tbody>
         </table>
     </div>

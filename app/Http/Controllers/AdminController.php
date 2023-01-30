@@ -3,23 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use App\Posts;
+use App\Comment;
+use App\User;
+use Session;
+use Validator;
+use Hash;
+use Log;
+use DB;
 
 class AdminController extends Controller
 {
 
-    public function dashboard(){
-        return view ('pages.admin.dashboard');
-    }
 
-    public function users(){
-        return view ('pages.admin.users.users');
-    }
-    public function AdminPosts(){
-        return view ('pages.admin.posts.posts');
-    }
-    public function ViewPosts(){
-        return view ('pages.admin.posts.view');
-    }
+
     public function create(){
         return view ('pages.admin.users.create');
     }
@@ -34,7 +33,23 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $total = [
+            'users' => User::where('type', 'guest')->count(),
+            'posts' => Posts::count(),
+            'comments' => Comment::count()
+        ];
+        $posts = Posts::orderBy('created_at', 'desc')->get();
+        return view ('pages.admin.dashboard', [
+            'total' => $total,
+            'posts' => $posts
+        ]);
+    }
+
+    public function indexPost() {
+        $posts = Posts::orderBy('created_at', 'desc')->paginate(10);
+        return view('pages.admin.posts.posts', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -64,9 +79,14 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showPost($id)
     {
-        //
+        $post = Posts::find($id);
+        $comments = Comment::where('post_id', $id)->get();
+        return view ('pages.admin.posts.view', [
+            'post' => $post,
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -98,8 +118,65 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyComment($id)
     {
-        //
+        $po = Comment::find($id);
+
+            if ($po == null){
+                return redirect()
+                ->back()
+                ->with('flash_info', 'Comment doesn\'t exists! Please try to refresh the page.');
+
+            }
+
+            try {
+                DB::beginTransaction();
+
+                $po->delete();
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+        return redirect()->back()->with('flash_success', 'Post deleted successfully!');
+
+
+
+    }
+
+    public function destroyPost($id){
+        $po = Posts::find($id);
+
+
+            if ($po == null)
+                return redirect()
+                    ->route('posts')
+                    ->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+
+            try {
+                DB::beginTransaction();
+
+                $po->delete();
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->route('posts')
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+        return redirect()->route('posts')->with('flash_success', 'Post deleted successfully!');
+
+
+
     }
 }
