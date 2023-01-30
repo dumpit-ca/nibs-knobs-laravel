@@ -18,7 +18,7 @@
             </aside>
         </div>
         <div class="col-md-8">
-            @foreach($posts as $post)
+
 
             <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <p class="card-title fs-5 mb-4">{{ $post->title }}</p>
                 </div>
-                <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
+                <img src="/uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
                     {!! $post->content !!}
                 </div>
@@ -67,8 +67,20 @@
                     </div>
 
                 </form>
+                <div class="row">
+                    <table class="table text-light table-borderless">
+                        <tbody>
+                            @foreach($comments as $comment)
+                            <tr>
+                                <td>&#64;{{ App\User::find($comment->user_id)->username }}</td>
+                                <td>{{ $comment->content }}</td>
+                                <td>{{ $comment->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                      </table>
+                </div>
             </div>
-            @endforeach
         </div>
     </div>
 </div>

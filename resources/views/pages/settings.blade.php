@@ -31,34 +31,41 @@
                     <p class="fs-6 text-muted fw-bold">Add your photo. The size recommended is 256x256px</p>
                 </div>
                 <div class="col-md-8">
-                    <form action="" class="row g-3">
+                    <form action="{{ route('profile.settings.update') }}" method="POST" class="row g-3">
+                        @csrf
                         <div class="col-md-4">
                             <label for="inputFirstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="inputFirstName" placeholder="Juan">
+                            <input type="text" class="form-control" name="first_name" id="inputFirstName" value="{{ $auth->first_name }}">
                         </div>
                         <div class="col-md-4">
                             <label for="inputLastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="inputLastName" placeholder="Dela Cruz">
+                            <input type="text" name="last_name" class="form-control" id="inputLastName" value="{{ $auth->last_name }}">
                         </div>
                         <div class="col-md-4">
                             <label for="inputUsername" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="inputUsername" placeholder="juandelacruz">
+                            <input type="text" name="username" class="form-control" id="inputUsername" value="{{ $auth->username }}">
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Email</label>
-                            <input type="text" name="" id="" class="form-control" placeholder="juandelacruz@gmail.com">
+                            <input type="email" name="email" id="" class="form-control" value="{{ $auth->email }}">
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Contact Number</label>
-                            <input type="text" name="" id="" class="form-control" placeholder="09123456789">
+                            <input type="text" name="contact" id="" class="form-control" value="{{ $auth->contact }}">
                         </div>
                         <div class="d-flex align-items-end gap-4">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label for="" class="form-label">Address</label>
-                                <input type="text" name="" id="" class="form-control" placeholder="Address">
+                                <input type="text" name="address" id="" class="form-control" value="{{ $auth->address }}">
                             </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Bio</label>
+                                <input type="text" name="bio" id="" class="form-control" value="{{ $auth->bio }}">
+                            </div>
+                        </div>
+                        <div class=" d-flex align-items-end mt-3 row">
                             <div class="col-md-4">
-                                <button class="btn btn-save px-5" type="button">Save Changes</button>
+                                <button class="btn btn-save px-5" type="submit">Save Changes</button>
                             </div>
                         </div>
 

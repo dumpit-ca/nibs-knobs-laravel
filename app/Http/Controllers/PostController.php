@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Posts;
+use App\Comment;
 use Session;
 use Validator;
 use Hash;
@@ -29,12 +30,8 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function create($id)
     {
 
     }
@@ -47,7 +44,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
        $valid = Validator::make($request->all(), [
             'content' => 'required|string',
             'title' => 'required|string',
@@ -72,7 +68,7 @@ class PostController extends Controller
             $request->file('image')->move($destinationPath, $file);
 
 
-			$post = Posts::create([
+			Posts::create([
                 'user_id' => auth()->user()->id,
                 'title' => $request->title,
                 'content' => $request->content,
@@ -102,7 +98,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Posts::find($id);
+        $user = Auth::user();
+        $comments = Comment::where('post_id', $id)->get();
+        return view('pages.public.viewpost', compact('user', 'post', 'comments'));
     }
 
     /**
@@ -111,9 +110,39 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $valid = Validator::make($request->all(), [
+            'content' => 'required|string'
+        ],
+    [
+
+            'content.required' => 'Content is required.'
+    ]);
+
+        if ($valid->fails()) {
+            return redirect()->back()->withErrors($valid)->withInput();
+        }
+        try {
+			DB::beginTransaction();
+
+			Comment::create([
+                'user_id' => auth()->user()->id,
+                'post_id' => $id,
+                'content' => $request->content,
+            ]);
+
+			DB::commit();
+		} catch (\Exception $e) {
+			Log::error($e);
+			DB::rollback();
+
+			return redirect()
+				->back()
+				->with('flash_error', 'Something went wrong, please try again later.');
+		}
+
+        return redirect()->route('post.show', ['id' => $id]);
     }
 
     /**
@@ -136,6 +165,38 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $po = Posts::find($id);
+
+        if(!Auth::check()){
+            return redirect()->route('login');
+        }else if(Auth::user()->id == $po->user_id){
+
+            if ($po == null)
+                return redirect()
+                    ->route('profile')
+                    ->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+
+            try {
+                DB::beginTransaction();
+
+                $po->delete();
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->route('profile')
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+        return redirect()->route('profile')->with('flash_success', 'Post deleted successfully!');
+
+        }else{
+            return redirect()->route('profile')->with('flash_error', 'Please refrain from modifying this page.');
+        }
+
+
     }
 }

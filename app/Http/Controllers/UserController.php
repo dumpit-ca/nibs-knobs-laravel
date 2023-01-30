@@ -37,29 +37,7 @@ class UserController extends Controller
 		return view('admin.users.create');
 	}
 
-	public function authenticate(Request $req)
-    {
-        $credentials = [
-            'email' => $req->email,
-            'password' => $req->password
-        ];
 
-        if(!Auth::attempt($credentials))
-        {
-            auth()->logout();
-            Session::flash('flash_error','Wrong username/password!');
-
-            return redirect()->back();
-        }
-
-        $user = Auth::user();
-
-        Session::flash('flash_message','Logged in!');
-
-        return redirect()
-            ->route('home')
-            ->with('flash_message', 'Logged in!');
-    }
 
 	protected function logout() {
 		if (Auth::check()) {
@@ -68,6 +46,20 @@ class UserController extends Controller
 		}
 	}
 
+
+       /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+	protected function index() {
+		$user = User::get();
+        return view ('pages.admin.users.users',[
+			'users' => $user
+		]);
+
+    }
         /**
      * Display a listing of the resource.
      *
@@ -76,17 +68,17 @@ class UserController extends Controller
 
 	protected function edit() {
 		$user = User::find(Auth::user()->id);
-		return view('account.edit', [
-			'user' => $user
+		return view('pages.settings', [
+			'auth' => $user
 		]);
 	}
 
-	protected function update(Request $req, $id) {
+	protected function update(Request $req) {
 
 		$validator = Validator::make($req->all(), [
 			'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
-			'username' => 'required|unique:users|min:2',
+			'username' => 'required|min:2',
 			'email' => 'required|email',
             'address' => 'required|min:2',
             'contact' => 'required|min:2',
@@ -97,7 +89,6 @@ class UserController extends Controller
             'last_name.min' => 'Last name is short',
 			'username.required' => 'Username is required',
 			'username.min' => 'Username is short',
-            'username.unique' => 'Username is already taken',
 			'email.required' => 'E-mail is required.',
 			'email.email' => 'E-mail provided is not a valid e-mail.',
             'address.required' => 'Address is required',
@@ -113,16 +104,36 @@ class UserController extends Controller
             ->withInput();
         }
 
+
+        $user = User::find(Auth::user()->id);
+
+        if($user->username != $req->input('username')){
+            $validator = Validator::make($req->all(), [
+                'username' => 'unique:users',
+            ], [
+                'username.unique' => 'Username already exists.',
+            ]);
+
+            if ($validator->fails()){
+                return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+            }
+        }
+
 		try {
 			DB::beginTransaction();
 
-			$user = User::find($id);
             $user->first_name = $req->input('first_name');
             $user->last_name = $req->input('last_name');
-            $user->username = $req->input('username');
+            if($user->username != $req->input('username')){
+             $user->username = $req->input('username');
+            }
             $user->email = $req->input('email');
             $user->address = $req->input('address');
             $user->contact = $req->input('contact');
+            $user->bio = $req->input('bio');
 			$user->save();
 
 			DB::commit();
@@ -136,7 +147,7 @@ class UserController extends Controller
 		}
 
 		return redirect()
-			->route('account.edit');
+			->route('profile.settings');
 	}
 
 
@@ -149,17 +160,18 @@ class UserController extends Controller
 
      }
       public function profile(){
-         return view('pages.profile');
+        $user = Auth::user();
+        $posts = Posts::where('user_id', $user->id)->get();
+         return view('pages.profile',
+         ['user' => $user, 'posts' => $posts]);
      }
-     public function settings(){
-        return view ('pages.settings');
-    }
     // Admin
     public function dashboard(){
         return view ('pages.admin.dashboard');
     }
 
     public function users(){
+
         return view('pages.admin.users');
      }
 

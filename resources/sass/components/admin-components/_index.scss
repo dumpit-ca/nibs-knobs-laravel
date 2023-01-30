@@ -1,1 +1,5 @@
-@forward "nav";
+@forward "components/admin-components/nav";
+@forward "components/admin-components/header";
+@forward "components/admin-components/table";
+@forward "components/admin-components/pagination";
+@forward "components/admin-components/forms";

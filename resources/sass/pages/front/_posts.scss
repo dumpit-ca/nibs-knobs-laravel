@@ -27,10 +27,14 @@
     width: 100% !important;
 
     .profile-img-posts {
-        width: 60px;
-        height: 60px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         background-color: $img;
+    }
+
+    img.user-post {
+        width: 100% !important;
     }
 
     .btn-comment {
@@ -49,6 +53,28 @@
     .btn-post:active {
         background-color: $orange !important;
         border: none !important;
+    }
+
+    .btn-delete {
+        background-color: transparent !important;
+        color: $orange !important;
+    }
+
+    .btn-delete:active {
+        border: none !important;
+    }
+
+    .btn-icon {
+        cursor: pointer;
+    }
+
+    li a.dropdown-item {
+        color: $orange !important;
+    }
+
+    li a.dropdown-item:hover {
+        background-color: $white;
+        color: $orange !important;
     }
 
 }

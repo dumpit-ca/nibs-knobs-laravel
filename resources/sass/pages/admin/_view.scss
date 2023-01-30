@@ -1,0 +1,41 @@
+@use "abstracts" as *;
+
+.view-posts {
+    img {
+        border-radius: 10px;
+    }
+
+    .btn-delete {
+        background-color: $orange;
+        color: $white;
+        font-family: Barlow Semi Condensed, sans-serif;
+        font-size: 15.51PX;
+    }
+
+    .btn-delete:hover {
+        background-color: $orange;
+        color: $white;
+        font-family: Barlow Semi Condensed, sans-serif;
+        font-size: 15.51PX;
+    }
+
+    .btn-save {
+        @extend .btn-delete;
+    }
+
+    .btn-cancel {
+        @extend .btn-save;
+        background-color: $cancel;
+        color: $orange;
+    }
+
+    .btn-cancel:hover {
+        @extend .btn-save;
+        background-color: $cancel;
+        color: $orange;
+    }
+
+    label {
+        font-family: Plus Jakarta Sans Bold, sans-serif;
+    }
+}

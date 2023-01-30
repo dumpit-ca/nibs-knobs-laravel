@@ -1,0 +1,55 @@
+@use "abstracts" as *;
+
+.btn-add-users {
+    background-color: $orange !important;
+    color: $white !important;
+    font-family: Barlow Semi Condensed, sans-serif !important;
+}
+
+.admin-table {
+    .btn-users-actions {
+        border: 1px $table solid;
+
+        i {
+            color: $tableData;
+        }
+    }
+
+    .btn-users-actions:hover {
+        border: 1px $table solid;
+
+        i {
+            color: $tableData;
+        }
+    }
+}
+
+.btn-submit {
+    background-color: $orange !important;
+    color: $white !important;
+    font-family: Barlow Semi Condensed, sans-serif !important;
+    font-size: 15.51px !important;
+}
+
+.form-title {
+    background-color: $table;
+    color: $tableData;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-label {
+    color: $tableData;
+    font-family: 'Inter Medium', sans-serif;
+}
+
+.btn-cancel {
+    @extend .btn-submit;
+    background-color: $cancel !important;
+    color: $orange !important;
+}
+
+.btn-cancel:hover {
+    @extend .btn-submit;
+    background-color: $cancel !important;
+    color: $orange !important;
+}
