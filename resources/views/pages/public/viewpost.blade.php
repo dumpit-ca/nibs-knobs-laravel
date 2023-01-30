@@ -18,7 +18,7 @@
             </aside>
         </div>
         <div class="col-md-8">
-            @foreach($posts as $post)
+
 
             <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
@@ -52,14 +52,13 @@
                 <div class="card-body">
                     {!! $post->content !!}
                 </div>
-                <form action="{{ route('comment.create', ['id'=> $post->id]) }}" method="POST" class="mt-4">
-                    @csrf
+                <form action="" class="mt-4">
                     <div class="d-flex align-items-center gap-3">
                         <div class="d-md-block d-none">
                             <img src="{{asset('/images/img-placeholder.png')}}" alt="" class="profile-img-posts">
                         </div>
                         <div class="my-3 w-100">
-                            <input type="text" name="content" class="form-control" placeholder="Add a comment...">
+                            <input type="text" class="form-control" placeholder="Add a comment...">
                         </div>
                         <div class="">
                             <button type="submit" class="btn btn-comment"><i class='bx bx-send'></i></button>
@@ -68,7 +67,6 @@
 
                 </form>
             </div>
-            @endforeach
         </div>
     </div>
 </div>

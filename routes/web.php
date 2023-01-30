@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'UserController@logout')->name('logout');
     Route::get('/home', 'UserController@posts')->name('home');
     Route::post('/home/create-post', 'PostController@store')->name('post.create');
+    Route::get('/home/post/{id}', 'PostController@show')->name('post.show');
+    Route::post('/comment/create/{id}', 'PostController@edit')->name('comment.create');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::get('/profile/post/{id}', 'PostController@destroy')->name('post.delete');
