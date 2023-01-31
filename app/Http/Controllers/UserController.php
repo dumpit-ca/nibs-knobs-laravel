@@ -76,6 +76,7 @@ class UserController extends Controller
 	protected function update(Request $req) {
 
 		$validator = Validator::make($req->all(), [
+            'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
 			'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
 			'username' => 'required|min:2',
@@ -83,6 +84,9 @@ class UserController extends Controller
             'address' => 'required|min:2',
             'contact' => 'required|min:2',
 		], [
+            'image.image' => 'Image is not a valid image.',
+            'image.mimes' => 'Only upload JPG, PNG and SVG files.',
+            'image.max' => 'Image is too large.',
             'first_name.required' => 'First name is required',
             'first_name.min' => 'First name is short',
             'last_name.required' => 'Last name is required',
@@ -105,6 +109,7 @@ class UserController extends Controller
         }
 
 
+
         $user = User::find(Auth::user()->id);
 
         if($user->username != $req->input('username')){
@@ -122,6 +127,8 @@ class UserController extends Controller
             }
         }
 
+
+
 		try {
 			DB::beginTransaction();
 
@@ -134,6 +141,17 @@ class UserController extends Controller
             $user->address = $req->input('address');
             $user->contact = $req->input('contact');
             $user->bio = $req->input('bio');
+
+
+            if($req->hasFile('image')){
+                $destinationPath = 'uploads/user';
+                $photoExtension = $req->file('image')->getClientOriginalExtension();
+                $file = 'image'.uniqid().'.'.$photoExtension;
+                $req->file('image')->move($destinationPath, $file);
+
+                $user->image = $file;
+            }
+
 			$user->save();
 
 			DB::commit();
@@ -152,13 +170,7 @@ class UserController extends Controller
 
 
 
-     public function posts(){
-        $user = Auth::user();
-        $posts = Posts::get();
-         return view('pages.posts',
-         ['user' => $user, 'posts' => $posts]);
 
-     }
       public function profile(){
         $user = Auth::user();
         $posts = Posts::where('user_id', $user->id)->get();

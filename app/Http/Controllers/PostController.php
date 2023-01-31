@@ -27,7 +27,10 @@ class PostController extends Controller
      */
     public function index()
     {
-
+            $user = Auth::user();
+            $posts = Posts::get();
+             return view('pages.posts',
+             ['user' => $user, 'posts' => $posts]);
     }
 
 
