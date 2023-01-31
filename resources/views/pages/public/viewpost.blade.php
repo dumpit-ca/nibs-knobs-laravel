@@ -4,16 +4,17 @@
 <div class="container p-lg-5 p-3 vh-100">
     <div class="row">
         <div class="col-md-4">
-            <aside class="profile-card card">
+            <aside class="profile-card card border-0">
                 <img src="{{asset('/images/home-images/profile-header.png')}}" class="card-img-top" alt="...">
                 <div class="position-relative mx-auto d-block mb-5">
-                    <div class="profile-img position-absolute top-50 start-0 translate-middle"></div>
+                    <img src="{{ $user->image ? '/uploads/user/'. $user->image : asset('/images/img-placeholder.png') }}" alt=""
+                        class="profile-img position-absolute top-50 start-0 translate-middle">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="profile-name card-title">{{ $user->first_name }}</h5>
                     <p class="card-text text-muted"><small>&#64;{{ $user->username }}</small></p>
                     <p class="card-text fs-6">{{ $user->bio }}</p>
-                    <a href="{{route('profile.settings')}}" class="btn btn-view-post px-5 fs-6">Edit My Profile</a>
+                    <a href="{{ route('profile') }}" class="btn btn-view-post px-5 fs-6">View my Posts</a>
                 </div>
             </aside>
         </div>
@@ -23,11 +24,11 @@
             <div class="posts p-3 mb-4 mt-md-0 mt-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="{{asset('/images/img-placeholder.png')}}" alt="user profile image"
+                        @php $poster = App\User::find($post->user_id) @endphp
+                        <img src="{{ $poster->image ? '/uploads/user/'. $poster->image : asset('/images/img-placeholder.png') }}" alt="user profile image"
                             class="profile-img-posts img-fluid">
                     </div>
                     <div class="profile me-auto">
-                        @php $poster = App\User::find($post->user_id) @endphp
                         <p class="fs-6 card-title m-0" id="profile-name">{{ $poster->first_name }} <span
                                 class="fs-6 fw-normal">&#64;{{ $poster->username }} </span>
                         </p>

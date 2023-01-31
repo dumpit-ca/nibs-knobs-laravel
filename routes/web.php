@@ -30,7 +30,7 @@ Route::get('/gallery/home-office', 'PageController@HomeOfficeIndex')->name('home
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'UserController@logout')->name('logout');
-    Route::get('/home', 'UserController@posts')->name('home');
+    Route::get('/home', 'PostController@index')->name('home');
     Route::post('/home/create-post', 'PostController@store')->name('post.create');
     Route::get('/home/post/{id}', 'PostController@show')->name('post.show');
     Route::post('/comment/create/{id}', 'PostController@edit')->name('comment.create');
