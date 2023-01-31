@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::get('/profile/post/{id}', 'PostController@destroy')->name('post.delete');
     Route::get('/profile/settings', 'UserController@edit')->name('profile.settings');
+
+    Route::post('/profile/settings/password', 'UserController@changePassword')->name('profile.settings.password');
     Route::post('/profile/settings/update', 'UserController@update')->name('profile.settings.update');
 
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function() {

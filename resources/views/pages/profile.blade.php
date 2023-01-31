@@ -14,7 +14,7 @@
                     <h5 class="profile-name card-title">{{ $user->first_name }}</h5>
                     <p class="card-text text-muted"><small>&#64;{{ $user->username }}</small></p>
                     <p class="card-text fs-6">{{ $user->bio }}</p>
-                    <a href="{{ route('profile') }}" class="btn btn-view-post px-5 fs-6">View my Posts</a>
+                    <a href="{{ route('home') }}" class="btn btn-view-post px-5 fs-6">Go Back to Home</a>
                 </div>
             </aside>
         </div>

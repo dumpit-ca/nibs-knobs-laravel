@@ -15,30 +15,34 @@
                     </a>
                 </li>
 
-                <li class=" nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+               @if(!Auth::check())
+               <li class=" nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">Register</a>
                 </li>
-
-                <div class="dropdown">
-                    <button class="btn btn-profile dropdown-toggle rounded-pill d-flex align-items-center py-2 px-4"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="d-inline-block me-2" id="btnGroupAddon">
-                            <div class="profile-img"></div>
-                        </div>
-                        Jhon Louie
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{{route('profile.settings')}}">Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="{{route('home')}}">Logout</a></li>
-                    </ul>
-                </div>
+               @endif
+              @if(Auth::check())
+              <div class="dropdown">
+                <button class="btn btn-profile dropdown-toggle rounded-pill d-flex align-items-center py-2 px-4"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @php $user = Auth::user(); @endphp
+                    <div class="d-inline-block me-2" id="btnGroupAddon">
+                        {{-- <div class="profile-img"><img src="{{ $user->image ? '/uploads/user/'. $user->image : asset('/images/img-placeholder.png') }}" alt=""></div> --}}
+                    </div>
+                    {{ Auth::user()->first_name  }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end">
+                    <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{route('profile.settings')}}">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                </ul>
+            </div>
+              @endif
             </ul>
         </div>
 </nav>

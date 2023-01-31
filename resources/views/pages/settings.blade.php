@@ -101,24 +101,30 @@
                 </li>
             </ul>
         </div>
-        <form action="" class="row g-3 align-items-end mb-5">
+        <form action="{{ route('profile.settings.password') }}" method="POST" class="row g-3 align-items-end mb-5">
+            @csrf
             <div class="col-md-3">
                 <label for="" class="form-label">Input Old Password</label>
-                <input type="password" class="form-control" id="inputPassword4"
+                <input type="password" name="current_password" class="form-control" id="inputPassword4"
                     placeholder="Must be more than 7 characters">
+                    <span class="badge badge-danger w-100 validation-message">{{$errors->first('current_password')}}</span>
             </div>
             <div class="col-md-3">
                 <label for="" class="form-label">New Password</label>
-                <input type="password" class="form-control" id="inputPassword4"
+                <input type="password" name="new_password" class="form-control" id="inputPassword4"
                     placeholder="Must be more than 7 characters">
+                    <span class="badge badge-danger w-100 validation-message">{{$errors->first('new_password')}}</span>
+
             </div>
             <div class="col-md-3">
                 <label for="" class="form-label">Re-enter your new password:</label>
-                <input type="password" class="form-control" id="inputPassword4"
+                <input type="password" name="new_confirm_password" class="form-control" id="inputPassword4"
                     placeholder="Must be more than 7 characters">
+                    <span class="badge badge-danger w-100 validation-message">{{$errors->first('new_confirm_password')}}</span>
+
             </div>
             <div class="col-md-3">
-                <button class="btn btn-save px-5" type="button">Verify Password</button>
+                <button class="btn btn-save px-5" type="submit">Verify Password</button>
             </div>
         </form>
     </div>
