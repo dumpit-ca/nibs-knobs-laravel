@@ -37,12 +37,10 @@
                 <td>{{ $user->type }}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{route('update')}}" class="btn btn-users-actions"><i
-                                class='bx bxs-pencil'></i></a>
-                        <button type="button" class="btn btn-users-actions"><i
-                                class='bx bx-toggle-left'></i></button>
-                        <button type="button" class="btn btn-users-actions"><i
-                                class='bx bxs-trash-alt'></i></button>
+                        <a href="{{ route('user.make-admin', [$user->id]) }}" type="button" class="btn btn-users-actions"><i
+                                class='bx bx-toggle-left'></i></a>
+                        <a href="{{ route('user.delete', [$user->id]) }}" type="button" class="btn btn-users-actions"><i
+                                class='bx bxs-trash-alt'></i></a>
                     </div>
                 </td>
             </tr>

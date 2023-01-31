@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
         Route::get('/users', 'UserController@index')->name('users');
+        Route::get('/users/delete/{id}', 'UserController@destroy')->name('user.delete');
+        Route::get('/users/make-admin/{id}', 'UserController@toggleAdmin')->name('user.make-admin');
 
         Route::get('/posts', 'AdminController@indexPost')->name('posts');
 

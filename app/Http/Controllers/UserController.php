@@ -219,16 +219,68 @@ class UserController extends Controller
          return view('pages.profile',
          ['user' => $user, 'posts' => $posts]);
      }
-    // Admin
-    public function dashboard(){
-        return view ('pages.admin.dashboard');
+
+
+     public function destroy($id)
+    {
+        $po = User::find($id);
+
+            if ($po == null)
+                return redirect()
+                    ->back()
+                    ->with('flash_info', 'User doesn\'t exists! Please try to refresh the page.');
+
+            try {
+                DB::beginTransaction();
+
+                $po->delete();
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+        return redirect()->route('users')->with('flash_success', 'User deleted successfully!');
+
+
     }
 
-    public function users(){
+    public function toggleAdmin($id)
+    {
+        $po = User::find($id);
 
-        return view('pages.admin.users');
-     }
+            if ($po == null)
+                return redirect()
+                    ->back()
+                    ->with('flash_info', 'User doesn\'t exists! Please try to refresh the page.');
 
+            try {
+                DB::beginTransaction();
+
+                $init = $po->type;
+                $changeto = $init == 'admin' ? 'user' : 'admin';
+
+                $po->type = $changeto;
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+                Log::error($e);
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+        return redirect()->route('users')->with('flash_success', 'Changed to admin successfully!');
+
+
+    }
 
 
 }
