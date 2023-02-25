@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="title" class="form-control" id="floatingInput"
-                            placeholder="Post Title">
+                            placeholder="Post Title" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required>
                         <label for="floatingInput">Post Title</label>
                         <span class="badge badge-danger w-100 validation-message">{{$errors->first('title')}}</span>
                     </div>
@@ -152,4 +152,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('script')
+<script>
+    tinymce.init({
+  selector: 'textarea',
+  resize: false,
+  height: 250,
+  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+  tinycomments_mode: 'embedded',
+  tinycomments_author: 'Author name',
+  mergetags_list: [
+    { value: 'First.Name', title: 'First Name' },
+    { value: 'Email', title: 'Email' },
+  ]
+});
+</script>
 @endsection

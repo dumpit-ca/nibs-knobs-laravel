@@ -38,6 +38,49 @@ class UserController extends Controller
 		return view('admin.users.create');
 	}
 
+    public function authenticate(Request $req)
+    {
+
+        $validator = Validator::make($req->all(), [
+			'email' => 'required|email|string|max:255',
+            'password' => 'required|min:8|string',
+		],[
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email is invalid.',
+            'email.regex' => 'Email is invalid in format.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 8 characters.',
+            'password.regex' => 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+        ]);
+
+		if ($validator->fails()){
+            return redirect()
+            ->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $credentials = [
+            'email' => $req->email,
+            'password' => $req->password,
+        ];
+
+        if(!Auth::attempt($credentials))
+        {
+            auth()->logout();
+            Session::flash('flash_error','Wrong username/password!');
+
+            return redirect()->back();
+        }
+
+        $user = Auth::user();
+
+        Session::flash('flash_message','Logged in!');
+
+        return redirect()
+            ->route('home')
+            ->with('flash_message', 'Logged in!');
+    }
 
 
 	protected function logout() {
@@ -55,7 +98,7 @@ class UserController extends Controller
      */
 
 	protected function index() {
-		$user = User::get();
+		$user =DB::table('users')->get();
         return view ('pages.admin.users.users',[
 			'users' => $user
 		]);
@@ -68,7 +111,7 @@ class UserController extends Controller
      */
 
 	protected function edit() {
-		$user = User::find(Auth::user()->id);
+		$user = Users::find(Auth::user()->id);
 		return view('pages.settings', [
 			'auth' => $user
 		]);
@@ -78,28 +121,34 @@ class UserController extends Controller
 
 		$validator = Validator::make($req->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
-			'first_name' => 'required|min:2',
-            'last_name' => 'required|min:2',
-			'username' => 'required|min:2',
-			'email' => 'required|email',
-            'address' => 'required|min:2',
-            'contact' => 'required|min:2',
+			'first_name' => 'required|min:2|max:50',
+            'last_name' => 'required|min:2|max:50',
+			'username' => 'required|min:2|max:50',
+			'email' => 'required|email|max:50',
+            'address' => 'required|min:2|max:100',
+            'contact' => 'required|min:2|max:50',
 		], [
             'image.image' => 'Image is not a valid image.',
             'image.mimes' => 'Only upload JPG, PNG and SVG files.',
             'image.max' => 'Image is too large.',
             'first_name.required' => 'First name is required',
             'first_name.min' => 'First name is short',
+            'first_name.max' => 'First name is too long',
             'last_name.required' => 'Last name is required',
             'last_name.min' => 'Last name is short',
+            'last_name.max' => 'Last name is too long',
 			'username.required' => 'Username is required',
 			'username.min' => 'Username is short',
+            'username.max' => 'Username is too long',
 			'email.required' => 'E-mail is required.',
 			'email.email' => 'E-mail provided is not a valid e-mail.',
+            'email.max' => 'E-mail is too long.',
             'address.required' => 'Address is required',
             'address.min' => 'Address is short',
+            'address.max' => 'Address is too long',
             'contact.required' => 'Contact is required',
             'contact.min' => 'Contact is short',
+            'contact.max' => 'Contact is too long',
 		]);
 
 		if ($validator->fails()){
@@ -111,7 +160,7 @@ class UserController extends Controller
 
 
 
-        $user = User::find(Auth::user()->id);
+        $user = Users::find(Auth::user()->id);
 
         if($user->username != $req->input('username')){
             $validator = Validator::make($req->all(), [
@@ -195,7 +244,7 @@ class UserController extends Controller
       try{
         DB::beginTransaction();
 
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        Users::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 
         DB::commit();
       }catch(\Exception $e){
@@ -223,7 +272,7 @@ class UserController extends Controller
 
      public function destroy($id)
     {
-        $po = User::find($id);
+        $po = Users::find($id);
 
             if ($po == null)
                 return redirect()
@@ -252,7 +301,7 @@ class UserController extends Controller
 
     public function toggleAdmin($id)
     {
-        $po = User::find($id);
+        $po = Users::find($id);
 
             if ($po == null)
                 return redirect()

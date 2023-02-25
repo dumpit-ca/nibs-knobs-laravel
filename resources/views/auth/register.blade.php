@@ -12,42 +12,42 @@
                 <h1 class="display-6 mb-4 register-header">Register Account</h1>
                 <div class="col-md-6 mb-4">
                     <label for="inputFirstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                    <input type="text" class="form-control" name="first_name" placeholder="First Name" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('first_name')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('last_name')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputUsername" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" placeholder="Username" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('username')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputNumber" class="form-label">Contact Number</label>
-                    <input type="text" class="form-control" name="contact" placeholder="Contact Number">
+                    <input type="text" class="form-control" name="contact" placeholder="Contact Number" pattern="^[\d\+()\- ]+$" required maxlength="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('contact')}}</span>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="inputEmailAddress" class="form-label">Email Address</label>
-                    <input type="text" class="form-control" name="email" placeholder="Email Address">
+                    <input type="text" class="form-control" name="email" placeholder="Email Address"  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required maxlength="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('email')}}</span>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" name="address" placeholder="Address">
+                    <input type="text" class="form-control" name="address" placeholder="Address" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="100">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('address')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputUsername" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="********">
+                    <input type="password" class="form-control" name="password" placeholder="********" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*['"])[\w!@#$%^&*()-_=+,.:;?\/]{8,}$" required>
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('password')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputNumber" class="form-label">Repeat Password:</label>
-                    <input type="password" class="form-control" name="password_confirmation" placeholder="********">
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="********" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*['"])[\w!@#$%^&*()-_=+,.:;?\/]{8,}$" required>
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('password_confirmation')}}</span>
                 </div>
                 <div class="mb-3 form-check">

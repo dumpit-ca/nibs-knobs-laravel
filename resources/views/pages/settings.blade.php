@@ -37,14 +37,14 @@
                     <div class="row g-3">
                         <div class="col-md-4">
                             <label for="inputFirstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="first_name" id="inputFirstName"
+                            <input type="text" class="form-control" name="first_name" id="inputFirstName" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50"
                                 value="{{ $auth->first_name }}">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('first_name')}}</span>
                         </div>
                         <div class="col-md-4">
                             <label for="inputLastName" class="form-label">Last Name</label>
-                            <input type="text" name="last_name" class="form-control" id="inputLastName"
+                            <input type="text" name="last_name" class="form-control" id="inputLastName" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50"
                                 value="{{ $auth->last_name }}">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('last_name')}}</span>
@@ -52,30 +52,30 @@
                         </div>
                         <div class="col-md-4">
                             <label for="inputUsername" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" id="inputUsername"
+                            <input type="text" name="username" class="form-control" id="inputUsername" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50"
                                 value="{{ $auth->username }}">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('username')}}</span>
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Email</label>
-                            <input type="email" name="email" id="" class="form-control" value="{{ $auth->email }}">
+                            <input type="email" name="email" id="" class="form-control"  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required maxlength="50" value="{{ $auth->email }}">
                             <span class="badge badge-danger w-100 validation-message">{{$errors->first('email')}}</span>
 
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Contact Number</label>
-                            <input type="text" name="contact" id="" class="form-control" value="{{ $auth->contact }}">
+                            <input type="text" name="contact" id="" class="form-control" pattern="^[\d\+()\- ]+$" required maxlength="50" value="{{ $auth->contact }}">
                         </div>
                         <div class="d-flex align-items-end gap-4">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Address</label>
-                                <input type="text" name="address" id="" class="form-control"
+                                <input type="text" name="address" id="" class="form-control" pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="100"
                                     value="{{ $auth->address }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Bio</label>
-                                <input type="text" name="bio" id="" class="form-control" value="{{ $auth->bio }}">
+                                <input type="text" name="bio" id="" class="form-control"  pattern="^[a-zA-Z0-9!\.,\- ]{2,}$" required maxlength="50" value="{{ $auth->bio }}">
                             </div>
                         </div>
                         <div class=" d-flex align-items-end mt-3 row">

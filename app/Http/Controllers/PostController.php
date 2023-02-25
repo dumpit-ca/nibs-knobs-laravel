@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 use App\Posts;
 use App\Comment;
@@ -67,8 +68,21 @@ class PostController extends Controller
 
             $destinationPath = 'uploads/posts';
             $photoExtension = $request->file('image')->getClientOriginalExtension();
-            $file = 'image'.uniqid().'.'.$photoExtension;
-            $request->file('image')->move($destinationPath, $file);
+            // $file = 'image'.uniqid().'.'.$photoExtension;
+            // $request->file('image')->move($destinationPath, $file);
+
+            // // Storage::move($request->file('image'), $destinationPath . $file );
+
+            if($request->hasFile('image')){
+               if($photoExtension == 'jpg' || $photoExtension == 'png' || $photoExtension == 'jpeg'){
+                    $fileform = $request->file('file');
+                    Storage::disk('local')->putFileAs($destinationPath . $file, file_get_contents($fileform));
+                }else{
+                    return redirect()->back()->with('flash_error', 'Image must be in jpg, png or jpeg format.');
+                }
+
+            }
+
 
 
 			Posts::create([
@@ -101,9 +115,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Posts::find($id);
+        $post = Posts::where('id', $id);
         $user = Auth::user();
-        $comments = Comment::where('post_id', $id)->get();
+        $comments = Comments::where('post_id', $id)->get();
         return view('pages.public.viewpost', compact('user', 'post', 'comments'));
     }
 
@@ -129,7 +143,7 @@ class PostController extends Controller
         try {
 			DB::beginTransaction();
 
-			Comment::create([
+			Comments::create([
                 'user_id' => auth()->user()->id,
                 'post_id' => $id,
                 'content' => $request->content,
@@ -168,7 +182,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $po = Posts::find($id);
+        $po = Posts::where('id', $id);
 
         if(!Auth::check()){
             return redirect()->route('login');

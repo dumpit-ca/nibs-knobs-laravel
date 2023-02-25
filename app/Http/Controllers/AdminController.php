@@ -34,11 +34,11 @@ class AdminController extends Controller
     public function index()
     {
         $total = [
-            'users' => User::where('type', 'guest')->count(),
+            'users' => Users::where('type', 'guest')->count(),
             'posts' => Posts::count(),
-            'comments' => Comment::count()
+            'comments' => Comments::count()
         ];
-        $posts = Posts::orderBy('created_at', 'desc')->get();
+        $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
         return view ('pages.admin.dashboard', [
             'total' => $total,
             'posts' => $posts
@@ -82,7 +82,7 @@ class AdminController extends Controller
     public function showPost($id)
     {
         $post = Posts::find($id);
-        $comments = Comment::where('post_id', $id)->get();
+        $comments = Posts::where('post_id', $id)->get();
         return view ('pages.admin.posts.view', [
             'post' => $post,
             'comments' => $comments
@@ -120,7 +120,7 @@ class AdminController extends Controller
      */
     public function destroyComment($id)
     {
-        $po = Comment::find($id);
+        $po = Comments::find($id);
 
             if ($po == null){
                 return redirect()
