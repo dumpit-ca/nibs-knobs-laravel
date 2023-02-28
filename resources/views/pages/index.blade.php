@@ -79,14 +79,14 @@
                 <h1 class="fs-2 fw-bold">Continue Exploring</h1>
                 <p class="fs-5 mb-2">Login your account now!</p>
                 <div class="form-floating mb-3" >
-                    <input type="text" class="form-control" name="email" id="floatingInput" placeholder="Email">
+                    <input type="text" class="form-control" name="email" id="floatingInput" placeholder="Email" max="50">
                     <label for="floatingInput" >Email</label>
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" min="8" max="50">
                     <label for="floatingPassword">Password</label>
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('password') }}</strong>

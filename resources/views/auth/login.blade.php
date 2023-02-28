@@ -29,7 +29,7 @@
                 <div class="mb-3 text-start">
                     <label for="exampleFormControlInput1" class="form-label">{{ __('E-Mail Address') }}</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus max="50"/>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
                 <div class="mb-3 text-start">
                     <label for="exampleFormControlInput1" class="form-label">{{ __('Password') }}</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="current-password" />
+                        name="password" required autocomplete="current-password" min="8" max="50"/>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

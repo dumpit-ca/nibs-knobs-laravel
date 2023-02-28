@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -47,15 +48,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $req)
     {
-        return Validator::make($data, [
+        return Validator::make($req->all(), [
             'first_name' => ['required', 'string', 'max:50'],
             'last_name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-            'username' => ['required', 'string', 'max:50', 'unique:users'],
+            'username' => ['required', 'string', 'max:50', 'unique:users', 'alpha_dash'],
             'address' => ['required', 'string', 'max:100'],
-            'contact' => ['required', 'string', 'max:255'],
+            'contact' => ['required', 'string', 'max:50'],
             'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
         ]);
     }
@@ -66,16 +67,16 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $req)
     {
         return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'address' => $data['address'],
-            'contact' => $data['contact'],
-            'password' => Hash::make($data['password']),
+            'first_name' => $req->first_name,
+            'last_name' => $req->last_name,
+            'email' => $req->email,
+            'username' => $req->username,
+            'address' => $req->address,
+            'contact' => $req->contact,
+            'password' => Hash::make($req->password),
         ]);
     }
 }

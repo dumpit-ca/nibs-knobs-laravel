@@ -77,29 +77,36 @@ class UserController extends Controller
 	protected function update(Request $req) {
 
 		$validator = Validator::make($req->all(), [
-            'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
-			'first_name' => 'required|min:2',
-            'last_name' => 'required|min:2',
-			'username' => 'required|min:2',
-			'email' => 'required|email',
-            'address' => 'required|min:2',
-            'contact' => 'required|min:2',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048|bail',
+			'first_name' => 'required|string|min:2|max:50|bail',
+            'last_name' => 'required|string|min:2|max:50|bail',
+			'username' => 'required|string|min:2|max:50|alpha_dash|bail',
+			'email' => 'required|email|max:50|bail',
+            'address' => 'required|string|min:2|max:100|bail',
+            'contact' => 'required|string|min:2|max:10|bail',
 		], [
             'image.image' => 'Image is not a valid image.',
             'image.mimes' => 'Only upload JPG, PNG and SVG files.',
             'image.max' => 'Image is too large.',
             'first_name.required' => 'First name is required',
             'first_name.min' => 'First name is short',
+            'fist_name.max' => 'First name is too long',
             'last_name.required' => 'Last name is required',
             'last_name.min' => 'Last name is short',
+            'last_name.max' => 'Last name is too long',
 			'username.required' => 'Username is required',
 			'username.min' => 'Username is short',
+            'username.max' => 'Username is too long',
+            'username.alpha_dash' => 'Username can only contain letters, numbers, dashes and underscores.',
 			'email.required' => 'E-mail is required.',
 			'email.email' => 'E-mail provided is not a valid e-mail.',
+            'email.max' => 'E-mail is too long',
             'address.required' => 'Address is required',
             'address.min' => 'Address is short',
+            'address.max' => 'Address is too long',
             'contact.required' => 'Contact is required',
             'contact.min' => 'Contact is short',
+            'contact.max' => 'Contact is too long',
 		]);
 
 		if ($validator->fails()){
@@ -110,7 +117,7 @@ class UserController extends Controller
         }else{
             $user = User::find(Auth::user()->id);
 
-            if($user->username != $req->input('username')){
+            if($user->username != $req->username){
                 $validator = Validator::make($req->all(), [
                     'username' => 'unique:users',
                 ], [
@@ -128,27 +135,53 @@ class UserController extends Controller
             try {
                 DB::beginTransaction();
 
-                $user->first_name = $req->input('first_name');
-                $user->last_name = $req->input('last_name');
-                if($user->username != $req->input('username')){
-                 $user->username = $req->input('username');
-                }
-                $user->email = $req->input('email');
-                $user->address = $req->input('address');
-                $user->contact = $req->input('contact');
-                $user->bio = $req->input('bio');
-
-
                 if($req->hasFile('image')){
                     $destinationPath = 'uploads/user';
                     $photoExtension = $req->file('image')->getClientOriginalExtension();
                     $file = 'image'.uniqid().'.'.$photoExtension;
                     $req->file('image')->move($destinationPath, $file);
 
-                    $user->image = $file;
+                    User::where('id', Auth::user()->id)->update([
+                        'image' => $file,
+                    ]);
                 }
 
-                $user->save();
+                if($user->username != $req->username){
+                    User::where('id', Auth::user()->id)
+                    ->update([
+                        'first_name' => $req->first_name,
+                        'last_name' => $req->last_name,
+                        'username' => $req->username,
+                        'email' => $req->email,
+                        'address' => $req->address,
+                        'contact' => $req->contact,
+                        'bio' => $req->bio,
+                    ]);
+                }else{
+                    User::where('id', Auth::user()->id)
+                    ->update([
+                        'first_name' => $req->first_name,
+                        'last_name' => $req->last_name,
+                        'email' => $req->email,
+                        'address' => $req->address,
+                        'contact' => $req->contact,
+                        'bio' => $req->bio,
+                    ]);
+                }
+
+
+
+                // $user->first_name = $req->input('first_name');
+                // $user->last_name = $req->input('last_name');
+                // if($user->username != $req->input('username')){
+                //  $user->username = $req->input('username');
+                // }
+                // $user->email = $req->input('email');
+                // $user->address = $req->input('address');
+                // $user->contact = $req->input('contact');
+                // $user->bio = $req->input('bio');
+
+                // $user->save();
 
                 DB::commit();
             } catch (\Exception $e) {
@@ -172,14 +205,19 @@ class UserController extends Controller
     public function changePassword(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
+            'current_password' => ['required', 'min:8', 'max:50', 'string', new MatchOldPassword],
+            'new_password' => ['required', 'min:8', 'max:50', 'string'],
+            'new_confirm_password' => ['required','same:new_password', 'min:8', 'max:50', 'string'],
 
 		], [
             'current_password.required' => 'Current password is required',
+            'current_password.min' => 'Current password is short',
+            'current_password.max' => 'Current password is too long',
             'current_password.match' => 'Current password does not match',
             'new_password.required' => 'New password is required',
+            'new_password.min' => 'New password is short',
+            'new_password.max' => 'New password is too long',
+            'new_confirm_password.required' => 'Confirm password is required',
             'new_confirm_password.same' => 'New password and confirm password does not match',
 		]);
 
@@ -189,27 +227,27 @@ class UserController extends Controller
             ->back()
             ->withErrors($validator)
             ->withInput();
+        }else{
+            try{
+                DB::beginTransaction();
+
+                User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+                DB::commit();
+              }catch(\Exception $e){
+                Log::error($e);
+                DB::rollback();
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+            return redirect()
+                    ->route('profile.settings');
         }
 
 
-      try{
-        DB::beginTransaction();
 
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-
-        DB::commit();
-      }catch(\Exception $e){
-        Log::error($e);
-        DB::rollback();
-
-        return redirect()
-            ->back()
-            ->with('flash_error', 'Something went wrong, please try again later.');
-
-
-    }
-    return redirect()
-			->route('profile.settings');
 
 }
 
@@ -225,27 +263,31 @@ class UserController extends Controller
     {
         $po = User::find($id);
 
-            if ($po == null)
+            if ($po == null){
                 return redirect()
-                    ->back()
-                    ->with('flash_info', 'User doesn\'t exists! Please try to refresh the page.');
+                ->back()
+                ->with('flash_info', 'User doesn\'t exists! Please try to refresh the page.');
+            }else{
+                try {
+                    DB::beginTransaction();
 
-            try {
-                DB::beginTransaction();
+                    $po->delete();
 
-                $po->delete();
+                    DB::commit();
+                } catch (Exception $e) {
+                    DB::rollback();
+                    Log::error($e);
 
-                DB::commit();
-            } catch (Exception $e) {
-                DB::rollback();
-                Log::error($e);
+                    return redirect()
+                        ->back()
+                        ->with('flash_error', 'Something went wrong, please try again later.');
+                }
 
-                return redirect()
-                    ->back()
-                    ->with('flash_error', 'Something went wrong, please try again later.');
+            return redirect()->route('users')->with('flash_success', 'User deleted successfully!');
             }
 
-        return redirect()->route('users')->with('flash_success', 'User deleted successfully!');
+
+
 
 
     }

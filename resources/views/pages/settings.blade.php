@@ -38,14 +38,14 @@
                         <div class="col-md-4">
                             <label for="inputFirstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" name="first_name" id="inputFirstName"
-                                value="{{ $auth->first_name }}">
+                                value="{{ $auth->first_name }}" max="50">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('first_name')}}</span>
                         </div>
                         <div class="col-md-4">
                             <label for="inputLastName" class="form-label">Last Name</label>
                             <input type="text" name="last_name" class="form-control" id="inputLastName"
-                                value="{{ $auth->last_name }}">
+                                value="{{ $auth->last_name }}" max="50">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('last_name')}}</span>
 
@@ -53,29 +53,29 @@
                         <div class="col-md-4">
                             <label for="inputUsername" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="inputUsername"
-                                value="{{ $auth->username }}">
+                                value="{{ $auth->username }}" max="50">
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('username')}}</span>
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Email</label>
-                            <input type="email" name="email" id="" class="form-control" value="{{ $auth->email }}">
+                            <input type="email" name="email" id="" class="form-control" value="{{ $auth->email }}" max="50">
                             <span class="badge badge-danger w-100 validation-message">{{$errors->first('email')}}</span>
 
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Contact Number</label>
-                            <input type="text" name="contact" id="" class="form-control" value="{{ $auth->contact }}">
+                            <input type="text" name="contact" id="" class="form-control" value="{{ $auth->contact }}" max="10">
                         </div>
                         <div class="d-flex align-items-end gap-4">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Address</label>
                                 <input type="text" name="address" id="" class="form-control"
-                                    value="{{ $auth->address }}">
+                                    value="{{ $auth->address }}" max="100">
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Bio</label>
-                                <input type="text" name="bio" id="" class="form-control" value="{{ $auth->bio }}">
+                                <input type="text" name="bio" id="" class="form-control" value="{{ $auth->bio }}" max="50">
                             </div>
                         </div>
                         <div class=" d-flex align-items-end mt-3 row">
@@ -106,20 +106,20 @@
             <div class="col-md-3">
                 <label for="" class="form-label">Input Old Password</label>
                 <input type="password" name="current_password" class="form-control" id="inputPassword4"
-                    placeholder="Must be more than 7 characters">
+                    placeholder="Must be more than 7 characters" max="50" min="8">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('current_password')}}</span>
             </div>
             <div class="col-md-3">
                 <label for="" class="form-label">New Password</label>
                 <input type="password" name="new_password" class="form-control" id="inputPassword4"
-                    placeholder="Must be more than 7 characters">
+                    placeholder="Must be more than 7 characters" max="50" min="8">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('new_password')}}</span>
 
             </div>
             <div class="col-md-3">
                 <label for="" class="form-label">Re-enter your new password:</label>
                 <input type="password" name="new_confirm_password" class="form-control" id="inputPassword4"
-                    placeholder="Must be more than 7 characters">
+                    placeholder="Must be more than 7 characters" max="50" min="8">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('new_confirm_password')}}</span>
 
             </div>
