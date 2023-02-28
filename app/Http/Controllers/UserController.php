@@ -107,66 +107,66 @@ class UserController extends Controller
             ->back()
             ->withErrors($validator)
             ->withInput();
-        }
+        }else{
+            $user = User::find(Auth::user()->id);
 
-
-
-        $user = User::find(Auth::user()->id);
-
-        if($user->username != $req->input('username')){
-            $validator = Validator::make($req->all(), [
-                'username' => 'unique:users',
-            ], [
-                'username.unique' => 'Username already exists.',
-            ]);
-
-            if ($validator->fails()){
-                return redirect()
-                ->back()
-                ->withErrors($validator)
-                ->withInput();
-            }
-        }
-
-
-
-		try {
-			DB::beginTransaction();
-
-            $user->first_name = $req->input('first_name');
-            $user->last_name = $req->input('last_name');
             if($user->username != $req->input('username')){
-             $user->username = $req->input('username');
-            }
-            $user->email = $req->input('email');
-            $user->address = $req->input('address');
-            $user->contact = $req->input('contact');
-            $user->bio = $req->input('bio');
+                $validator = Validator::make($req->all(), [
+                    'username' => 'unique:users',
+                ], [
+                    'username.unique' => 'Username already exists.',
+                ]);
 
-
-            if($req->hasFile('image')){
-                $destinationPath = 'uploads/user';
-                $photoExtension = $req->file('image')->getClientOriginalExtension();
-                $file = 'image'.uniqid().'.'.$photoExtension;
-                $req->file('image')->move($destinationPath, $file);
-
-                $user->image = $file;
+                if ($validator->fails()){
+                    return redirect()
+                    ->back()
+                    ->withErrors($validator)
+                    ->withInput();
+                }
             }
 
-			$user->save();
+            try {
+                DB::beginTransaction();
 
-			DB::commit();
-		} catch (\Exception $e) {
-			Log::error($e);
-			DB::rollback();
+                $user->first_name = $req->input('first_name');
+                $user->last_name = $req->input('last_name');
+                if($user->username != $req->input('username')){
+                 $user->username = $req->input('username');
+                }
+                $user->email = $req->input('email');
+                $user->address = $req->input('address');
+                $user->contact = $req->input('contact');
+                $user->bio = $req->input('bio');
 
-			return redirect()
-				->back()
-				->with('flash_error', 'Something went wrong, please try again later.');
-		}
 
-		return redirect()
-			->route('profile.settings');
+                if($req->hasFile('image')){
+                    $destinationPath = 'uploads/user';
+                    $photoExtension = $req->file('image')->getClientOriginalExtension();
+                    $file = 'image'.uniqid().'.'.$photoExtension;
+                    $req->file('image')->move($destinationPath, $file);
+
+                    $user->image = $file;
+                }
+
+                $user->save();
+
+                DB::commit();
+            } catch (\Exception $e) {
+                Log::error($e);
+                DB::rollback();
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+            return redirect()
+                ->route('profile.settings');
+        }
+
+
+
+
 	}
 
     public function changePassword(Request $request){

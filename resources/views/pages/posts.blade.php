@@ -100,7 +100,7 @@
                 </div>
                 <img src="uploads/posts/{{ $post->image }}" class="img-fluid mb-4 user-post" alt="...">
                 <div class="card-body">
-                    {!! $post->content !!}
+                    {{ $post->content  }}
                 </div>
                 <form action="{{ route('comment.create', ['id'=> $post->id]) }}" method="POST" class="mt-4">
                     @csrf

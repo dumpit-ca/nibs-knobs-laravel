@@ -49,47 +49,52 @@ class PostController extends Controller
     {
        $valid = Validator::make($request->all(), [
             'content' => 'required|string',
-            'title' => 'required|string',
+            'title' => 'required|string|max:100',
             'category' => 'required|string',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ],
     [
             'image.required' => 'Image is required.',
+            'image.image' => 'Image is should be an image.',
+            'image.mimes' => 'Image should be jpeg,png,jpg,gif,svg.',
 			'content.required' => 'Content is required.',
             'title.required' => 'Title is required.',
+            'title.max' => 'Title should not be more than 100 characters.',
     ]);
 
         if ($valid->fails()) {
             return redirect()->back()->withErrors($valid)->withInput();
+        }else{
+            try {
+                DB::beginTransaction();
+
+                $destinationPath = 'uploads/posts';
+                $photoExtension = $request->file('image')->getClientOriginalExtension();
+                $file = 'image'.uniqid().'.'.$photoExtension;
+                $request->file('image')->move($destinationPath, $file);
+
+
+                Posts::create([
+                    'user_id' => auth()->user()->id,
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'category' => $request->category,
+                    'image' => $file,
+                ]);
+
+                DB::commit();
+            } catch (\Exception $e) {
+                Log::error($e);
+                DB::rollback();
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+            return redirect()->route('home');
         }
-        try {
-			DB::beginTransaction();
 
-            $destinationPath = 'uploads/posts';
-            $photoExtension = $request->file('image')->getClientOriginalExtension();
-            $file = 'image'.uniqid().'.'.$photoExtension;
-            $request->file('image')->move($destinationPath, $file);
-
-
-			Posts::create([
-                'user_id' => auth()->user()->id,
-                'title' => $request->title,
-                'content' => $request->content,
-                'category' => $request->category,
-                'image' => $file,
-            ]);
-
-			DB::commit();
-		} catch (\Exception $e) {
-			Log::error($e);
-			DB::rollback();
-
-			return redirect()
-				->back()
-				->with('flash_error', 'Something went wrong, please try again later.');
-		}
-
-        return redirect()->route('home');
 
     }
 
@@ -125,27 +130,28 @@ class PostController extends Controller
 
         if ($valid->fails()) {
             return redirect()->back()->withErrors($valid)->withInput();
+        }else{
+            try {
+                DB::beginTransaction();
+
+                Comment::create([
+                    'user_id' => auth()->user()->id,
+                    'post_id' => $id,
+                    'content' => $request->content,
+                ]);
+
+                DB::commit();
+            } catch (\Exception $e) {
+                Log::error($e);
+                DB::rollback();
+
+                return redirect()
+                    ->back()
+                    ->with('flash_error', 'Something went wrong, please try again later.');
+            }
+
+            return redirect()->route('post.show', ['id' => $id]);
         }
-        try {
-			DB::beginTransaction();
-
-			Comment::create([
-                'user_id' => auth()->user()->id,
-                'post_id' => $id,
-                'content' => $request->content,
-            ]);
-
-			DB::commit();
-		} catch (\Exception $e) {
-			Log::error($e);
-			DB::rollback();
-
-			return redirect()
-				->back()
-				->with('flash_error', 'Something went wrong, please try again later.');
-		}
-
-        return redirect()->route('post.show', ['id' => $id]);
     }
 
     /**
@@ -174,27 +180,28 @@ class PostController extends Controller
             return redirect()->route('login');
         }else if(Auth::user()->id == $po->user_id){
 
-            if ($po == null)
+            if ($po == null){
                 return redirect()
-                    ->route('profile')
-                    ->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+                ->route('profile')
+                ->with('flash_info', 'Post doesn\'t exists! Please try to refresh the page.');
+            }else{
+                try {
+                    DB::beginTransaction();
 
-            try {
-                DB::beginTransaction();
+                    $po->delete();
 
-                $po->delete();
+                    DB::commit();
+                } catch (Exception $e) {
+                    DB::rollback();
+                    Log::error($e);
 
-                DB::commit();
-            } catch (Exception $e) {
-                DB::rollback();
-                Log::error($e);
+                    return redirect()
+                        ->route('profile')
+                        ->with('flash_error', 'Something went wrong, please try again later.');
+                }
 
-                return redirect()
-                    ->route('profile')
-                    ->with('flash_error', 'Something went wrong, please try again later.');
+            return redirect()->route('profile')->with('flash_success', 'Post deleted successfully!');
             }
-
-        return redirect()->route('profile')->with('flash_success', 'Post deleted successfully!');
 
         }else{
             return redirect()->route('profile')->with('flash_error', 'Please refrain from modifying this page.');
