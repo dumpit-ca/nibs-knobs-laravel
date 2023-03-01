@@ -19,9 +19,10 @@
         border: none !important;
 
         img.user-profile-img {
-            border-radius: 50% !important;
-            width: 120px !important;
-            height: 120px !important;
+            max-width: 256px;
+            max-height: 256px;
+            border-radius: 50%;
+            background-color: $img;
         }
 
         .btn-change {
