@@ -81,7 +81,7 @@ class UserController extends Controller
 			'first_name' => 'required|string|min:2|max:50|bail',
             'last_name' => 'required|string|min:2|max:50|bail',
 			'username' => 'required|string|min:2|max:50|alpha_dash|bail',
-			'email' => 'required|email|max:50|bail',
+			'email' => 'required|email:rfc,dns|max:50|bail',
             'address' => 'required|string|min:2|max:100|bail',
             'contact' => 'required|string|min:2|max:10|bail',
 		], [
@@ -252,7 +252,7 @@ class UserController extends Controller
 
       public function profile(){
         $user = Auth::user();
-        $posts = Posts::where('user_id', $user->id)->get();
+        $posts = Posts::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
          return view('pages.profile',
          ['user' => $user, 'posts' => $posts]);
      }

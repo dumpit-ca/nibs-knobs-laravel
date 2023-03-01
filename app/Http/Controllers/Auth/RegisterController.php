@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($req->all(), [
             'first_name' => ['required', 'string', 'max:50'],
             'last_name' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'email' => ['required', 'string', 'email:rfc,dns', 'max:50', 'unique:users'],
             'username' => ['required', 'string', 'max:50', 'unique:users', 'alpha_dash'],
             'address' => ['required', 'string', 'max:100'],
             'contact' => ['required', 'string', 'max:10'],
