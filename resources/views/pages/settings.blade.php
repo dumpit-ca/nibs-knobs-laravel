@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Contact Number</label>
-                            <input type="text" name="contact" id="" class="form-control" value="{{ $auth->contact }}" max="10">
+                            <input type="number" name="contact" id="" class="form-control" value="{{ $auth->contact }}" max="10">
                         </div>
                         <div class="d-flex align-items-end gap-4">
                             <div class="col-md-6">

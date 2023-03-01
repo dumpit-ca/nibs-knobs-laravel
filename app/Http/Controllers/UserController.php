@@ -189,8 +189,7 @@ class UserController extends Controller
                 DB::rollback();
 
                 return redirect()
-                    ->back()
-                    ->with('flash_error', 'Something went wrong, please try again later.');
+                    ->back();
             }
 
             return redirect()
