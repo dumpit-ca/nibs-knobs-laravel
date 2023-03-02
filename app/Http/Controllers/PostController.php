@@ -28,7 +28,7 @@ class PostController extends Controller
     public function index()
     {
             $user = Auth::user();
-            $posts = Posts::get();
+            $posts = Posts::orderBy('created_at', 'desc')->paginate(10);
              return view('pages.posts',
              ['user' => $user, 'posts' => $posts]);
     }
@@ -50,6 +50,7 @@ class PostController extends Controller
        $valid = Validator::make($request->all(), [
             'content' => 'required|string',
             'title' => 'required|string|max:100',
+            // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/',
             'category' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ],
@@ -58,6 +59,8 @@ class PostController extends Controller
             'image.image' => 'Image is should be an image.',
             'image.mimes' => 'Image should be jpeg,png,jpg,gif,svg.',
 			'content.required' => 'Content is required.',
+            'category.required' => 'Category is required.',
+            // 'category.regex' => 'Category should be Bedroom, Kitchen, Living Room, Bathroom, Space Saving, Home Office.',
             'title.required' => 'Title is required.',
             'title.max' => 'Title should not be more than 100 characters.',
     ]);

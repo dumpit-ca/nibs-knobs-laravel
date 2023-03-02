@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}" nonce="{{ csp_nonce() }}">
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon" nonce="{{ csp_nonce() }}">
-    {{-- Icons --}}
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' nonce="{{ csp_nonce() }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- Title --}}

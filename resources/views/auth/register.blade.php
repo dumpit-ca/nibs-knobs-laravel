@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputNumber" class="form-label">Contact Number</label>
-                    <input type="number" class="form-control" name="contact" placeholder="Contact Number" max="10">
+                    <input type="tel" class="form-control" name="contact" placeholder="Contact Number" maxlength="10">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('contact')}}</span>
                 </div>
                 <div class="col-12 mb-3">
