@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('/css/admin.css') }}" nonce="{{ csp_nonce() }}">
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js" nonce="{{ csp_nonce() }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" nonce="{{ csp_nonce() }}"></script>
     <script src="https://kit.fontawesome.com/1d56e9de16.js" crossorigin="anonymous" nonce="{{ csp_nonce() }}"></script>
     <link rel="shortcut icon" href="{{ asset('/images/n&k-icon.png') }}" type="image/x-icon" nonce="{{ csp_nonce() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,7 +34,9 @@
         </div>
     </main>
     <script src="{{ asset('/js/app.js') }}" nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('/js/dashboard.js') }}"></script>
     <script src="{{ asset('/js/admin.js') }}" nonce="{{ csp_nonce() }}"></script>
+
 
     @yield('script')
 </body>
