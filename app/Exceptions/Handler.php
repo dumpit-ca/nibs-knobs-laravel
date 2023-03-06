@@ -13,7 +13,11 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        \Illuminate\Auth\AuthenticationException::class,
+        \Illuminate\Auth\Access\AuthorizationException::class,
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+        \Illuminate\Validation\ValidationException::class,
     ];
 
     /**
@@ -22,8 +26,20 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
+        'current_password',
+        'email',
+        'first_name',
+        'last_name',
+        'username',
+        'address',
+        'contact',
         'password',
         'password_confirmation',
+        'content',
+        'title',
+        'category',
+        'image',
+
     ];
 
     /**

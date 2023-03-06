@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email:rfc,dns', 'max:50', 'unique:users'],
             'username' => ['required', 'string', 'max:50', 'unique:users', 'alpha_dash'],
             'address' => ['required', 'string', 'max:100'],
-            'contact' => ['required', 'string', 'max:10'],
+            'contact' => ['required', 'string', 'max:12'],
             'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
         ]);
     }

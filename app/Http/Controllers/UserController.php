@@ -77,13 +77,13 @@ class UserController extends Controller
 	protected function update(Request $req) {
 
 		$validator = Validator::make($req->all(), [
-            'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048|bail',
-			'first_name' => 'required|string|min:2|max:50|bail',
-            'last_name' => 'required|string|min:2|max:50|bail',
-			'username' => 'required|string|min:2|max:50|alpha_dash|bail',
-			'email' => 'required|email:rfc,dns|max:50|bail',
-            'address' => 'required|string|min:2|max:100|bail',
-            'contact' => 'required|string|min:2|max:10|bail',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
+			'first_name' => 'required|string|min:2|max:50',
+            'last_name' => 'required|string|min:2|max:50',
+			'username' => 'required|string|min:2|max:50|alpha_dash',
+			'email' => 'required|email:rfc,dns|max:50',
+            'address' => 'required|string|min:2|max:100',
+            'contact' => 'required|string|min:2|max:12',
 		], [
             'image.image' => 'Image is not a valid image.',
             'image.mimes' => 'Only upload JPG, PNG and SVG files.',
@@ -109,11 +109,13 @@ class UserController extends Controller
             'contact.max' => 'Contact is too long',
 		]);
 
+
 		if ($validator->fails()){
             return redirect()
             ->back()
             ->withErrors($validator)
             ->withInput();
+
         }else{
             $user = User::find(Auth::user()->id);
 
@@ -131,7 +133,6 @@ class UserController extends Controller
                     ->withInput();
                 }
             }
-
             try {
                 DB::beginTransaction();
 
@@ -146,42 +147,24 @@ class UserController extends Controller
                     ]);
                 }
 
+                $username = '';
                 if($user->username != $req->username){
-                    User::where('id', Auth::user()->id)
-                    ->update([
-                        'first_name' => $req->first_name,
-                        'last_name' => $req->last_name,
-                        'username' => $req->username,
-                        'email' => $req->email,
-                        'address' => $req->address,
-                        'contact' => $req->contact,
-                        'bio' => $req->bio,
-                    ]);
+                    $username = $req->username;
                 }else{
-                    User::where('id', Auth::user()->id)
-                    ->update([
-                        'first_name' => $req->first_name,
-                        'last_name' => $req->last_name,
-                        'email' => $req->email,
-                        'address' => $req->address,
-                        'contact' => $req->contact,
-                        'bio' => $req->bio,
-                    ]);
+                    $username = $user->username;
                 }
 
+                    User::where('id', Auth::user()->id)
+                    ->update([
+                        'first_name' => $req->first_name,
+                        'last_name' => $req->last_name,
+                        'username' => $username,
+                        'email' => $req->email,
+                        'address' => $req->address,
+                        'contact' => $req->contact,
+                        'bio' => $req->bio,
+                    ]);
 
-
-                // $user->first_name = $req->input('first_name');
-                // $user->last_name = $req->input('last_name');
-                // if($user->username != $req->input('username')){
-                //  $user->username = $req->input('username');
-                // }
-                // $user->email = $req->input('email');
-                // $user->address = $req->input('address');
-                // $user->contact = $req->input('contact');
-                // $user->bio = $req->input('bio');
-
-                // $user->save();
 
                 DB::commit();
             } catch (\Exception $e) {
