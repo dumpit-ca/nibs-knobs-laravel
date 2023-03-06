@@ -3,5 +3,9 @@
     "editor.defaultFormatter": "shufo.vscode-blade-formatter",
     "[blade]": {
         "editor.defaultFormatter": "onecentlin.laravel-blade"
-    }
+    },
+    "editor.fontSize": 16,
+    "editor.wordWrap": "on",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "bladeFormatter.format.sortTailwindcssClasses": true
 }

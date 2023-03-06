@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "boxicons": "^2.1.4",
+        "chart.js": "^4.2.1",
         "jquery": "^3.6.1",
         "sweetalert2": "^11.4.8"
     }
