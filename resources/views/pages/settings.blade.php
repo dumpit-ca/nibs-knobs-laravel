@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-md-5">
                                 <div
-                                    class="card-body d-flex flex-column align-items-center justify-content-center h-100">
+                                    class="card-body p-md-0 py-4 px-0 d-flex flex-column align-items-center justify-content-center h-100">
                                     <div class="d-grid gap-2 w-100 mx-auto">
                                         <label for="inputImage" class="form-label">Upload Image</label>
                                         <input type="file" class="form-control" name="image" id="inputImage">

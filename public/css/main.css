@@ -99,8 +99,8 @@
   border: none !important;
 }
 .settings .change-profile-card img.user-profile-img {
-  max-width: 256px;
-  max-height: 256px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: #D9D9D9;
 }
