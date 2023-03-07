@@ -47,41 +47,41 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       $valid = Validator::make($request->all(), [
+      $validatedData;
+       $rules = [
             'content' => 'required|string',
             'title' => 'required|string|max:100',
             // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/',
             'category' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-        ],
-    [
-            'image.required' => 'Image is required.',
-            'image.image' => 'Image is should be an image.',
-            'image.mimes' => 'Image should be jpeg,png,jpg,gif,svg.',
-			'content.required' => 'Content is required.',
-            'category.required' => 'Category is required.',
-            // 'category.regex' => 'Category should be Bedroom, Kitchen, Living Room, Bathroom, Space Saving, Home Office.',
-            'title.required' => 'Title is required.',
-            'title.max' => 'Title should not be more than 100 characters.',
-    ]);
+        ];
 
-        if ($valid->fails()) {
-            return redirect()->back()->withErrors($valid)->withInput();
-        }else{
+        try{
+            $validatedData = $this->validate($request, $rules);
+            Log::info('validated data');
+
+        }catch(ValidationException $exception){
+            return redirect()
+            ->back()
+            ->withErrors($exception->errors())
+            ->withInput();
+        }
+
+
             try {
                 DB::beginTransaction();
 
                 $destinationPath = 'uploads/posts';
-                $photoExtension = $request->file('image')->getClientOriginalExtension();
+                $photoExtension =  $validatedData['image']->getClientOriginalExtension();
                 $file = 'image'.uniqid().'.'.$photoExtension;
-                $request->file('image')->move($destinationPath, $file);
+                $validatedData['image']->move($destinationPath, $file);
 
 
                 Posts::create([
                     'user_id' => auth()->user()->id,
-                    'title' => $request->title,
-                    'content' => $request->content,
-                    'category' => $request->category,
+                    'title' => $validatedData['title'],
+                    'content' => $validatedData['content'],
+                    'category' => $validatedData['category'],
                     'image' => $file,
                 ]);
 
@@ -96,7 +96,7 @@ class PostController extends Controller
             }
 
             return redirect()->route('home');
-        }
+
 
 
     }
@@ -123,24 +123,26 @@ class PostController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $valid = Validator::make($request->all(), [
-            'content' => 'required|string'
-        ],
-    [
+        $rules = [
+            'content' => 'required|string|max:255'
+        ];
+        $validatedData;
+        try{
+            $validatedData = $this->validate($request->only, $rules);
 
-            'content.required' => 'Content is required.'
-    ]);
-
-        if ($valid->fails()) {
-            return redirect()->back()->withErrors($valid)->withInput();
-        }else{
+        }catch(ValidationException $exception){
+            return redirect()
+            ->back()
+            ->withErrors($exception->errors())
+            ->withInput();
+        }
             try {
                 DB::beginTransaction();
 
                 Comment::create([
                     'user_id' => auth()->user()->id,
                     'post_id' => $id,
-                    'content' => $request->content,
+                    'content' => $validatedData['content'],
                 ]);
 
                 DB::commit();
@@ -154,7 +156,7 @@ class PostController extends Controller
             }
 
             return redirect()->route('post.show', ['id' => $id]);
-        }
+
     }
 
     /**
