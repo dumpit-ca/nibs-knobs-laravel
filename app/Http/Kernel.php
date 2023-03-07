@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'ascii.headers' => \App\Http\Middleware\VerifyAsciiHeaders::class,
         'XssSanitization' => \App\Http\Middleware\XssSanitization::class,
         'admin' =>\App\Http\Middleware\AdminMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,

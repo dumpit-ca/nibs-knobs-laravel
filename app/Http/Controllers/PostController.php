@@ -71,10 +71,11 @@ class PostController extends Controller
             try {
                 DB::beginTransaction();
 
+                $img = $validatedData['image'];
                 $destinationPath = 'uploads/posts';
-                $photoExtension =  $validatedData['image']->getClientOriginalExtension();
-                $file = 'image'.uniqid().'.'.$photoExtension;
-                $validatedData['image']->move($destinationPath, $file);
+                $photoExtension =  $img->extension();
+                $file = $img->hashName().'.'.$photoExtension;
+                $img->move($destinationPath, $file);
 
 
                 Posts::create([

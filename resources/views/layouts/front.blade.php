@@ -15,7 +15,7 @@
 
 <body>
     @include('components.front.navbar')
-    <script src="{{ asset('/js/app.js') }}" nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('/js/app.js') }}" nonce="{{ csp_nonce() }}" type="text/javascript"></script>
     @yield('content')
     @yield('script')
 

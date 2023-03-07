@@ -120,10 +120,12 @@ class UserController extends Controller
 
 
                 if($req->hasFile('image')){
+
+                    $img = $validatedData['image'];
                     $destinationPath = 'uploads/user';
-                    $photoExtension = $validatedData['image']->getClientOriginalExtension();
-                    $file = 'image'.uniqid().'.'.$photoExtension;
-                    $validatedData['image']->move($destinationPath, $file);
+                    $photoExtension =  $img->extension();
+                    $file = $img->hashName().'.'.$photoExtension;
+                    $img->move($destinationPath, $file);
 
                     User::where('id', Auth::user()->id)->update([
                         'image' => $file,
