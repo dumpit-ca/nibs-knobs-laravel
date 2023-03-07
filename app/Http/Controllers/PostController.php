@@ -129,7 +129,7 @@ class PostController extends Controller
         ];
         $validatedData;
         try{
-            $validatedData = $this->validate($request->only, $rules);
+            $validatedData = $this->validate($request, $rules);
 
         }catch(ValidationException $exception){
             return redirect()

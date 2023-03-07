@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['XssSanitization', 'ascii.headers']], function() {
+Route::middleware(['XssSanitization', 'ascii.headers'])->group(function() {
     // Auth
     Auth::routes();
 
@@ -28,7 +28,7 @@ Route::group(['middleware' => ['XssSanitization', 'ascii.headers']], function() 
 
 
 
-    Route::group(['middleware' => 'auth'], function() {
+    Route::middleware(['auth'])->group(function() {
         Route::get('/logout', 'UserController@logout')->name('logout');
         Route::get('/home', 'PostController@index')->name('home');
         Route::post('/home/create-post', 'PostController@store')->name('post.create');
@@ -50,7 +50,6 @@ Route::group(['middleware' => ['XssSanitization', 'ascii.headers']], function() 
             Route::get('/users/make-admin/{id}', 'UserController@toggleAdmin')->name('user.make-admin');
 
             Route::get('/posts', 'AdminController@indexPost')->name('posts');
-
 
             Route::get('/posts/view/{id}', 'AdminController@showPost')->name('post.view');
             Route::get('/posts/delete/{id}', 'AdminController@destroyPost')->name('post.delete');

@@ -274,9 +274,12 @@ class UserController extends Controller
                 DB::beginTransaction();
 
                 $init = $po->type;
-                $changeto = $init == 'admin' ? 'user' : 'admin';
+                $changeto = $init == 'admin' ? 'guest' : 'admin';
 
-                $po->type = $changeto;
+                User::where('id', $id)
+                ->update([
+                    'type' => $changeto
+                ]);
 
                 DB::commit();
             } catch (Exception $e) {
