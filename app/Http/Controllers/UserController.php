@@ -78,6 +78,7 @@ class UserController extends Controller
 
         $validatedData;
         $rules = [
+            '_token' => 'required|alpha_num|max:50|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
 			'first_name' => 'required|string|min:2|max:50',
             'last_name' => 'required|string|min:2|max:50',
@@ -177,6 +178,7 @@ class UserController extends Controller
     public function changePassword(Request $request){
 
         $rules = [
+            '_token' => 'required|alpha_num|max:50|string',
             'current_password' => ['required', 'min:8', 'max:50', 'string', new MatchOldPassword],
             'new_password' => ['required', 'min:8', 'max:50', 'string'],
             'new_confirm_password' => ['required','same:new_password', 'min:8', 'max:50', 'string'],

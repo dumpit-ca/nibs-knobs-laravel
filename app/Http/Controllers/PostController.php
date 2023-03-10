@@ -50,10 +50,11 @@ class PostController extends Controller
 
       $validatedData;
        $rules = [
-            'content' => 'required|string |max:255',
+            '_token' => 'required|alpha_num|max:50|string',
+            'content' => 'required|string|max:255',
             'title' => 'required|string|max:100 ',
             // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/', make array
-            'category' => 'required|string',
+            'category' => 'required|string|max:12|',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ];
 
@@ -126,6 +127,7 @@ class PostController extends Controller
     public function edit(Request $request, $id)
     {
         $rules = [
+            '_token' => 'required|alpha_num|max:50|string',
             'content' => 'required|string|max:255'
         ];
         $validatedData;
