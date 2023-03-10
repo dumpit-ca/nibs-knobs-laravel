@@ -133,13 +133,5 @@
             </div>
         </form>
     </div>
-    <button onclick="test()">hello</button>
 </div>
-@endsection
-@section('script')
-<script>
-    function test(){
-        Swal.fire()
-    }
-</script>
 @endsection

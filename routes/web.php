@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['XssSanitization', 'ascii.headers'])->group(function() {
+
     // Auth
     Auth::routes();
 
@@ -61,4 +61,3 @@ Route::middleware(['XssSanitization', 'ascii.headers'])->group(function() {
         });
     });
 
-});

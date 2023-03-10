@@ -47,11 +47,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
       $validatedData;
        $rules = [
-            'content' => 'required|string',
-            'title' => 'required|string|max:100',
-            // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/',
+            'content' => 'required|string|alpha_dash|max:255',
+            'title' => 'required|string|max:100|alpha_dash',
+            // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/', make array
             'category' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ];
@@ -96,7 +97,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('home');
+            return redirect()->route('home')->with('flash_success', 'Updated Information.');
 
 
 
@@ -125,7 +126,7 @@ class PostController extends Controller
     public function edit(Request $request, $id)
     {
         $rules = [
-            'content' => 'required|string|max:255'
+            'content' => 'required|string|max:255|alpha_dash'
         ];
         $validatedData;
         try{
@@ -146,6 +147,7 @@ class PostController extends Controller
                     'content' => $validatedData['content'],
                 ]);
 
+
                 DB::commit();
             } catch (\Exception $e) {
                 Log::error($e);
@@ -156,7 +158,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('post.show', ['id' => $id]);
+            return redirect()->route('post.show', ['id' => $id])->with('flash_success', 'Updated Information.');
 
     }
 

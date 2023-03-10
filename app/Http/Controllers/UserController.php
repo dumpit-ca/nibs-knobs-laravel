@@ -75,16 +75,17 @@ class UserController extends Controller
 	}
 
 	protected function update(Request $req) {
+
         $validatedData;
 		$rules = [
             'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
-			'first_name' => 'required|string|min:2|max:50',
-            'last_name' => 'required|string|min:2|max:50',
+			'first_name' => 'required|string|min:2|max:50|alpha',
+            'last_name' => 'required|string|min:2|max:50|alpha',
 			'username' => 'required|string|min:2|max:50|alpha_dash',
 			'email' => 'required|email:rfc,dns|max:50',
-            'address' => 'required|string|min:2|max:100',
-            'contact' => 'required|string|min:2|max:12',
-            'bio' => 'string|min:2|max:100',
+            'address' => 'required|string|min:2|max:100|alpha_dash',
+            'contact' => 'required|string|min:2|max:12|numeric',
+            'bio' => 'string|min:2|max:100|alpha_dash',
 		];
 
         $usernameRules= [
@@ -130,6 +131,7 @@ class UserController extends Controller
                     User::where('id', Auth::user()->id)->update([
                         'image' => $file,
                     ]);
+
                 }
 
                 $username = '';
@@ -163,7 +165,8 @@ class UserController extends Controller
             }
 
             return redirect()
-                ->route('profile.settings');
+                ->route('profile.settings')
+                ->with('flash_success', 'Updated Information.');
         }
 
 
@@ -173,34 +176,28 @@ class UserController extends Controller
 
     public function changePassword(Request $request){
 
-        $validator = Validator::make($request->all(), [
+        $rules = [
             'current_password' => ['required', 'min:8', 'max:50', 'string', new MatchOldPassword],
             'new_password' => ['required', 'min:8', 'max:50', 'string'],
             'new_confirm_password' => ['required','same:new_password', 'min:8', 'max:50', 'string'],
+		];
 
-		], [
-            'current_password.required' => 'Current password is required',
-            'current_password.min' => 'Current password is short',
-            'current_password.max' => 'Current password is too long',
-            'current_password.match' => 'Current password does not match',
-            'new_password.required' => 'New password is required',
-            'new_password.min' => 'New password is short',
-            'new_password.max' => 'New password is too long',
-            'new_confirm_password.required' => 'Confirm password is required',
-            'new_confirm_password.same' => 'New password and confirm password does not match',
-		]);
+        try{
+            $validatedData = $this->validate($request, $rules);
+            Log::info('validated data');
 
-
-        if ($validator->fails()){
+        }catch(ValidationException $exception){
             return redirect()
             ->back()
-            ->withErrors($validator)
+            ->withErrors($exception->errors())
             ->withInput();
-        }else{
+        }
+
+
             try{
                 DB::beginTransaction();
 
-                User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+                User::find(auth()->user()->id)->update(['password'=> Hash::make($validatedData['new_password'])]);
 
                 DB::commit();
               }catch(\Exception $e){
@@ -212,8 +209,9 @@ class UserController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
             return redirect()
-                    ->route('profile.settings');
-        }
+                    ->route('profile.settings')
+                    ->with('flash_success', 'Updated Information.');
+
 
 
 
