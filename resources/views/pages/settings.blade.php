@@ -68,17 +68,23 @@
                             <label for="" class="form-label">Contact Number</label>
                             <input type="tel" name="contact" id="" class="form-control" value="{{ $auth->contact }}"
                                 maxlength="10">
+                                <span
+                                            class="badge badge-danger w-100 validation-message">{{$errors->first('contact')}}</span>
                         </div>
                         <div class="d-flex align-items-end gap-4">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Address</label>
                                 <input type="text" name="address" id="" class="form-control"
                                     value="{{ $auth->address }}" max="100">
+                                    <span
+                                            class="badge badge-danger w-100 validation-message">{{$errors->first('address')}}</span>
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Bio</label>
                                 <input type="text" name="bio" id="" class="form-control" value="{{ $auth->bio }}"
                                     max="50">
+                                    <span
+                                            class="badge badge-danger w-100 validation-message">{{$errors->first('bio')}}</span>
                             </div>
                         </div>
                         <div class=" d-flex align-items-end mt-3 row">

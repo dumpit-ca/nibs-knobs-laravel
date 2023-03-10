@@ -77,15 +77,15 @@ class UserController extends Controller
 	protected function update(Request $req) {
 
         $validatedData;
-		$rules = [
+        $rules = [
             'image' => 'image|mimes:jpeg,png,jpg,gif,bmp,svg|max:2048',
-			'first_name' => 'required|string|min:2|max:50|alpha',
-            'last_name' => 'required|string|min:2|max:50|alpha',
-			'username' => 'required|string|min:2|max:50|alpha_dash',
+			'first_name' => 'required|string|min:2|max:50',
+            'last_name' => 'required|string|min:2|max:50',
+			'username' => 'required|string|min:2|max:50',
 			'email' => 'required|email:rfc,dns|max:50',
-            'address' => 'required|string|min:2|max:100|alpha_dash',
-            'contact' => 'required|string|min:2|max:12|numeric',
-            'bio' => 'string|min:2|max:100|alpha_dash',
+            'address' => 'required|string|min:2|max:100',
+            'contact' => 'required|string|min:2|max:12',
+            'bio' => 'string|min:2|max:100',
 		];
 
         $usernameRules= [
