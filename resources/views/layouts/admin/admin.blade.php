@@ -28,7 +28,6 @@
                 <div class="my-5">
                     @yield('body')
                 </div>
-
             </section>
         </div>
     </main>
@@ -36,6 +35,7 @@
     <script src="{{ asset('/js/app.js') }}" nonce="{{ csp_nonce() }}"></script>
     @yield('script')
     <script src="{{ asset('/js/admin.js') }}" nonce="{{ csp_nonce() }}"></script>
+
 </body>
 
 </html>

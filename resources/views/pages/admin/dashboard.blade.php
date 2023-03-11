@@ -81,9 +81,9 @@
 
 @endsection
 @section('script')
-<script>
+<script type="text/javascript">
     const ctx = document.getElementById("chart");
-    
+
     new Chart(ctx, {
     type: "bar",
     data: {

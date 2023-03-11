@@ -18,19 +18,19 @@ class CspPolicies extends Policy
         ->addDirective(Directive::IMG, [Keyword::SELF, 'data:'])
         ->addDirective(Directive::MEDIA, Keyword::SELF)
         ->addDirective(Directive::OBJECT, Keyword::NONE)
-        ->addDirective(Directive::SCRIPT, Keyword::SELF)
+        // ->addDirective(Directive::SCRIPT, Keyword::SELF)
         ->addDirective(Directive::STYLE, Keyword::UNSAFE_INLINE)
         ->addDirective(Directive::FONT, "self data:")
         // ->addDirective(Directive::STYLE, Keyword::SELF)
-        ->addNonceForDirective(Directive::SCRIPT)
-        ->addNonceForDirective(Directive::SCRIPT_ELEM)
+        // ->addNonceForDirective(Directive::SCRIPT)
+        // ->addNonceForDirective(Directive::SCRIPT_ELEM)
         ->addNonceForDirective(Directive::STYLE_ELEM);
 
 
         //add a directive for frame ancestors
         $this
         ->addDirective(Directive::FRAME_ANCESTORS, Keyword::SELF)
-        ->addDirective(Directive::SCRIPT_ELEM, Keyword::SELF)
+        // ->addDirective(Directive::SCRIPT_ELEM, Keyword::SELF)
 		->addDirective(Directive::STYLE_ELEM, Keyword::SELF)
         //Add XSS protection
         // ->addDirective(Directive::BASE_URI, Keyword::SELF)
