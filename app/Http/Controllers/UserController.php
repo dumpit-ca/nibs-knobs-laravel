@@ -210,8 +210,9 @@ class UserController extends Controller
                     ->back()
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
+            user()->logout();
             return redirect()
-                    ->route('profile.settings')
+                    ->route('login')
                     ->with('flash_success', 'Updated Information.');
 
 

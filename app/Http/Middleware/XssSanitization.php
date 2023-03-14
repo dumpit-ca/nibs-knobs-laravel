@@ -16,11 +16,11 @@ class XssSanitization
      */
     public function handle($request, Closure $next)
     {
-
         $input = $request->all();
         array_walk_recursive($input, function(&$input) {
+            $input = str_replace(['-', '=', '%'], ' ', substr($input, 0, 300));
             $str_utf8 = mb_convert_encoding($input, 'UTF-8', mb_detect_encoding($input));
-            $input = filter_var(strip_tags(substr($str_utf8, 0, 500)), FILTER_SANITIZE_STRING);
+            $input = filter_var(strip_tags($str_utf8), FILTER_SANITIZE_STRING);
         });
 
         $request->merge($input);

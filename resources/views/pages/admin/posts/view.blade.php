@@ -6,10 +6,6 @@
     <div class="row mt-5">
         <div class="col-md-4 d-flex flex-column">
             <img src="/uploads/posts/{{ $post->image }}" class="img-fluid" alt="Post image">
-            <div class="d-grid gap-2 d-md-block my-4">
-                <button class="btn btn-delete px-5 text-uppercase" type="button">DELETE PHOTO</button>
-            </div>
-            <form action="">
                 <div class="row my-3">
                     <label for="" class="col-md-3 col-form-label fs-6">Post Title:</label>
                     <div class="col-sm-9">
@@ -22,12 +18,6 @@
                         <textarea class="form-control" style="height: 100px" disabled>{!! $post->content !!}</textarea>
                     </div>
                 </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-cancel me-md-2 text-uppercase fs-6 px-4" type="button">CANCEL</button>
-                    <button class="btn btn-save text-uppercase fs-6 px-4 " type="button">SAVE
-                        CHANGES</button>
-                </div>
-            </form>
         </div>
         <div class="col-md-8">
             <div class="admin-table h-100 p-3">

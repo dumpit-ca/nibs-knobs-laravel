@@ -40,7 +40,7 @@
                         <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
                             aria-expanded="false"></i>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('post.delete', [$post->id]) }}">Delete Post</a>
+                            <li><a class="dropdown-item" href="{{ route('profile.delete', [$post->id]) }}">Delete Post</a>
                             </li>
                         </ul>
                     </div>

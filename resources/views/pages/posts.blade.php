@@ -88,7 +88,7 @@
                         <i class="bx bx-dots-horizontal-rounded btn-icon fs-4" data-bs-toggle="dropdown"
                             aria-expanded="false"></i>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('post.delete',['id' => $post->id]) }}">Delete
+                            <li><a class="dropdown-item" href="{{ route('profile.delete',['id' => $post->id]) }}">Delete
                                     Post</a></li>
                         </ul>
                     </div>
@@ -120,31 +120,7 @@
 
 
                     </div>
-                    {{-- comments here --}}
-                    <div class="collapse my-3" id="collapseExample">
-                        <div class="comment p-3">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <img src="{{asset('/images/img-placeholder.png')}}" alt=""
-                                        class="profile-img-posts img-fluid">
-                                </div>
-                                <div class="profile">
-                                    <p class="fs-6 card-title m-0" id="profile-name">Cass <span
-                                            class="fs-6 fw-normal">@cassoy</span>
-                                    </p>
-                                    <p class="fs-6 card-text text-muted m-0">10 hours ago</p>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <p class="fs-6">Just finished redecorating my living room and I am absolutely in love
-                                    with the
-                                    outcome! Interior design is truly an art
-                                    form, it has the power to completely transform a space and make it feel like a whole
-                                    new
-                                    place.</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </form>
 
             </div>

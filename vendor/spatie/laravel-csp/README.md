@@ -1,20 +1,20 @@
 # Set content security policy headers in a Laravel app
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-csp.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-csp)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/spatie/laravel-csp/run-tests.yml?branch=main&label=tests&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-csp/run-tests?label=tests)
 ![Check & fix styling](https://github.com/spatie/laravel-csp/workflows/Check%20&%20fix%20styling/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-csp.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-csp)
 
-By default, all scripts on a webpage are allowed to send and fetch data to any site they want. This can be a security problem. Imagine one of your JavaScript dependencies sends all keystrokes, including passwords, to a third party website.
+By default all scripts on a webpage are allowed to send and fetch data to any site they want. This can be a security problem. Imagine one of your JavaScript dependencies sends all keystrokes, including passwords, to a third party website.
 
-It's very easy for someone to hide this malicious behaviour, making it nearly impossible for you to detect it (unless you manually read all the JavaScript code on your site). For a better idea of why you really need to set content security policy headers, read [this excellent blog post](https://medium.com/hackernoon/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5) by [David Gilbertson](https://twitter.com/D__Gilbertson).
+It's very easy for someone to hide this malicious behaviour, making it nearly impossible for you to detect it (unless you manually read all the JavaScript code on your site). For a better idea of why you really need to set content security policy headers read [this excellent blog post](https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5) by [David Gilbertson](https://twitter.com/D__Gilbertson).
 
 Setting Content Security Policy headers helps solve this problem. These headers dictate which sites your site is allowed to contact. This package makes it easy for you to set the right headers.
 
-This readme does not aim to fully explain all the possible usages of CSP and its directives. We highly recommend that you read [Mozilla's documentation on the Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) before using this package. Another good resource to learn about CSP, is [this edition of the Larasec newsletter](https://larasec.substack.com/p/in-depth-content-security-policy) by Stephen Rees-Carter.
+This readme does not aim to fully explain all the possible usages of CSP and it's directives. We highly recommend that you read [Mozilla's documentation on the Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)) before using this package.
 
-If you're an audiovisual learner, you should check out [this video](https://www.laraning.com/videos/spatie-csp-content-security-policy
-) on how to use this package.
+If you're an audio visual learner you should check out this video on how to use this package.
+https://www.laraning.com/videos/spatie-csp-content-security-policy
 
 ## Support us
 
@@ -35,7 +35,7 @@ composer require spatie/laravel-csp
 You can publish the config-file with:
 
 ```bash
-php artisan vendor:publish --tag=csp-config
+php artisan vendor:publish --provider="Spatie\Csp\CspServiceProvider" --tag="config"
 ```
 
 This is the contents of the file which will be published at `config/csp.php`:
@@ -153,10 +153,10 @@ Content-Security-Policy: upgrade-insecure-requests;block-all-mixed-content
 
 ### Creating policies
 
-In the `policy` key of the `csp` config file is set to `\Spatie\Csp\Policies\Basic::class` by default. This class allows your site to only use images, scripts, form actions of your own site. This is how the class looks:
+In the `policy` key of the `csp` config file is set to `\Spatie\Csp\Policies\Basic::class` by default. This class allows your site to only use images, scripts, form actions of your own site. This is how the class looks like.
 
 ```php
-namespace App\Support;
+namespace Spatie\Csp\Policies;
 
 use Spatie\Csp\Directive;
 use Spatie\Csp\Value;
@@ -184,7 +184,7 @@ class Basic extends Policy
 You can allow fetching scripts from `www.google.com` by extending this class:
 
 ```php
-namespace App\Support;
+namespace App\Services\Csp\Policies;
 
 use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
@@ -237,74 +237,11 @@ Next you must add the nonce to the html:
 
 There are few other options to use inline styles and scripts. Take a look at the [CSP docs on the Mozilla developer site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src) to know more.
 
-### Integration with Vite
-
-When building assets, Laravel's Vite plugin can [generate a nonce](https://laravel.com/docs/9.x/vite#content-security-policy-csp-nonce) that you can retrieve with `Vite::useCspNonce`.  You can use in your own `NonceGenerator`.
-
-```php
-namespace App\Support;
-
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Vite;
-
-class LaravelViteNonceGenerator implements NonceGenerator
-{
-    public function generate(): string
-    {
-        return Vite::useCspNonce();
-    }
-}
-```
-
-Don't forget to specify the fully qualified class name of your `NonceGenerator` in the `nonce_generator` key of the `csp` config file.
-
-Alternatively, you can instruct Vite to use a specific value that it should use as nonce.
-
-```php
-namespace App\Support;
-
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Vite;
-
-class RandomString implements NonceGenerator
-{
-    public function generate(): string
-    {
-        $myNonce = ''; // determine the value for `$myNonce` however you want
-    
-        Vite::useCspNonce($myNonce);
-        
-        return $myNonce;
-    }
-}
-```
-
-### Outputting a CSP Policy as a meta tag
-
-In rare circumstances, a large site may have so many external connections that the CSP header actually exceeds the max header size.
-Thankfully, the [CSP specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#using_the_html_meta_element) allows for outputting information as a meta tag in the head of a webpage.
-
-To support this use case, this package provides a `@cspMetaTag` blade directive that you may place in the `<head>` of your site.
-
-```blade
-<head>
-    @cspMetaTag(App\Services\Csp\Policies\MyCustomPolicy::class)
-</head>
-```
-
-You should be aware of the following implementation details when using the meta tag blade directive:
-- Note that you should manually pass the fully qualified class name of the policy we want to output a meta tag for. 
-  The `csp.policy` and `csp.report_only_policy` config options have no effect here.
-- Because blade files don't have access to the `Response` object, the `shouldBeApplied` method will have no effect. 
-  If you have declared the `@cspMetaTag` directive and the `csp.enabled` config option is set to true, the meta tag will be output regardless.
-- Any configuration (such as setting your policy to report only) should be done in the `configure` method of the policy,
-  rather than relying on settings in the `csp` config file. The `csp.report_uri` option will be respected, so there is no need to configure that manually.
-
 ### Reporting CSP errors
 
 #### In the browser
 
-Instead of outright blocking all violations, you can put a policy in report only mode. In this case all requests will be made, but all violations will display in your favourite browser's console.
+Instead of outright blocking all violations you can put a policy in report only mode. In this case all requests will be made, but all violations will display in your favourite browser's console.
 
 To put a policy in report only mode just call `reportOnly()` in the `configure()` function of a report:
 
@@ -319,7 +256,7 @@ public function configure()
 
 #### To an external url
 
-Any violations against the policy can be reported to a given url. You can set that url in the `report_uri` key of the `csp` config file. A great service that is specifically built for handling these violation reports is [http://report-uri.io/](http://report-uri.io/). 
+Any violations against to the policy can be reported to a given url. You can set that url in the `report_uri` key of the `csp` config file. A great service that is specifically built for handling these violation reports is [http://report-uri.io/](http://report-uri.io/). 
 
 #### Using multiple policies
 
@@ -341,35 +278,6 @@ where `AppPolicy` is the name of your CSP policy. This also works in every other
 
 Note that `unsafe-inline` only works if you're not also sending a nonce or a `strict-dynamic` directive, so to be able to use this workaround, you have to specify all your inline scripts' and styles' hashes in the CSP header.
 
-Another approach is to overwrite the `Spatie\Csp\Policies\Policy::shouldBeApplied()`-function in case Laravel responds with an error:
-
-```php
-namespace App\Services\Csp\Policies;
-
-use Illuminate\Http\Request;
-use Spatie\Csp;
-use Symfony\Component\HttpFoundation\Response;
-
-class MyCustomPolicy extends Csp\Policies\Policy
-{
-    public function configure()
-    {
-        // Add directives
-    }
-    
-    public function shouldBeApplied(Request $request, Response $response): bool
-    {
-        if (config('app.debug') && ($response->isClientError() || $response->isServerError())) {
-            return false;
-        }
-
-        return parent::shouldBeApplied($request, $response);
-    }
-}
-```
-
-This approach completely deactivates the CSP and therefore also works if a strict CSP is used.
-
 ### Testing
 
 You can run all the tests with:
@@ -384,11 +292,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you've found a bug regarding security please mail [security@spatie.be](mailto:security@spatie.be) instead of using the issue tracker.
+If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
 
 ## Credits
 

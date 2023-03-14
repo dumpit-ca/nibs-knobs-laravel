@@ -15,13 +15,22 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class Policy
 {
-    protected array $directives = [];
+    protected $directives = [];
 
-    protected bool $reportOnly = false;
+    protected $reportOnly = false;
 
     abstract public function configure();
 
-    public function addDirective(string $directive, string|array|bool $values): self
+    /**
+     * @param string $directive
+     * @param string|array|bool $values
+     *
+     * @return \Spatie\Csp\Policies\Policy
+     *
+     * @throws \Spatie\Csp\Exceptions\InvalidDirective
+     * @throws \Spatie\Csp\Exceptions\InvalidValueSet
+     */
+    public function addDirective(string $directive, $values): self
     {
         $this->guardAgainstInvalidDirectives($directive);
         $this->guardAgainstInvalidValues(Arr::wrap($values));
@@ -32,11 +41,9 @@ abstract class Policy
             return $this;
         }
 
-        $values = array_filter(
-            Arr::flatten(
-                array_map(fn ($value) => explode(' ', $value), Arr::wrap($values))
-            )
-        );
+        $values = array_filter(Arr::flatten(array_map(function ($value) {
+            return explode(' ', $value);
+        }, Arr::wrap($values))));
 
         if (in_array(Keyword::NONE, $values, true)) {
             $this->directives[$directive] = [$this->sanitizeValue(Keyword::NONE)];
@@ -90,18 +97,13 @@ abstract class Policy
         return $this->addDirective($directive, "'nonce-".app('csp-nonce')."'");
     }
 
-    public function prepareHeader(): string
+    public function applyTo(Response $response)
     {
         $this->configure();
 
-        return $this->reportOnly
+        $headerName = $this->reportOnly
             ? 'Content-Security-Policy-Report-Only'
             : 'Content-Security-Policy';
-    }
-
-    public function applyTo(Response $response)
-    {
-        $headerName = $this->prepareHeader();
 
         if ($response->headers->has($headerName)) {
             return;

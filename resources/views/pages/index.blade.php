@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title', 'Home')
 @section('content')
-<div class="container-fluid px-4 py-md-5 py-0">
+<div class="container px-4 py-md-5 py-0">
     <div class="row row-cols-md-2 row-cols-1 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
             <img src="/images/home-images/header.png" alt="" class="d-lg-block d-none mx-lg-auto img-fluid">
@@ -33,43 +33,55 @@
         </div>
     </div>
 </div>
-<div class="container-fluid px-4 py-md-5 py-0">
+<div class="container px-4 py-md-5 py-0">
     <h1 class="display-6 mb-3">Check <span class="fw-bold">what's happening!</span></h1>
     <div class="row row-cols-md-2 row-cols-1 py-3">
         <div class="col-12 col-sm-8 col-lg-8">
+            @foreach ($posts as $post)
             <div class="recent-card card mb-3 p-3">
                 <div class="row g-0">
                     <div class="col-md-3 d-flex justify-content-center align-items-center">
-                        <img src="{{asset('/images/home-images/recent.png')}}" class="img-fluid" alt="">
+                        <img src="uploads/posts/{{ $post->image }}" class="img-fluid rounded" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="author-card border-0 mb-3" style="max-width: 276px">
+                                @php $poster = App\User::find($post->user_id) @endphp
                                 <div class="d-flex align-items-center">
                                     <div class="me-3">
-                                        <div class="profile-img"></div>
+                                        <img src="{{ $poster->image ? '/uploads/user/'. $poster->image : asset('/images/img-placeholder.png') }}"
+                                        alt="user profile image" class="profile-img-posts img-fluid">
                                     </div>
                                     <div class="profile">
-                                        <p class="fs-5 card-title m-0" id="profile-name">Jhon Louie <span
-                                                class="fs-6 fw-normal">@thejldeleon</span>
+                                        <p class="fs-5 card-title m-0" id="profile-name">{{ $poster->first_name }}<span
+                                                class="fs-6 fw-normal">&#64;{{ $poster->username }}</span>
                                         </p>
-                                        <p class="fs-6 card-text text-muted m-0">Few minutes ago</p>
+                                        <p class="fs-6 card-text text-muted m-0">{{ $post->created_at }}</p>
                                     </div>
 
                                 </div>
                             </div>
-                            <p class="card-text">Just finished a home renovation and loving the new minimalistic
-                                interior design. Less is definitely more when it comes
-                                to creating a peaceful and stylish living space #interiordesign #homedecor #renovation
+                            <p class="card-text">{{ $post->title }}
                             </p>
-                            <a href="#" class="btn btn-comment">
+                            <small class="text-muted">{{ $post->content }}</small>
+                            @if(!Auth::check())
+                            <a href="{{route('post.show', ['id'=> $post->id])}}"
+                                class="btn view-comment fs-6 d-flex align-items-center" type="button">
+                                <i class='bx bx-message-rounded me-1 fs-6'></i>
+                                Comments
+                            </a>
+                            @else
+                            <a href="{{ route('login') }}" class="btn btn-comment">
                                 <i class='bx bx-message-rounded me-1 fs-6'></i>
                                 <span>Comment</span>
                             </a>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
+
         </div>
         @if(!Auth::check())
 

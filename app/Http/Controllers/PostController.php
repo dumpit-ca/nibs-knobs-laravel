@@ -53,8 +53,7 @@ class PostController extends Controller
             '_token' => 'required|alpha_num|max:50|string',
             'content' => 'required|string|max:255',
             'title' => 'required|string|max:100 ',
-            // 'category' => 'required|string|regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/', make array
-            'category' => 'required|string|max:12|',
+            'category' => ['required', 'string', 'regex:/(^Bedroom$)|(^Kitchen$)|(^Living Room$)|(^Bathroom$)|(^Space Saving$)|(^Home Office$)/'],
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ];
 

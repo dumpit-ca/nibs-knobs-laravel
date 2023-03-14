@@ -14,6 +14,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+        \App\Http\Middleware\HSTS::class,
+        // \App\Http\Middleware\HttpRedirect::class,
         \App\Http\Middleware\VerifyAsciiHeaders::class,
         \App\Http\Middleware\XssSanitization::class,
         \Spatie\Csp\AddCspHeaders::class,

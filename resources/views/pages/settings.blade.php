@@ -38,14 +38,14 @@
                         <div class="col-md-4">
                             <label for="inputFirstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" name="first_name" id="inputFirstName"
-                                value="{{ $auth->first_name }}" max="50">
+                                value="{{ $auth->first_name }}" max="50" required>
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('first_name')}}</span>
                         </div>
                         <div class="col-md-4">
                             <label for="inputLastName" class="form-label">Last Name</label>
                             <input type="text" name="last_name" class="form-control" id="inputLastName"
-                                value="{{ $auth->last_name }}" max="50">
+                                value="{{ $auth->last_name }}" max="50" required>
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('last_name')}}</span>
 
@@ -53,21 +53,21 @@
                         <div class="col-md-4">
                             <label for="inputUsername" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="inputUsername"
-                                value="{{ $auth->username }}" max="50">
+                                value="{{ $auth->username }}" max="50" required>
                             <span
                                 class="badge badge-danger w-100 validation-message">{{$errors->first('username')}}</span>
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Email</label>
                             <input type="email" name="email" id="" class="form-control" value="{{ $auth->email }}"
-                                max="50">
+                                max="50" required>
                             <span class="badge badge-danger w-100 validation-message">{{$errors->first('email')}}</span>
 
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Contact Number</label>
                             <input type="tel" name="contact" id="" class="form-control" value="{{ $auth->contact }}"
-                                maxlength="10">
+                                maxlength="10" required>
                                 <span
                                             class="badge badge-danger w-100 validation-message">{{$errors->first('contact')}}</span>
                         </div>

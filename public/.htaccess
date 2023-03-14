@@ -1,3 +1,9 @@
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+Options Indexes FollowSymLinks Includes
+AddHandler server-parsed .html .htm
+FileETag None
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -18,16 +24,23 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD)
+    RewriteRule .* - [F]
 </IfModule>
 
 <IfModule mod_headers.c>
 # REMOVES UNWANTED HEADERS
 Header unset X-Powered-By
 Header unset Server
+Header unset ETag
+
 
 # APPLY FLAGS TO HEADERS
-Header always edit Set-Cookie (.*) "$1; HTTPOnly"
+Header always edit Set-Cookie (.*) "$1; HTTPOnly;Secure"
 
 # SETS NEEDED HEADERS
 Header set X-Content-Type-Options "nosniff"
 </IfModule>
+
+

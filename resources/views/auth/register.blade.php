@@ -17,27 +17,27 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" max="50">
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" max="50" >
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('last_name')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputUsername" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username" max="50">
+                    <input type="text" class="form-control" name="username" placeholder="Username" max="50" pattern="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" >
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('username')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputNumber" class="form-label">Contact Number</label>
-                    <input type="tel" class="form-control" name="contact" placeholder="Contact Number" maxlength="10">
+                    <input type="tel" class="form-control" name="contact" placeholder="Contact Number" maxlength="12">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('contact')}}</span>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="inputEmailAddress" class="form-label">Email Address</label>
-                    <input type="text" class="form-control" name="email" placeholder="Email Address" max="50">
+                    <input type="email" class="form-control" name="email" placeholder="Email Address" max="50">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('email')}}</span>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" name="address" placeholder="Address" max="100">
+                    <input type="text" class="form-control" name="address" placeholder="Address" max="100" pattern="[A-Za-z0-9'\.\-\s\,]">
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('address')}}</span>
                 </div>
                 <div class="col-md-6 mb-3">

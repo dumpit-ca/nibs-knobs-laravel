@@ -2,42 +2,32 @@
 
 namespace Spatie\Csp;
 
+use Illuminate\Support\ServiceProvider;
 use Spatie\Csp\Nonce\NonceGenerator;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class CspServiceProvider extends PackageServiceProvider
+class CspServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    public function boot()
     {
-        $package
-            ->name('laravel-csp')
-            ->hasConfigFile();
-    }
+        if ($this->app->runningInConsole() && function_exists('config_path')) {
+            $this->publishes([
+                __DIR__.'/../config/csp.php' => config_path('csp.php'),
+            ], 'config');
+        }
 
-    public function packageBooted()
-    {
         $this->app->singleton(NonceGenerator::class, config('csp.nonce_generator'));
 
         $this->app->singleton('csp-nonce', function () {
             return app(NonceGenerator::class)->generate();
         });
 
-        $this->callAfterResolving('view', function () {
-            $this->registerBladeDirectives();
+        $this->app->view->getEngineResolver()->resolve('blade')->getCompiler()->directive('nonce', function () {
+            return '<?php echo "nonce=\"" . csp_nonce() . "\""; ?>';
         });
     }
 
-    private function registerBladeDirectives(): void
+    public function register()
     {
-        $bladeCompiler = $this->app->view->getEngineResolver()->resolve('blade')->getCompiler();
-
-        $bladeCompiler->directive('nonce', function () {
-            return '<?php echo "nonce=\"" . csp_nonce() . "\""; ?>';
-        });
-
-        $bladeCompiler->directive('cspMetaTag', function ($policyClass) {
-            return "<?php echo csp_meta_tag({$policyClass}) ?>";
-        });
+        $this->mergeConfigFrom(__DIR__.'/../config/csp.php', 'csp');
     }
 }
