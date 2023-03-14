@@ -70,8 +70,7 @@ trait AuthenticatesUsers
     protected function validateLogin(Request $request)
     {
         $request->validate([
-            '_token' => 'required|string|max:50|alpha_num',
-            $this->username() => 'required|string|email',
+            $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
     }
