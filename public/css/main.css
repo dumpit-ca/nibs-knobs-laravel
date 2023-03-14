@@ -141,7 +141,6 @@
 .profile-card {
   border-radius: 21px !important;
   background-color: #1D1D1D !important;
-  max-width: 25rem !important;
   position: sticky !important;
   top: 2rem !important;
 }
