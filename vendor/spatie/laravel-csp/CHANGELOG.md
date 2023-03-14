@@ -2,6 +2,55 @@
 
 All notable changes to `laravel-csp` will be documented in this file
 
+## 2.8.2 - 2022-09-13
+
+### What's Changed
+
+- Add wss: (secure websocket) scheme support by @bitwise-operators in https://github.com/spatie/laravel-csp/pull/105
+
+### New Contributors
+
+- @bitwise-operators made their first contribution in https://github.com/spatie/laravel-csp/pull/105
+
+**Full Changelog**: https://github.com/spatie/laravel-csp/compare/2.8.1...2.8.2
+
+## 2.8.1 - 2022-09-01
+
+### What's Changed
+
+- Lazily register blade directives by @axlon in https://github.com/spatie/laravel-csp/pull/104
+
+### New Contributors
+
+- @axlon made their first contribution in https://github.com/spatie/laravel-csp/pull/104
+
+**Full Changelog**: https://github.com/spatie/laravel-csp/compare/2.8.0...2.8.1
+
+## 2.8.0 - 2022-08-25
+
+### What's Changed
+
+- Fixing readme issues by @lukeclifton in https://github.com/spatie/laravel-csp/pull/88
+- Update README.md by @melicerte in https://github.com/spatie/laravel-csp/pull/90
+- Update README.md by @melicerte in https://github.com/spatie/laravel-csp/pull/91
+- Rewrite tests to use Pest by @Magiczne in https://github.com/spatie/laravel-csp/pull/92
+- Wrong method name for Vite nonce by @rcerljenko in https://github.com/spatie/laravel-csp/pull/102
+- Adds a new `@cspMetaTag` blade directive by @lukeraymonddowning in https://github.com/spatie/laravel-csp/pull/103
+
+### New Contributors
+
+- @lukeclifton made their first contribution in https://github.com/spatie/laravel-csp/pull/88
+- @melicerte made their first contribution in https://github.com/spatie/laravel-csp/pull/90
+- @Magiczne made their first contribution in https://github.com/spatie/laravel-csp/pull/92
+- @rcerljenko made their first contribution in https://github.com/spatie/laravel-csp/pull/102
+- @lukeraymonddowning made their first contribution in https://github.com/spatie/laravel-csp/pull/103
+
+**Full Changelog**: https://github.com/spatie/laravel-csp/compare/2.7.0...2.8.0
+
+## 2.7.0 - 2022-01-13
+
+- support Laravel 9
+
 ## 2.6.4 - 2020-12-01
 
 - add support for PHP 8
@@ -122,6 +171,7 @@ All notable changes to `laravel-csp` will be documented in this file
 - fix naming of classes
 
 ## 1.0.0 - 2018-02-20
+
 **BROKEN VERSION, DO NOT USE**
 
 - initial release
