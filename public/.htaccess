@@ -9,6 +9,27 @@ FileETag None
         Options -MultiViews -Indexes
     </IfModule>
 
+    <IfModule mod_headers.c>
+    # REMOVES UNWANTED HEADERS
+    Header unset X-Powered-By
+    Header unset Server
+    Header unset ETag
+
+
+    # APPLY FLAGS TO HEADERS
+    Header always edit Set-Cookie (.*) "$1; HTTPOnly;Secure"
+
+    # SETS NEEDED HEADERS
+    Header set X-Content-Type-Options "nosniff"
+    </IfModule>
+    # Sets PHP max post size
+    # <Ifmodule mod_php.c>
+    # php_value upload_max_filesize 32M
+    # php_value post_max_size 128M
+    # php_value max_input_time 300
+    # php_value max_execution_time 300
+    # </IfModu1e>
+
     RewriteEngine On
 
     # Handle Authorization Header
@@ -25,22 +46,19 @@ FileETag None
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
+    # Redirect and let Laravel handle If a Folder...
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ index.php [L]
+
     RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD)
     RewriteRule .* - [F]
+
+
 </IfModule>
 
-<IfModule mod_headers.c>
-# REMOVES UNWANTED HEADERS
-Header unset X-Powered-By
-Header unset Server
-Header unset ETag
-
-
-# APPLY FLAGS TO HEADERS
-Header always edit Set-Cookie (.*) "$1; HTTPOnly;Secure"
-
-# SETS NEEDED HEADERS
-Header set X-Content-Type-Options "nosniff"
-</IfModule>
+<Files ".user.ini">
+Require all denied
+</Files>
 
 

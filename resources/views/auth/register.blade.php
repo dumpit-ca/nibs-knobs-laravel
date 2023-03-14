@@ -51,7 +51,7 @@
                     <span class="badge badge-danger w-100 validation-message">{{$errors->first('password_confirmation')}}</span>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">
                         I agree to the website's
                         <a class="terms" href="#">Privary
