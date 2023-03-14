@@ -36,7 +36,7 @@
 <div class="container px-4 py-md-5 py-0">
     <h1 class="display-6 mb-3">Check <span class="fw-bold">what's happening!</span></h1>
     <div class="row row-cols-md-2 row-cols-1 py-3">
-        <div class="col-12 col-sm-8 col-lg-8">
+        <div class="col-12 col-sm-8 col-lg-6">
             @foreach ($posts as $post)
             <div class="recent-card card mb-3 p-3">
                 <div class="row g-0">
@@ -85,7 +85,7 @@
         </div>
         @if(!Auth::check())
 
-        <div class="col-md-10 mx-auto col-lg-4">
+        <div class="col-md-10 mx-auto col-lg-6">
             <form class="p-4 p-md-5 rounded-3 login-form" data-bitwarden-watching="1" method="POST" action="{{ route('login') }}" >
                 @csrf
                 <h1 class="fs-2 fw-bold">Continue Exploring</h1>
@@ -105,7 +105,7 @@
                     </span>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button class="btn btn-login px-5 w-100" type="submit"> Login Account</button>
+                    <a class="btn btn-login px-5 w-100" type="submit"> Login Account</a>
                     <a href="{{route('register')}}" class="btn btn-register px-5 w-100">Register Account</a>
                 </div>
             </form>
