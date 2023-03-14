@@ -97,6 +97,7 @@ class UserController extends Controller
             $validatedData = $this->validate($req, $rules);
 
         }catch(ValidationException $exception){
+            Log::error($exception->errors());
             return redirect()
             ->back()
             ->withErrors($exception->errors())
@@ -105,21 +106,18 @@ class UserController extends Controller
 
         try{
             $validatedUsername = $this->validate($req, $rules);
-            Log::info('validated username');
 
         }catch(ValidationException $exception){
+            Log::error($exception->errors());
             return redirect()
             ->back()
             ->withErrors($exception->errors())
             ->withInput();
         }
 
-            Log::info($validatedData);
-
             try {
                 DB::beginTransaction();
                 $user = User::find(Auth::user()->id);
-
 
                 if($req->hasFile('image')){
 
@@ -180,8 +178,8 @@ class UserController extends Controller
         $rules = [
             '_token' => 'required|alpha_num|max:50|string',
             'current_password' => ['required', 'min:8', 'max:50', 'string', new MatchOldPassword],
-            'new_password' => ['required', 'min:8', 'max:50', 'string'],
-            'new_confirm_password' => ['required','same:new_password', 'min:8', 'max:50', 'string'],
+            'new_password' => ['required', 'string', 'min:8', 'max:50', 'confirmed',  'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!*#?&]/'],
+            'new_confirm_password' => ['same:new_password', 'required', 'string', 'min:8', 'max:50', 'confirmed',  'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!*#?&]/'],
 		];
 
         try{
@@ -246,7 +244,7 @@ class UserController extends Controller
                     DB::commit();
                 } catch (Exception $e) {
                     DB::rollback();
-                    Log::error($e);
+
 
                     return redirect()
                         ->back()
