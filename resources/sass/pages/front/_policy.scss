@@ -1,0 +1,18 @@
+@use "abstracts" as *;
+.policy-terms {
+    span.NK-policy {
+        font-weight: 800;
+    }
+
+    a {
+        color: $orange;
+    }
+    a:hover {
+        color: $orange;
+    }
+    .summary {
+        p.keypoint {
+            font-weight: 800;
+        }
+    }
+}

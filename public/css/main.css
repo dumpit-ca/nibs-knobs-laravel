@@ -232,7 +232,7 @@ body {
   font-weight: 900;
 }
 
-.author-card .profile-img-posts {
+.author-card .profile-img-posts, .author-card .profile-img {
   width: 60px;
   height: 60px;
   border-radius: 50% !important;
@@ -353,6 +353,19 @@ body {
 
 .view-comment {
   background-color: #393939 !important;
+}
+
+.policy-terms span.NK-policy {
+  font-weight: 800;
+}
+.policy-terms a {
+  color: #ff5e15;
+}
+.policy-terms a:hover {
+  color: #ff5e15;
+}
+.policy-terms .summary p.keypoint {
+  font-weight: 800;
 }
 
 /*!

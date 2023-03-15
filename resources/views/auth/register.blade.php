@@ -54,10 +54,8 @@
                     <input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">
                         I agree to the website's
-                        <a class="terms" href="#">Privary
-                            Policy </a> &
-                        <a class="terms" href="#"> Terms of Service</a>
-
+                         <a class="terms text-decoration-none" href="{{route('privacy')}}">Privary Policy & </a>
+                        <a class="terms text-decoration-none" href="{{route('terms')}}">Terms of Service</a>
                     </label>
                 </div>
                 <div class="d-grid d-md-block p-0 mb-5">

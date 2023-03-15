@@ -1,11 +1,14 @@
 {
     "html.format.templating": true,
-    "editor.defaultFormatter": "shufo.vscode-blade-formatter",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[blade]": {
         "editor.defaultFormatter": "onecentlin.laravel-blade"
     },
     "editor.fontSize": 16,
     "editor.wordWrap": "on",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    "bladeFormatter.format.sortTailwindcssClasses": true
+    "bladeFormatter.format.sortTailwindcssClasses": true,
+    "sass.disableAutoIndent": false,
+    "scss.format.spaceAroundSelectorSeparator": true,
+    "emmet.showSuggestionsAsSnippets": true
 }

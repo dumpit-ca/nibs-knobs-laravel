@@ -16,5 +16,11 @@ class PageController extends Controller
          ['posts' => $posts]);
 
     }
+    public function policy (){
+        return view ('pages.policy');
+    }
+    public function terms (){
+        return view ('pages.terms');
+    }
 
 }

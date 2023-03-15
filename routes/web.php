@@ -17,6 +17,8 @@
 
     // Front
     Route::get('/', 'PageController@index')->name('index');
+    Route::get('/privacy', 'PageController@policy')->name('privacy');
+    Route::get('/terms', 'PageController@terms')->name('terms');
 
     Route::middleware(['auth'])->group(function() {
         Route::get('/logout', 'UserController@logout')->name('logout');
