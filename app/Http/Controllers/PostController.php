@@ -159,7 +159,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('post.show', ['id' => $id])->with('flash_success', 'Updated Information.');
+            return redirect()->route('post.show', ['id' => $id])->with('flash_success', 'Comment Succesful.');
 
     }
 
