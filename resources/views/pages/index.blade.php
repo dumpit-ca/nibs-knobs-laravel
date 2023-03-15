@@ -53,7 +53,7 @@
                                         alt="user profile image" class="profile-img-posts img-fluid">
                                     </div>
                                     <div class="profile">
-                                        <p class="fs-5 card-title m-0" id="profile-name">{{ $poster->first_name }}<span
+                                        <p class="fs-6 card-title m-0" id="profile-name">{{ $poster->first_name }}<span
                                                 class="fs-6 fw-normal">&#64;{{ $poster->username }}</span>
                                         </p>
                                         <p class="fs-6 card-text text-muted m-0">{{ $post->created_at }}</p>
@@ -105,7 +105,7 @@
                     </span>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a class="btn btn-login px-5 w-100" type="submit"> Login Account</a>
+                    <button class="btn btn-login px-5 w-100" type="submit"> Login Account</button>
                     <a href="{{route('register')}}" class="btn btn-register px-5 w-100">Register Account</a>
                 </div>
             </form>
