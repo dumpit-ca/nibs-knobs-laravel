@@ -97,7 +97,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('home')->with('flash_success', 'Updated Information.');
+            return redirect()->route('home')->with('flash_success', 'Post Successful.');
 
 
 
