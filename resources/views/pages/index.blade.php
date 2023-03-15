@@ -22,7 +22,7 @@
             <div class="author-card border-0 mb-3" style="max-width: 276px">
                 <div class="d-flex align-items-center">
                     <div class="me-3">
-                        <div class="profile-img"></div>
+                        <img src="{{asset('/images/home-images/lead.png')}}" class="profile-img"></img>
                     </div>
                     <div>
                         <h5 class="fs-6 card-title lh-2">Cassandra Dumpit</h5>
