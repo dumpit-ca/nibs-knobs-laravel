@@ -60,6 +60,32 @@ class RegisterController extends Controller
             'contact' => ['required', 'string', 'max:12'],
             'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed',  'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!*#?&]/'],
             'checkbox' => 'required'
+        ],[
+            '_token.required' => 'Please refrain from modifying the form data.',
+            '_token.alpha_num' => 'Please refrain from modifying the form data.',
+            '_token.max' => 'Please refrain from modifying the form data.',
+            'first_name.required' => 'First name is required',
+            'first_name.max' => 'First name must not exceed 50 characters',
+            'last_name.required' => 'Last name is required',
+            'last_name.max' => 'Last name must not exceed 50 characters',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'email.max' => 'Email must not exceed 50 characters',
+            'email.unique' => 'Email is already taken',
+            'username.required' => 'Username is required',
+            'username.max' => 'Username must not exceed 50 characters',
+            'username.unique' => 'Username is already taken',
+            'address.required' => 'Address is required',
+            'address.max' => 'Address must not exceed 100 characters',
+            'contact.required' => 'Contact is required',
+            'contact.max' => 'Contact must not exceed 12 characters',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password must be at least 8 characters',
+            'password.max' => 'Password must not exceed 50 characters',
+            'password.confirmed' => 'Password does not match',
+            'password.regex' => 'Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!*#?&)',
+            'checkbox.required' => 'Please agree to the terms and conditions',
+
         ]);
     }
 

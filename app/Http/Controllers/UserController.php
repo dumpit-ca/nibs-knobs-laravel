@@ -86,15 +86,43 @@ class UserController extends Controller
 			'email' => 'required|email:rfc,dns|max:50',
             'address' => 'required|string|min:2|max:100',
             'contact' => 'required|string|min:2|max:12',
-            'bio' => 'string|min:2|max:100',
+            'bio' => 'max:100',
 		];
+        $rulesInfo = [
+            '_token.required' => 'Please refrain from modifying the form data.',
+            '_token.alpha_num' => 'Please refrain from modifying the form data.',
+            '_token.max' => 'Please refrain from modifying the form data.',
+            'image.image' => 'Please upload a valid image.',
+            'image.mimes' => 'Please upload a valid jpg, png, jpg, bmp or svg image.',
+            'image.max' => 'Please upload an image less than 2MB.',
+            'first_name.required' => 'Please enter your first name.',
+            'first_name.min' => 'Please enter a valid first name.',
+            'first_name.max' => 'First name should be within 50 characters.',
+            'last_name.required' => 'Please enter your last name.',
+            'last_name.min' => 'Please enter a valid last name.',
+            'last_name.max' => 'Last name should be within 50 characters.',
+            'username.required' => 'Please enter your username.',
+            'username.min' => 'Please enter a valid username. ',
+            'username.max' => 'Username should be within 50 characters.',
+            'email.required' => 'Please enter your email.',
+            'email.email' => 'Please enter a valid email.',
+            'email.max' => 'Email should be within 50 characters.',
+            'address.required' => 'Please enter your address.',
+            'address.min' => 'Please enter a valid address.',
+            'address.max' => 'Address should be within 100 characters.',
+            'contact.required' => 'Please enter your contact number.',
+            'contact.min' => 'Please enter a valid contact number.',
+            'contact.max' => 'Contact number should be within 12 characters.',
+            'bio.max' => 'Bio should be within 100 characters.',
+
+        ];
 
         $usernameRules= [
             'username' => 'unique:users',
         ];
 
         try{
-            $validatedData = $this->validate($req, $rules);
+            $validatedData = $this->validate($req, $rules, $rulesInfo);
 
         }catch(ValidationException $exception){
             Log::error($exception->errors());
@@ -105,7 +133,7 @@ class UserController extends Controller
         }
 
         try{
-            $validatedUsername = $this->validate($req, $rules);
+            $validatedUsername = $this->validate($req, $rules, ['username.unique' => 'Username already exists.']);
 
         }catch(ValidationException $exception){
             Log::error($exception->errors());
@@ -175,6 +203,20 @@ class UserController extends Controller
 
     public function changePassword(Request $request){
 
+        $validatesInfo = [
+            '_token.required' => 'Please refrain from modifying the form data.',
+            '_token.alpha_num' => 'Please refrain from modifying the form data.',
+            '_token.max' => 'Please refrain from modifying the form data.',
+            'current_password.required' => 'Current password is required',
+            'current_password.min' => 'Current password must be at least 8 characters',
+            'current_password.max' => 'Current password must not exceed 50 characters',
+            'new_password.required' => 'New password is required',
+            'new_password.confirmed' => 'New password does not match',
+            'new_password.regex' => 'Password must contain at least one lowercase, one uppercase, one number, and one special character',
+            'new_confirm_password.required' => 'Confirm password is required',
+            'new_confirm_password.same' => 'Confirm password does not match',
+        ];
+
         $rules = [
             '_token' => 'required|alpha_num|max:50|string',
             'current_password' => ['required', 'min:8', 'max:50', 'string', new MatchOldPassword],
@@ -183,7 +225,7 @@ class UserController extends Controller
 		];
 
         try{
-            $validatedData = $this->validate($request, $rules);
+            $validatedData = $this->validate($request, $rules, $validatesInfo);
             Log::info('validated data');
 
         }catch(ValidationException $exception){

@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="title" class="form-control" id="floatingInput"
-                            placeholder="Post Title">
+                            placeholder="Post Title" max="100">
                         <label for="floatingInput">Post Title</label>
                         <span class="badge badge-danger w-100 validation-message">{{$errors->first('title')}}</span>
                     </div>
@@ -58,7 +58,7 @@
                         <span class="badge badge-danger w-100 validation-message">{{$errors->first('category')}}</span>
                     </div>
                     <div class="my-4">
-                        <textarea name="content" class="form-control"></textarea>
+                        <textarea name="content" class="form-control" maxlength="255" max="255"></textarea>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <button class="btn btn-primary me-md-2 px-5" type="submit">Post Entry</button>

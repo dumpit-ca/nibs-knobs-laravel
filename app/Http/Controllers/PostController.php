@@ -47,8 +47,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
-      $validatedData;
+        Log::info('data received');
+        $validatedData;
+        $validateInfo =[
+            'content.required' => 'Please enter a description.',
+            'content.max' => 'Description must be less than 255 characters.',
+            'title.required' => 'Please enter a title.',
+            'title.max' => 'Title must be less than 100 characters.',
+            'category.required' => 'Please select a category.',
+            'category.regex' => 'Please refrain from modifying the page.',
+            'image.required' => 'Please select an image.',
+            'image.image' => 'Please select a valid image.',
+            'image.mimes' => 'Please upload only jpeg, jpg, png, gif and svg files.',
+        ];
        $rules = [
             '_token' => 'required|alpha_num|max:50|string',
             'content' => 'required|string|max:255',
@@ -58,10 +69,11 @@ class PostController extends Controller
         ];
 
         try{
-            $validatedData = $this->validate($request, $rules);
+            $validatedData = $this->validate($request, $rules, $validateInfo);
             Log::info('validated data');
 
         }catch(ValidationException $exception){
+            Log::error($exception->errors());
             return redirect()
             ->back()
             ->withErrors($exception->errors())
@@ -97,7 +109,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('home')->with('flash_success', 'Post Successful.');
+            return redirect()->route('home')->with('flash_success', 'Updated Information.');
 
 
 
@@ -159,7 +171,7 @@ class PostController extends Controller
                     ->with('flash_error', 'Something went wrong, please try again later.');
             }
 
-            return redirect()->route('post.show', ['id' => $id])->with('flash_success', 'Comment Succesful.');
+            return redirect()->route('post.show', ['id' => $id])->with('flash_success', 'Updated Information.');
 
     }
 
