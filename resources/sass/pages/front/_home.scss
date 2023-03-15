@@ -12,6 +12,9 @@
         border-radius: 50% !important;
         background-color: $img;
     }
+    .profile-img {
+        @extend .profile-img-posts;
+    }
 
     .profile {
         #profile-name {
